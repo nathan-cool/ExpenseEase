@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'expenses',
 ]
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'mysite/static')]

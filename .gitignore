@@ -1,4 +1,5 @@
 mysite/mysite/.env
 .vi
-mysite/__pycache__/
+__pycache__/
+mysite/mysite/__pycache__/
 
