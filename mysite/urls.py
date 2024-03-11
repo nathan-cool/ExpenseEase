@@ -21,3 +21,6 @@ urlpatterns = [
     path ('', include('expenses.urls')),
     path('admin/', admin.site.urls),
 ]
+
+
+
