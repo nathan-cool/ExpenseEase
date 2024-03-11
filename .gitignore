@@ -2,4 +2,4 @@ mysite/mysite/.env
 .vi
 __pycache__/
 mysite/mysite/__pycache__/
-
+staticfiles/
