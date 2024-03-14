@@ -10,11 +10,8 @@
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
     }
-    .row{
-    height: 0%;
 }
 
-}
 
 .b-example-divider {
     width: 100%;
@@ -81,3 +78,32 @@
 .row{
     height: 100%;
 }
+
+button{
+    width: 100%;
+    padding: 8px 12px;
+}
+
+labal{
+    font-size: 20px;
+}
+
+card-body{
+    box-shadow: #5a23c8;
+}
+
+label, p{
+    font-size: 14px;
+}
+
+#main_auth{
+    background-image: url("static/images/wallpaper.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+html, body{
+    font-family: "Nunito", sans-serif;
+}
+
