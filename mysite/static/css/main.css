@@ -10,6 +10,10 @@
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
     }
+    .row{
+    height: 0%;
+}
+
 }
 
 .b-example-divider {
@@ -77,4 +81,3 @@
 .row{
     height: 100%;
 }
-
