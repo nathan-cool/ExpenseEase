@@ -2,15 +2,22 @@
 
 {% block content %}
 
-<div class="card">
+<div class="row">
+  <div class="col-md-3"> </div>
+  <div class="col-md-6"> 
+    <div class="card">
+        <h3 class="card-title>">Register</h3>
 
-  <div class = "card-body">
-
-  <h1>Register</h1>
-  
-  </div>
-
-
-</div>
+        <form action="" method="post">
+          <div class="form-group"> 
+            <input type="text" name="username" class="form-control form-control-lg " id='username' placeholder="Username" required>
+            <input type="email" name="email" class="form-control form-control-lg" id='email' placeholder="Email" required>
+            <input type="password" name="password" class="form-control form-control-lg" id='password' placeholder="Password" required>
+            <input type="password" name="confirm_password" class="form-control form-control-lg" id='password' placeholder="Confirm Password" required>
+            <small class="float-end">Show</small>
+          </div>
+          <input type="submit" class="btn btn-block" id='register'>
+        </form>
+        </div>
 
 {% endblock %}
