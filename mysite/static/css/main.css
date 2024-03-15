@@ -6,11 +6,7 @@
     user-select: none;
 }
 
-@media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-    }
-}
+
 
 
 .b-example-divider {
@@ -107,3 +103,40 @@ html, body{
     font-family: "Nunito", sans-serif;
 }
 
+
+.card.custom-min-width {
+    min-width: 200px;
+    max-width: 500px;
+}
+
+/* Smaller devices */
+@media only screen and (max-width: 600px) {
+    .card.custom-min-width {
+        min-width: 100%; 
+        max-width: 100%; 
+    }
+}
+
+/* Tablets */
+@media only screen and (min-width: 601px) {
+    .card.custom-min-width {
+        min-width: 300px; 
+        max-width: 100%; 
+    }
+}
+
+/* Desktops and laptops */
+@media only screen and (min-width: 1024px) {
+    .card.custom-min-width {
+        min-width: 400px; 
+        max-width: 500px; 
+    }
+}
+
+/* Large screens */
+@media only screen and (min-width: 1824px) {
+    .card.custom-min-width {
+        min-width: 500px; 
+        max-width: 500px;
+    }
+}
