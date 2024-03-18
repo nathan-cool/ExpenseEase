@@ -2,6 +2,23 @@ const users_name = document.getElementById('users_name');
 const email = document.getElementById('email');
 const users_password = document.getElementById('password');
 const feedback = document.getElementsByClassName('invalid-feedback');
+const showPassword = document.getElementsByClassName('showPasswordToggle')[0];
+
+
+showPassword.addEventListener('click', (e) => {
+ 
+
+  if (showPassword.textContent === 'SHOW') {
+    showPassword.textContent = 'HIDE';
+
+    password.setAttribute('type', 'text');
+  }
+  else {
+    showPassword.textContent = 'SHOW';
+    password.setAttribute('type', 'password');
+  }
+});
+
 
 users_name.addEventListener('keyup', (e) => {
   const users_nameValue = e.target.value;
@@ -83,16 +100,18 @@ users_password.addEventListener('keyup', (e) => {
       .then((res) => res.json())
       .then((data) => {
         console.log('Success:', data);
-        if (data.users_password_valid) {
+        if (data.password_valid) {
           console.log('Success:', data);
           users_password.classList.add('is-valid');
           users_password.classList.remove('is-invalid');
+       
           feedback[2].style.display = 'none';
+       
         } else {
           users_password.classList.remove('is-valid');
           users_password.classList.add('is-invalid');
           feedback[2].style.display = 'block';
-          feedback[2].innerHTML = `<p>${data.users_password_error}</p>`;
+          feedback[2].innerHTML = `<p>${data.password_error}</p>`;
         }
       }).catch((error) => {
         console.error('Error:', error);

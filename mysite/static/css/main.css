@@ -73,7 +73,7 @@
 
 .row{
     height: 100%;
-}```````
+}
 
 button{
     width: 100%;
@@ -132,4 +132,14 @@ html, body{
         min-width: 500px; 
         max-width: 500px;
     }
+}
+.showPasswordToggle{
+    transition: 500ms;
+    font-size: 10px;
+}
+
+.showPasswordToggle:hover{
+        transform: scale(1.2);
+        cursor: pointer;
+        transition: 500ms;
 }

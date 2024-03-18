@@ -15,8 +15,12 @@
         <div class="card-body p-5">
           <h5 class="card-title text-center mt-3 mb-5">Create Your Expenses Account</h5>
           <form action="" method="post">
+            
+            {% csrf_token %}
+            {% include "partials/_messages.html/" %}
+
             <div class="form-group mb-3"> 
-              <label for="users_name" class="form-label">users_name</label>
+              <label for="users_name" class="form-label">Name</label>
               <input type="text" users_name="users_name" class="form-control form-control-lg" id="users_name" required>
             </div>
             <div class="invalid-feedback" style="display:none">
@@ -32,9 +36,11 @@
             <div class="form-group mb-3">
               <label for="password" class="form-label">Password</label>
               <input type="password" users_name="password" class="form-control form-control-lg" id="password" required>
+              <small class="float-end showPasswordToggle">SHOW</small>
             </div>
             <div class="invalid-feedback" style="display:none">
               <p></p>
+            </div>
             <div class="form-group mb-4">
               <button type="submit" class="btn btn-success form-control-lg" id="register">Create Account</button>
             </div>
