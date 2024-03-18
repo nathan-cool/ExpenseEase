@@ -73,7 +73,7 @@
 
 .row{
     height: 100%;
-}
+}```````
 
 button{
     width: 100%;
@@ -90,13 +90,6 @@ card-body{
 
 label, p{
     font-size: 14px;
-}
-
-#main_auth{
-    background-image: url("static/images/wallpaper.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 html, body{

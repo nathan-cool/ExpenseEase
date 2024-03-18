@@ -16,16 +16,19 @@
           <h5 class="card-title text-center mt-3 mb-5">Create Your Expenses Account</h5>
           <form action="" method="post">
             <div class="form-group mb-3"> 
-              <label for="username" class="form-label">Name</label>
-              <input type="text" name="username" class="form-control form-control-lg" id="username" required>
+              <label for="users_name" class="form-label">users_name</label>
+              <input type="text" users_name="users_name" class="form-control form-control-lg" id="users_name" required>
+            </div>
+            <div class="invalid-feedback" style="display:none">
+              <p></p>
             </div>
             <div class="form-group mb-3">
               <label for="email" class="form-label">Email</label>
-              <input type="email" name="email" class="form-control form-control-lg" id="email" required>
+              <input type="email" users_name="email" class="form-control form-control-lg" id="email" required>
             </div>
             <div class="form-group mb-3">
               <label for="password" class="form-label">Password</label>
-              <input type="password" name="password" class="form-control form-control-lg" id="password" required>
+              <input type="password" users_name="password" class="form-control form-control-lg" id="password" required>
             </div>
             <div class="form-group mb-4">
               <button type="submit" class="btn btn-success form-control-lg" id="register">Create Account</button>
@@ -38,6 +41,7 @@
   </div>
 </div>
 
-<script scr="{% static 'js/register.js'%}"> 
+<script scr="{% static 'js/register.js' %}"></script>
+
 
 {% endblock %}

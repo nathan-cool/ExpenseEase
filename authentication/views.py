@@ -30,15 +30,19 @@ class EmailValidationView(View):
         return JsonResponse({'email_valid': True})
     
     
-class NameValidationView(View):
+class users_nameValidationView(View):
     def post(self, request):
+        users_name_regex = r'^[A-Za-z\s]+$'
         data = json.loads(request.body)
-        name = data['name']
+        users_name = data['users_name']
         
-        if not str(name).strip():
-            return JsonResponse({'name_error': 'name cannot be empty'}, status=400)
+        if not str(users_name).strip():
+            return JsonResponse({'users_name_error': 'users_name cannot be empty'}, status=400)
         
-        return JsonResponse({'name_valid': True})
+        if not re.match(users_name_regex, users_name):
+            return JsonResponse({'users_name_error': 'Name can only contain letters and spaces'}, status=400)
+        
+        return JsonResponse({'users_name_valid': True})
     
 class PasswordValidationView(View):
     def post(self, request):
