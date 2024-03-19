@@ -14,28 +14,29 @@
       <div class="card mt-5 shadow" style="min-width: 300px;"> 
         <div class="card-body p-5">
           <h5 class="card-title text-center mt-3 mb-5">Create Your Expenses Account</h5>
-          <form action="" method="post">
-            
+          <form action={% url 'register' %} method="post">
+         
             {% csrf_token %}
-            {% include "partials/_messages.html/" %}
+
+         {% include "partials/_messages.html" %}
 
             <div class="form-group mb-3"> 
               <label for="users_name" class="form-label">Name</label>
-              <input type="text" users_name="users_name" class="form-control form-control-lg" id="users_name" required>
+              <input type="text" name="users_name" class="form-control form-control-lg" id="users_name" required>
             </div>
             <div class="invalid-feedback" style="display:none">
               <p></p>
             </div>
             <div class="form-group mb-3">
               <label for="email" class="form-label">Email</label>
-              <input type="email" users_name="email" class="form-control form-control-lg" id="email" required>
+              <input type="email" name="email" class="form-control form-control-lg" id="email" required>
             </div>
             <div class="invalid-feedback" style="display:none">
               <p></p>
             </div>
             <div class="form-group mb-3">
               <label for="password" class="form-label">Password</label>
-              <input type="password" users_name="password" class="form-control form-control-lg" id="password" required>
+              <input type="password" name="password" class="form-control form-control-lg" id="password" required>
               <small class="float-end showPasswordToggle">SHOW</small>
             </div>
             <div class="invalid-feedback" style="display:none">

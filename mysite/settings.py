@@ -14,6 +14,7 @@ from pathlib import Path
 import environ
 import os
 import django_heroku
+from django.contrib import messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -144,3 +145,7 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesSto
 
 
 django_heroku.settings(locals()) 
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}

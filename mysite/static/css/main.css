@@ -136,6 +136,7 @@ html, body{
 .showPasswordToggle{
     transition: 500ms;
     font-size: 10px;
+    padding-top: 5px;
 }
 
 .showPasswordToggle:hover{
@@ -143,3 +144,10 @@ html, body{
         cursor: pointer;
         transition: 500ms;
 }
+
+
+.alert {
+    padding: 100px !important;
+    border-radius: 4px;
+    }
+

@@ -4,22 +4,20 @@ const users_password = document.getElementById('password');
 const feedback = document.getElementsByClassName('invalid-feedback');
 const showPassword = document.getElementsByClassName('showPasswordToggle')[0];
 
-
+// Event listener for show/hide password toggle
 showPassword.addEventListener('click', (e) => {
- 
-
   if (showPassword.textContent === 'SHOW') {
     showPassword.textContent = 'HIDE';
 
-    password.setAttribute('type', 'text');
+    password.setAttribute('type', 'text'); // Show password
   }
   else {
     showPassword.textContent = 'SHOW';
-    password.setAttribute('type', 'password');
+    password.setAttribute('type', 'password'); // Hide password
   }
 });
 
-
+// Event listener for user name input
 users_name.addEventListener('keyup', (e) => {
   const users_nameValue = e.target.value;
 
@@ -30,8 +28,7 @@ users_name.addEventListener('keyup', (e) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ users_name: users_nameValue }),
-    }
-    )
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log('Success:', data);
@@ -51,9 +48,9 @@ users_name.addEventListener('keyup', (e) => {
   }
 });
 
-
-
+// Event listener for email input
 email.addEventListener('keyup', (e) => {
+  
   const users_emailValue = e.target.value;
 
   if (users_emailValue.length > 0) {
@@ -63,21 +60,22 @@ email.addEventListener('keyup', (e) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ email: users_emailValue }),
-    }
-    )
+    })
       .then((res) => res.json())
       .then((data) => {
-        console.log('Success:', data);
+       
         if (data.email_valid) {
           console.log('Success:', data);
           email.classList.add('is-valid');
           email.classList.remove('is-invalid');
           feedback[1].style.display = 'none';
         } else {
+          
           email.classList.remove('is-valid');
           email.classList.add('is-invalid');
           feedback[1].style.display = 'block';
           feedback[1].innerHTML = `<p>${data.email_error}</p>`;
+          
         }
       }).catch((error) => {
         console.error('Error:', error);
@@ -85,6 +83,7 @@ email.addEventListener('keyup', (e) => {
   }
 });
 
+// Event listener for password input
 users_password.addEventListener('keyup', (e) => {
   const users_passwordValue = e.target.value;
 
@@ -95,8 +94,7 @@ users_password.addEventListener('keyup', (e) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ password: users_passwordValue }),
-    }
-    )
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log('Success:', data);
