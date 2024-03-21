@@ -3,23 +3,42 @@ from django.views import View
 import json
 from django.http import JsonResponse
 from django.contrib.auth.models import User
+import re
 from django.contrib import messages
 
 
 
+# Create your views here.
 
 class RegistrationView(View):
     def get(self, request):
         return render(request, 'authentication/register.html')
     
     def post(self, request):
+        #messages.success(request, 'success')
+        #messages.warning(request, 'warning')
+        #messages.info(request, "info")
+        #messages.error(request, 'error')
+        name = request.POST['users_name']
+        email = request.POST['email']
+        password = request.POST['password']
         
-        messages.success(request, 'success')
-        messages.warning(request, 'warning')
-        messages.info(request, "info")
-        messages.error(request, 'error')
+        context={
+            'fieldValues': request.POST
+        }
         
+        if not User.objects.filter(email=email).exists():
+            if len(password)<6:
+                messages.error(request,"Password too short")
+                return render(request, 'authentication/register.html', context)
+                
+            user = User.objects.create_user(username = email, first_name=name, email=email)
+            user.set_password(password)
+            user.save()
+            messages.success(request,"Verification email sent")
+
         return render(request, 'authentication/register.html')
+
     
 class EmailValidationView(View):
     def post(self, request):
@@ -39,6 +58,7 @@ class EmailValidationView(View):
         # Check if email has valid format
         if not re.match(email_regex, email):
             return JsonResponse({'email_error': 'Invalid email format'}, status=400)
+        
         
         return JsonResponse({'email_valid': True})
     

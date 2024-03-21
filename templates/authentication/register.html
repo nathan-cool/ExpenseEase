@@ -14,7 +14,7 @@
       <div class="card mt-5 shadow" style="min-width: 300px;"> 
         <div class="card-body p-5">
           <h5 class="card-title text-center mt-3 mb-5">Create Your Expenses Account</h5>
-          <form action={% url 'register' %} method="post">
+          <form id="form" vaction={% url 'register' %} method="post">
          
             {% csrf_token %}
 
@@ -22,14 +22,15 @@
 
             <div class="form-group mb-3"> 
               <label for="users_name" class="form-label">Name</label>
-              <input type="text" name="users_name" class="form-control form-control-lg" id="users_name" required>
+              <input type="text" name="users_name" class="form-control form-control-lg" id="users_name" value="{{fieldValues.first_name}}"required>
             </div>
             <div class="invalid-feedback" style="display:none">
               <p></p>
             </div>
             <div class="form-group mb-3">
               <label for="email" class="form-label">Email</label>
-              <input type="email" name="email" class="form-control form-control-lg" id="email" required>
+              <input type="email" name="email" class="form-control form-control-lg" id="email"  value="{{fieldValues.email}}" required>
+    
             </div>
             <div class="invalid-feedback" style="display:none">
               <p></p>

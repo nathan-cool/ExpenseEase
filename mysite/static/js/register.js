@@ -3,12 +3,13 @@ const email = document.getElementById('email');
 const users_password = document.getElementById('password');
 const feedback = document.getElementsByClassName('invalid-feedback');
 const showPassword = document.getElementsByClassName('showPasswordToggle')[0];
+const registerButton = document.getElementById('register')
+document.getElementById("form").setAttribute("autocomplete", "off");
 
 // Event listener for show/hide password toggle
 showPassword.addEventListener('click', (e) => {
   if (showPassword.textContent === 'SHOW') {
-    showPassword.textContent = 'HIDE';
-
+    showPassword.textContent = 'p';
     password.setAttribute('type', 'text'); // Show password
   }
   else {
@@ -31,16 +32,17 @@ users_name.addEventListener('keyup', (e) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log('Success:', data);
         if (data.users_name_valid) {
           users_name.classList.add('is-valid');
           users_name.classList.remove('is-invalid');
           feedback[0].style.display = 'none';
+          registerButton.disabled = false;
         } else {
           users_name.classList.remove('is-valid');
           users_name.classList.add('is-invalid');
           feedback[0].style.display = 'block';
           feedback[0].innerHTML = `<p>${data.users_name_error}</p>`;
+          registerButton.disabled = true;
         }
       }).catch((error) => {
         console.error('Error:', error);
@@ -50,7 +52,6 @@ users_name.addEventListener('keyup', (e) => {
 
 // Event listener for email input
 email.addEventListener('keyup', (e) => {
-  
   const users_emailValue = e.target.value;
 
   if (users_emailValue.length > 0) {
@@ -63,19 +64,19 @@ email.addEventListener('keyup', (e) => {
     })
       .then((res) => res.json())
       .then((data) => {
-       
         if (data.email_valid) {
-          console.log('Success:', data);
           email.classList.add('is-valid');
           email.classList.remove('is-invalid');
+          registerButton.disabled = false;
           feedback[1].style.display = 'none';
+          console.log("hi")
         } else {
-          
+          console.log("Hello")
+          registerButton.disabled = true;
           email.classList.remove('is-valid');
-          email.classList.add('is-invalid');
+          email.classList.add('is-invlid');
           feedback[1].style.display = 'block';
           feedback[1].innerHTML = `<p>${data.email_error}</p>`;
-          
         }
       }).catch((error) => {
         console.error('Error:', error);
@@ -97,18 +98,16 @@ users_password.addEventListener('keyup', (e) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log('Success:', data);
         if (data.password_valid) {
-          console.log('Success:', data);
           users_password.classList.add('is-valid');
           users_password.classList.remove('is-invalid');
-       
           feedback[2].style.display = 'none';
-       
+          registerButton.disabled = false;
         } else {
           users_password.classList.remove('is-valid');
           users_password.classList.add('is-invalid');
           feedback[2].style.display = 'block';
+          registerButton.disabled = true;
           feedback[2].innerHTML = `<p>${data.password_error}</p>`;
         }
       }).catch((error) => {
