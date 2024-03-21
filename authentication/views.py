@@ -5,6 +5,12 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User
 import re
 from django.contrib import messages
+from django.core.mail import EmailMessage
+
+
+
+
+
 
 
 
@@ -29,12 +35,36 @@ class RegistrationView(View):
         
         if not User.objects.filter(email=email).exists():
             if len(password)<6:
-                messages.error(request,"Password too short")
+                messages.error(request,"Invalid password")
                 return render(request, 'authentication/register.html', context)
+            if not re.match(r'^[A-Za-z\s]+$', name):
+                messages.error(request,"Invalid name")
+                return render(request, 'authentication/register.html', context)
+            if not re.match(r'^[\w\.-]+@[\w\.-]+\.\w+$', email):
+                messages.error(request,"Invalid email")
+                return render(request, 'authentication/register.html', context)
+            if User.objects.filter(username=email).exists():
+                messages.error(request,"Email already exists")
+                return render(request, 'authentication/register.html', context)
+            
+            
                 
             user = User.objects.create_user(username = email, first_name=name, email=email)
             user.set_password(password)
+            
+            user.is_active=False
             user.save()
+            email_subject = "Activate your expenses account"
+            email_body = "Please click here to activate your account"
+
+            send_email = EmailMessage(
+                email_subject,
+                email_body,
+                'MS_Wj5pnF@trial-x2p0347y5d34zdrn.mlsender.net',  
+                [email],
+            )
+
+            send_email.send(fail_silently=False)
             messages.success(request,"Verification email sent")
 
         return render(request, 'authentication/register.html')
