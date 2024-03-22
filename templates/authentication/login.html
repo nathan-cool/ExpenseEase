@@ -1,15 +1,56 @@
 {% extends 'partials/base_auth.html' %}
+{% load static %}
+
+
+
+
+
+
 
 {% block content %}
+<div class="container"> 
+  <div class="row justify-content-center"> 
+    <div class="col-md-5"> 
+      <div class="card mt-5 shadow" style="min-width: 300px;"> 
+        <div class="card-body p-5">
+          <h5 class="card-title text-center mt-3 mb-5">Login to your account</h5>
+          <form id="form" vaction={% url 'login' %} method="post">
+         
+            {% csrf_token %}
 
-<div class="card">
+         {% include "partials/_messages.html" %}
 
-  <div class = "card-body">
-
-  <h1>Login</h1>
-  
+           
+          
+      
+            <div class="form-group mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" name="email" class="form-control form-control-lg" id="email"  value="{{fieldValues.email}}" required>
+    
+            
+            
+              
+            </div>
+           
+            <div class="form-group mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" name="password" class="form-control form-control-lg" id="password" required>
+              <small class="float-end showPasswordToggle">SHOW</small>
+            </div>
+            
+              
+           
+            <div class="form-group mb-4">
+              <button type="login" class="btn btn-success form-control-lg" id="register">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-
 </div>
+
+<script scr="{% static 'js/register.js' %}"></script>
+
 
 {% endblock %}

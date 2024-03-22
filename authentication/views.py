@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views import View
 import json
 from django.http import JsonResponse
@@ -6,6 +6,13 @@ from django.contrib.auth.models import User
 import re
 from django.contrib import messages
 from django.core.mail import EmailMessage
+
+from django.utils.encoding import force_bytes, force_str
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.contrib.sites.shortcuts import get_current_site
+from django.urls import reverse
+from .utils import token_generator
+from django.contrib.auth import authenticate, login
 
 
 
@@ -21,10 +28,6 @@ class RegistrationView(View):
         return render(request, 'authentication/register.html')
     
     def post(self, request):
-        #messages.success(request, 'success')
-        #messages.warning(request, 'warning')
-        #messages.info(request, "info")
-        #messages.error(request, 'error')
         name = request.POST['users_name']
         email = request.POST['email']
         password = request.POST['password']
@@ -43,19 +46,36 @@ class RegistrationView(View):
             if not re.match(r'^[\w\.-]+@[\w\.-]+\.\w+$', email):
                 messages.error(request,"Invalid email")
                 return render(request, 'authentication/register.html', context)
-            if User.objects.filter(username=email).exists():
+            if User.objects.filter(email=email).exists():
                 messages.error(request,"Email already exists")
                 return render(request, 'authentication/register.html', context)
             
             
                 
-            user = User.objects.create_user(username = email, first_name=name, email=email)
+            user = User.objects.create_user(email = email, first_name=name, username=email)
             user.set_password(password)
             
             user.is_active=False
             user.save()
+            
+          
+            domain = get_current_site(request).domain
+            uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
+     
+            link = reverse('activate', kwargs={'uidb64': uidb64, 'token': token_generator.make_token(user)})
+            activate_url = 'http://'+domain+link
+                
+            # encode ui 
+            # token 
+            
+            
+            
+            
+            
+            
+            
             email_subject = "Activate your expenses account"
-            email_body = "Please click here to activate your account"
+            email_body = "Hi "+name+"! Please use this link to verify your account\n"+activate_url
 
             send_email = EmailMessage(
                 email_subject,
@@ -124,3 +144,58 @@ class PasswordValidationView(View):
             return JsonResponse({'password_error': 'Password must contain at least one uppercase letter, one lowercase letter, and one number'}, status=400)
         
         return JsonResponse({'password_valid': True})
+    
+    
+class VerificationView(View):
+    def get(self, request, uidb64, token):
+        
+        try:
+            id = force_str(urlsafe_base64_decode(uidb64))
+            user = User.objects.get(pk=id)
+            
+            if not token_generator.check_token(user, token):
+                return redirect('login'+ '?message='+'User already activated')
+            
+            if user.is_active:
+                return redirect('login'+ '?message='+'User already activated')
+            
+            user.is_active = True
+            user.save()
+            
+            successMessage = messages.success(request, 'Account activated successfully')
+            
+            return redirect('login'+ '?message='+successMessage)
+            
+            
+            
+        except Exception as e:
+            pass
+       
+      
+        return redirect('login')
+    
+    
+
+class LoginView(View):    
+    def get(self, request):
+        return render(request, 'authentication/login.html')
+    def post(self, request):
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        if email and password:
+            user = authenticate(request, username=email, password=password)
+
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    messages.success(request, f'Welcome, {user.username}!')
+                    
+                else:
+                    messages.error(request, 'Account is not activated')
+            else: 
+                messages.error(request, 'Invalid login credentials')
+        else: 
+            messages.error(request, 'Please fill in all fields')
+    
+        return render(request, 'authentication/login.html')
