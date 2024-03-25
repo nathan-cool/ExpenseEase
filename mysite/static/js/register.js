@@ -9,7 +9,7 @@ document.getElementById("form").setAttribute("autocomplete", "off");
 // Event listener for show/hide password toggle
 showPassword.addEventListener('click', (e) => {
   if (showPassword.textContent === 'SHOW') {
-    showPassword.textContent = 'w';
+    showPassword.textContent = 'HIDE';
     password.setAttribute('type', 'text'); // Show password
   }
   else {
