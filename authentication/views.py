@@ -13,7 +13,6 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
-import authentication
 from .utils import token_generator
 from django.views import View
 
