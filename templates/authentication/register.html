@@ -46,8 +46,13 @@
             <div class="form-group mb-4">
               <button type="submit" class="btn btn-success form-control-lg" id="register">Create Account</button>
             </div>
+           
           </form>
-          <p class="text-center">Have an account?<a href=""> Login</a></p> 
+           <div class="form-group mb-4 btn-google">
+            {% load socialaccount %}
+          <button id="register" class="btn btn-light form-control-lg mx-auto" onclick="location.href='{% provider_login_url 'google' %}'"><img src="https://img.icons8.com/color/16/000000/google-logo.png"> Sign up with Google</button>
+            </div>
+            
         </div>
       </div>
     </div>
