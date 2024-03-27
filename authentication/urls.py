@@ -1,5 +1,5 @@
 from django.urls import include, path
-from .views import RegistrationView, EmailValidationView, users_nameValidationView, PasswordValidationView, VerificationView, LoginView, LogoutView
+from .views import RegistrationView, EmailValidationView, users_nameValidationView, PasswordValidationView, VerificationView, LoginView, LogoutView,GoogleLogin
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -13,4 +13,5 @@ urlpatterns = [
     path('login', LoginView.as_view(), name='login'),
     path('logout', LogoutView.as_view(), name='logout'),
     path('accounts/', include('allauth.urls')),
+    path('google/login/', GoogleLogin.as_view(), name='google_login'),
 ]

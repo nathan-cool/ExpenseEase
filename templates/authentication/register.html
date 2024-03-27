@@ -48,10 +48,15 @@
             </div>
            
           </form>
-           <div class="form-group mb-4 btn-google">
-            {% load socialaccount %}
-          <button id="register" class="btn btn-light form-control-lg mx-auto" onclick="location.href='{% provider_login_url 'google' %}'"><img src="https://img.icons8.com/color/16/000000/google-logo.png"> Sign up with Google</button>
-            </div>
+            <div class="form-group mb-4 btn-google">
+            <div id="g_id_onload"
+     data-client_id="430912468530-d8ccem0r96ht0qsa5c0qhceuqod308ee.apps.googleusercontent.com"
+     data-context="signup"
+     data-ux_mode="redirect"
+     data-login_uri="http://localhost:8000/social-auth"
+     data-auto_prompt="false">
+</div>
+
             
         </div>
       </div>

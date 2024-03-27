@@ -3,7 +3,7 @@ import json
 import re
 from django.shortcuts import redirect, render
 from django.views import View
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.mail import EmailMessage
@@ -15,6 +15,28 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from .utils import token_generator
 from django.views import View
+from google.oauth2 import id_token
+from google.auth.transport import requests
+import jwt
+import os 
+
+
+
+def social_auth(request):
+    
+    token = request.POST['credential']
+
+    try:
+        user_data = id_token.verify_oauth2_token(
+            token, requests.Request(), os.environ['GOOGLE_OAUTH_CLIENT_ID']
+        )
+    except ValueError:
+        return HttpResponse(status=403)
+
+    request.session['user_data'] = user_data
+
+    return redirect('sign_in')
+
 
 
 class RegistrationView(View):

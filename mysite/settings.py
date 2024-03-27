@@ -53,22 +53,32 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
 ]
 
 
-SITE_ID = 1
+SITE_ID = 2
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        }
+        'SCOPE': ['profile', 'email'],
+        'AUTH_PARAMS': {'access_type': 'online'},
+        'SIGNUP_REDIRECT_URL': 'register',
     }
 }
+# settings.py
+
+# Add or modify the SOCIALACCOUNT_ADAPTER setting to point to your custom adapter
+SOCIALACCOUNT_ADAPTER = 'authentication.my_custom_adapter.MyCustomSocialAccountAdapter'
+
+
+LOGIN_REDIRECT_URL = '/'
+
+SOCIALACCOUNT_AUTO_SIGNUP=True
+
+SOCIALACCOUNT_LOGIN_ON_GET=True
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'mysite/static')]
 
@@ -188,4 +198,6 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+
 
