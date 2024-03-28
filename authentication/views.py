@@ -18,230 +18,252 @@ from django.views import View
 from google.oauth2 import id_token
 from google.auth.transport import requests
 import jwt
-import os 
+import os
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import get_user_model
 
 
 @csrf_exempt
 def social_auth(request):
-    
-    token = request.POST['credential']
+
+    token = request.POST["credential"]
 
     try:
         user_data = id_token.verify_oauth2_token(
-            token, requests.Request(), os.environ['GOOGLE_OAUTH_CLIENT_ID']
+            token, requests.Request(), os.environ["GOOGLE_OAUTH_CLIENT_ID"]
         )
     except ValueError:
         return HttpResponse(status=403)
 
-    request.session['user_data'] = user_data
+    request.session["user_data"] = user_data
 
-    email = user_data['email']
+    email = user_data["email"]
     User = get_user_model()
-    user, created = User.objects.get_or_create(username=email, defaults={'email': email}, first_name=user_data['given_name']) 
+    user, created = User.objects.get_or_create(
+        username=email, defaults={"email": email}, first_name=user_data["given_name"]
+    )
 
-
-    user.backend = 'django.contrib.auth.backends.ModelBackend'
+    user.backend = "django.contrib.auth.backends.ModelBackend"
     login(request, user)
-    
+
     if created:
-        messages.success(request, f'Your account has been created, {user.first_name}!')
+        messages.success(request, f"Your account has been created, {user.first_name}!")
         user.is_active = True
         user.save()
-        return redirect('add-expenses')
-    
+        return redirect("add-expenses")
+
     if login:
-        messages.success(request, f'Welcome, {user.first_name}!')
+        messages.success(request, f"Welcome, {user.first_name}!")
         user.is_active = True
         user.save()
-        return redirect('add-expenses')
+        return redirect("add-expenses")
     else:
-        messages.error(request, 'We could not log you in. Please try again')
-        return redirect('login')
-
-
+        messages.error(request, "We could not log you in. Please try again")
+        return redirect("login")
 
 
 class RegistrationView(View):
     def splitName(self, name):
-        
-        parts = name.split(' ', 1)
-        
+
+        parts = name.split(" ", 1)
+
         first_name = parts[0]
-        last_name = parts[1] if len(parts) > 1 else '' 
-        
+        last_name = parts[1] if len(parts) > 1 else ""
+
         return first_name, last_name
 
     def get(self, request):
-        return render(request, 'authentication/register.html')
-    
+        return render(request, "authentication/register.html")
+
     def post(self, request):
-        
-        name = request.POST['users_name']
+
+        name = request.POST["users_name"]
         first_name, last_name = self.splitName(name)
-        
-        password = request.POST['password']
-        email = request.POST['email']
-        context={
-            'fieldValues': request.POST
-        }
-        
+
+        password = request.POST["password"]
+        email = request.POST["email"]
+        context = {"fieldValues": request.POST}
+
         if not User.objects.filter(email=email).exists():
-            if len(password)<6:
-                messages.error(request,"Invalid password")
-                return render(request, 'authentication/register.html', context)
-            if not re.match(r'^[A-Za-z\s]+$', name):
-                messages.error(request,"Invalid name")
-                return render(request, 'authentication/register.html', context)
-            if not re.match(r'^[\w\.-]+@[\w\.-]+\.\w+$', email):
-                messages.error(request,"Invalid email")
-                return render(request, 'authentication/register.html', context)
+            if len(password) < 6:
+                messages.error(request, "Invalid password")
+                return render(request, "authentication/register.html", context)
+            if not re.match(r"^[A-Za-z\s]+$", name):
+                messages.error(request, "Invalid name")
+                return render(request, "authentication/register.html", context)
+            if not re.match(r"^[\w\.-]+@[\w\.-]+\.\w+$", email):
+                messages.error(request, "Invalid email")
+                return render(request, "authentication/register.html", context)
             if User.objects.filter(email=email).exists():
-                messages.error(request,"Email already exists")
-                return render(request, 'authentication/register.html', context)
-            
+                messages.error(request, "Email already exists")
+                return render(request, "authentication/register.html", context)
+
             def send_verification_email(user):
                 try:
                     domain = get_current_site(request).domain
                     uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
-                    link = reverse('activate', kwargs={'uidb64': uidb64, 'token': token_generator.make_token(user)})
-                    activate_url = 'http://' + domain + link
+                    link = reverse(
+                        "activate",
+                        kwargs={
+                            "uidb64": uidb64,
+                            "token": token_generator.make_token(user),
+                        },
+                    )
+                    activate_url = "http://" + domain + link
                     email_subject = "Activate your expenses account"
-                    email_body = "Hi " + name + "! Please use this link to verify your account\n" + activate_url
-                    send_email = EmailMessage(email_subject, email_body, 'MS_Wj5pnF@trial-x2p0347y5d34zdrn.mlsender.net', [email],)
+                    email_body = (
+                        "Hi "
+                        + name
+                        + "! Please use this link to verify your account\n"
+                        + activate_url
+                    )
+                    send_email = EmailMessage(
+                        email_subject,
+                        email_body,
+                        "MS_Wj5pnF@trial-x2p0347y5d34zdrn.mlsender.net",
+                        [email],
+                    )
                     send_email.send(fail_silently=False)
                     messages.success(request, "Verification email sent")
                 except Exception as e:
                     messages.error(request, "An error occurred while sending the email")
                     pass
-            
-        
-            user = User.objects.create_user(email = email, first_name=first_name, last_name= last_name, username=email)
+
+            user = User.objects.create_user(
+                email=email, first_name=first_name, last_name=last_name, username=email
+            )
             user.set_password(password)
-            user.is_active=False
+            user.is_active = False
             user.save()
             send_verification_email(user)
-            
-            return render(request, 'authentication/register.html')
+
+            return render(request, "authentication/register.html")
 
 
 class EmailValidationView(View):
     def post(self, request):
         data = json.loads(request.body)
-        email = data['email']
-        
+        email = data["email"]
+
         # Check if email is empty
         if not str(email).strip():
-            return JsonResponse({'email_error': 'Email cannot be empty'}, status=400)
+            return JsonResponse({"email_error": "Email cannot be empty"}, status=400)
         # Check if email is already in use
         if User.objects.filter(email=email).exists():
-            return JsonResponse({'email_error': 'Sorry, this email is already in use'}, status=409)
-        
-        email_regex = r'^[\w\.-]+@[\w\.-]+\.\w+$'
-        
+            return JsonResponse(
+                {"email_error": "Sorry, this email is already in use"}, status=409
+            )
+
+        email_regex = r"^[\w\.-]+@[\w\.-]+\.\w+$"
+
         if not re.match(email_regex, email):
-            return JsonResponse({'email_error': 'Invalid email format'}, status=400)
-        
-        return JsonResponse({'email_valid': True})
-        
-        
+            return JsonResponse({"email_error": "Invalid email format"}, status=400)
+
+        return JsonResponse({"email_valid": True})
+
+
 class users_nameValidationView(View):
     def post(self, request):
-        users_name_regex = r'^[A-Za-z\s]+$'
+        users_name_regex = r"^[A-Za-z\s]+$"
         data = json.loads(request.body)
-        users_name = data['users_name']
-        
+        users_name = data["users_name"]
+
         # Check if users_name is empty
         if not str(users_name).strip():
-            return JsonResponse({'users_name_error': 'users_name cannot be empty'}, status=400)
-        
+            return JsonResponse(
+                {"users_name_error": "users_name cannot be empty"}, status=400
+            )
+
         # Check if users_name contains only letters and spaces
         if not re.match(users_name_regex, users_name):
-            return JsonResponse({'users_name_error': 'Name can only contain letters and spaces'}, status=400)
-        
-        return JsonResponse({'users_name_valid': True})
+            return JsonResponse(
+                {"users_name_error": "Name can only contain letters and spaces"},
+                status=400,
+            )
 
-    
+        return JsonResponse({"users_name_valid": True})
+
+
 class PasswordValidationView(View):
     def post(self, request):
         data = json.loads(request.body)
-        password = data['password']
-        password_regex = r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$'
-        
+        password = data["password"]
+        password_regex = r"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+
         # Check if password is at least 8 characters long
         if len(str(password).strip()) < 8:
-            return JsonResponse({'password_error': 'Password must be at least 8 characters long'}, status=400)
-    
+            return JsonResponse(
+                {"password_error": "Password must be at least 8 characters long"},
+                status=400,
+            )
+
         # Check if password contains at least one uppercase letter, one lowercase letter, and one number
         if not re.match(password_regex, password):
-            return JsonResponse({'password_error': 'Password must contain at least one uppercase letter, one lowercase letter, and one number'}, status=400)
-        
-        return JsonResponse({'password_valid': True})
-    
-    
+            return JsonResponse(
+                {
+                    "password_error": "Password must contain at least one uppercase letter, one lowercase letter, and one number"
+                },
+                status=400,
+            )
+
+        return JsonResponse({"password_valid": True})
+
+
 class VerificationView(View):
-    
     def get(self, request, uidb64, token):
-        
+
         try:
             id = force_str(urlsafe_base64_decode(uidb64))
             user = User.objects.get(pk=id)
-            
+
             if not token_generator.check_token(user, token):
-                return redirect('login'+ '?message='+'User already activated')
-            
+                return redirect("login" + "?message=" + "User already activated")
+
             if user.is_active:
-                return redirect('login'+ '?message='+'User already activated')
-            
+                return redirect("login" + "?message=" + "User already activated")
+
             user.is_active = True
             user.save()
-            
-            successMessage = messages.success(request, 'Account activated successfully')
-            
-            return redirect('login'+ '?message='+successMessage)
-            
-            
-            
+
+            successMessage = messages.success(request, "Account activated successfully")
+
+            return redirect("login" + "?message=" + successMessage)
+
         except Exception as e:
             pass
-       
-      
-        return redirect('login')
-    
-    
-class LoginView(View):    
+
+        return redirect("login")
+
+
+class LoginView(View):
     def get(self, request):
-        return render(request, 'authentication/login.html')
-    
+        return render(request, "authentication/login.html")
+
     def post(self, request):
-        
-        email = request.POST.get('email')
-        password = request.POST.get('password')
+
+        email = request.POST.get("email")
+        password = request.POST.get("password")
 
         if email and password:
             user = authenticate(request, username=email, password=password)
-            return render(request, 'authentication/register.html')
 
-      
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    messages.success(request, f'Welcome, {user.first_name}!')
-                    return redirect('add-expenses')
+                    messages.success(request, f"Welcome, {user.first_name}!")
+                    return redirect("add-expenses")
                 else:
-                    messages.error(request, 'Account is not activated')
-            else: 
-                messages.error(request, 'Invalid login credentials')
-        else: 
-            messages.error(request, 'Please fill in all fields')
-    
-        return render(request, 'authentication/register.html')
-    
-    
+                    messages.error(request, "Account is not activated")
+            else:
+                messages.error(request, "Invalid login credentials")
+        else:
+            messages.error(request, "Please fill in all fields")
+
+        return render(request, "authentication/register.html")
+
+
 class LogoutView(View):
     def get(self, request):
         logout(request)
-        messages.success(request, 'You have been logged out')
-        return redirect('login')
-    
+        messages.success(request, "You have been logged out")
+        return redirect("login")
