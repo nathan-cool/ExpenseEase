@@ -13,7 +13,7 @@
     <div class="col-md-5"> 
       <div class="card mt-5 shadow" style="min-width: 300px;"> 
         <div class="card-body p-5">
-          <h5 class="card-title text-center mt-3 mb-5">Login to your account</h5>
+          <h4 class="card-title text-left mt-3 mb-5">Sign in to your account</h4>
           <form id="form" vaction={% url 'login' %} method="post">
          
             {% csrf_token %}
@@ -42,6 +42,7 @@
            
             <div class="form-group mb-4">
               <button type="login" class="btn btn-success form-control-lg" id="register">Login</button>
+              <hr>
             </div>
             <div id="g_id_onload"
      data-client_id="430912468530-d8ccem0r96ht0qsa5c0qhceuqod308ee.apps.googleusercontent.com"

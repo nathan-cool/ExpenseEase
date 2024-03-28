@@ -39,14 +39,20 @@ def social_auth(request):
 
     email = user_data['email']
     User = get_user_model()
-    user, created = User.objects.get_or_create(username=email, defaults={'email': email}, first_name=user_data['given_name'])
+    user, created = User.objects.get_or_create(username=email, defaults={'email': email}, first_name=user_data['given_name']) 
 
 
     user.backend = 'django.contrib.auth.backends.ModelBackend'
     login(request, user)
     
+    if created:
+        messages.success(request, f'Your account has been created, {user.first_name}!')
+        user.is_active = True
+        return redirect('add-expenses')
+    
     if login:
         messages.success(request, f'Welcome, {user.first_name}!')
+        user.is_active = True
         return redirect('add-expenses')
     else:
         messages.error(request, 'We could not log you in. Please try again')

@@ -3,21 +3,11 @@ const email = document.getElementById('email');
 const users_password = document.getElementById('password');
 const feedback = document.getElementsByClassName('invalid-feedback');
 const showPassword = document.getElementsByClassName('showPasswordToggle')[0];
-const registerButton = document.getElementById('register')
-document.getElementById("form").setAttribute("autocomplete", "off");
-const googleButton = document.getElementsByClassName('googleButton');
+const registerButton = document.getElementById('register');
+const googleButton = document.getElementsByClassName('g_id_signin');
 
-// Event listener for show/hide password toggle
-showPassword.addEventListener('click', (e) => {
-  if (showPassword.textContent === 'SHOW') {
-    showPassword.textContent = 'HIDE';
-    password.setAttribute('type', 'text'); // Show password
-  }
-  else {
-    showPassword.textContent = 'SHOW';
-    password.setAttribute('type', 'password'); // Hide password
-  }
-});
+
+
 
 // Event listener for user name input
 users_name.addEventListener('keyup', (e) => {
@@ -73,9 +63,10 @@ email.addEventListener('keyup', (e) => {
           console.log("hi")
         } else {
           console.log("Hello")
+
           registerButton.disabled = true;
           email.classList.remove('is-valid');
-          email.classList.add('is-invlid');
+          email.classList.add('is-invalid');
           feedback[1].style.display = 'block';
           feedback[1].innerHTML = `<p>${data.email_error}</p>`;
         }
@@ -117,6 +108,23 @@ users_password.addEventListener('keyup', (e) => {
   }
 });
 
+// Event listener for show/hide password toggle
+showPassword.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (password.getAttribute('type') === 'password') {
+    password.setAttribute('type', 'text'); // Show password
+  }
+  else {
+    password.setAttribute('type', 'password'); // Hide password
+  }
+
+});
+
+// Event listener for google sign in button
+googleButton.addEventListener('click', (e) => {
+  e.preventDefault();
+
+});
 
 
 
