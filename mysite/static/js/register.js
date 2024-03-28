@@ -38,6 +38,11 @@ users_name.addEventListener('keyup', (e) => {
       }).catch((error) => {
         console.error('Error:', error);
       });
+    if (users_nameValue.length < 1) {
+      users_name.classList.remove('is-valid');
+      users_name.classList.remove('is-invalid');
+      feedback[0].style.display = 'none';
+    }
   }
 });
 
@@ -73,11 +78,17 @@ email.addEventListener('keyup', (e) => {
       }).catch((error) => {
         console.error('Error:', error);
       });
+    if (users_emailValue.length < 1) {
+      email.classList.remove('is-valid');
+      email.classList.remove('is-invalid');
+      feedback[1].style.display = 'none';
+    }
   }
 });
 
 // Event listener for password input
 users_password.addEventListener('keyup', (e) => {
+  console.log('password')
   const users_passwordValue = e.target.value;
 
   if (users_passwordValue.length > 0) {
@@ -106,11 +117,17 @@ users_password.addEventListener('keyup', (e) => {
         console.error('Error:', error);
       });
   }
+  if (users_passwordValue.length < 1) {
+    users_password.classList.remove('is-valid');
+    users_password.classList.remove('is-invalid');
+    feedback[2].style.display = 'none';
+  }
 });
 
 // Event listener for show/hide password toggle
 showPassword.addEventListener('click', (e) => {
   e.preventDefault();
+  showPassword.style.color = 'black'
   if (password.getAttribute('type') === 'password') {
     password.setAttribute('type', 'text'); // Show password
   }
@@ -119,6 +136,8 @@ showPassword.addEventListener('click', (e) => {
   }
 
 });
+
+
 
 // Event listener for google sign in button
 googleButton.addEventListener('click', (e) => {

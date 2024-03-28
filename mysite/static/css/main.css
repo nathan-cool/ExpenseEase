@@ -127,11 +127,12 @@ hr {
 
 .showPasswordToggle {
   position: absolute;
-  right: 10px;
-  top: 55%; 
+  right: 30px;
+  top: 57%; 
   cursor: pointer; 
   background-color: transparent;
   border: none;
+  color: rgba(0, 0, 0, 0.365);
 }
 
 

@@ -220,7 +220,7 @@ class LoginView(View):
         if email and password:
             user = authenticate(request, username=email, password=password)
 
-        try:
+      
             if user is not None:
                 if user.is_active:
                     login(request, user)
@@ -230,8 +230,6 @@ class LoginView(View):
                     messages.error(request, 'Account is not activated')
             else: 
                 messages.error(request, 'Invalid login credentials')
-        except Exception as e:
-            pass
         else: 
             messages.error(request, 'Please fill in all fields')
     

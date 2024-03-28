@@ -29,19 +29,19 @@
     
             
             
-              
+              <p></p>
             </div>
            
-            <div class="form-group mb-3">
+             <div class="form-group mb-3">
               <label for="password" class="form-label">Password</label>
-              <input type="password" name="password" class="form-control form-control-lg" id="password" required>
-              <small class="float-end showPasswordToggle">SHOW</small>
+              <input type="password" name="password" class="form-control form-control-lg" id="password" required >
+              
             </div>
-            
+            <p></p>
               
            
             <div class="form-group mb-4">
-              <button type="login" class="btn btn-success form-control-lg" id="register">Login</button>
+              <button type="submit" class="btn btn-success form-control-lg" id="register">Login</button>
               <hr>
             </div>
             <div id="g_id_onload"
@@ -69,7 +69,8 @@
   </div>
 </div>
 
-<script scr="{% static 'js/register.js' %}"></script>
+<script src="{% static 'js/register.js' %}"></script>
+<script src="https://accounts.google.com/gsi/client" async></script>
 
 
 {% endblock %}
