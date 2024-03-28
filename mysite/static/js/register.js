@@ -38,11 +38,12 @@ users_name.addEventListener('keyup', (e) => {
       }).catch((error) => {
         console.error('Error:', error);
       });
-    if (users_nameValue.length < 1) {
-      users_name.classList.remove('is-valid');
-      users_name.classList.remove('is-invalid');
-      feedback[0].style.display = 'none';
-    }
+   
+  }
+  if (users_nameValue.length < 1) {
+    users_name.classList.remove('is-valid');
+    users_name.classList.remove('is-invalid');
+    feedback[0].style.display = 'none';
   }
 });
 
@@ -78,20 +79,22 @@ email.addEventListener('keyup', (e) => {
       }).catch((error) => {
         console.error('Error:', error);
       });
+    }
     if (users_emailValue.length < 1) {
       email.classList.remove('is-valid');
       email.classList.remove('is-invalid');
       feedback[1].style.display = 'none';
-    }
   }
+
 });
 
 // Event listener for password input
 users_password.addEventListener('keyup', (e) => {
-  console.log('password')
+  
   const users_passwordValue = e.target.value;
 
   if (users_passwordValue.length > 0) {
+    showPassword.style.color = 'black';
     fetch('/authentication/validate-password', {
       method: 'POST',
       headers: {
@@ -117,24 +120,37 @@ users_password.addEventListener('keyup', (e) => {
         console.error('Error:', error);
       });
   }
+  
   if (users_passwordValue.length < 1) {
     users_password.classList.remove('is-valid');
     users_password.classList.remove('is-invalid');
     feedback[2].style.display = 'none';
+    showPassword.style.color = 'gray';
+    showPassword.style.cursor = 'default';
+    showPassword.disabled = true;
+    password.setAttribute('type', 'password');
+  } else {
+    // Optionally reset the color if no characters are typed
+    showPassword.style.color = 'black'; // Reset to default or specify a different color
+    users_password.classList.remove('is-valid');
+    users_password.classList.remove('is-invalid');
+    feedback[2].style.display = 'none';
+    showPassword.style.cursor = 'pointer';
+    showPassword.disabled = false;
+
   }
 });
+
 
 // Event listener for show/hide password toggle
 showPassword.addEventListener('click', (e) => {
   e.preventDefault();
-  showPassword.style.color = 'black'
   if (password.getAttribute('type') === 'password') {
     password.setAttribute('type', 'text'); // Show password
   }
   else {
     password.setAttribute('type', 'password'); // Hide password
   }
-
 });
 
 

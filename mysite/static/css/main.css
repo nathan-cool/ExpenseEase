@@ -82,11 +82,31 @@
     height: 100%;
 }
 
+
 .btn{
     width: 100%;
-    padding: 8px 12px;
+    min-height: calc(1.9em + 1rem + calc(var(--bs-border-width)* 2));
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: var(--bs-border-radius-lg);
+    border-radius: 5px;
+    border-color: #333533;
+    background-color: #333533;
 }
 
+.form-control{
+    background-image: none !important;
+}
+
+.btn:hover{
+    background-color: #202020;
+    border-color: #202020;
+}
+
+input{
+    border-radius: 5px!important;
+    
+}
 
 card-body{
     box-shadow: #5a23c8;
@@ -127,7 +147,7 @@ hr {
 
 .showPasswordToggle {
   position: absolute;
-  right: 30px;
+  right: 15px;
   top: 57%; 
   cursor: pointer; 
   background-color: transparent;

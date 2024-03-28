@@ -48,11 +48,13 @@ def social_auth(request):
     if created:
         messages.success(request, f'Your account has been created, {user.first_name}!')
         user.is_active = True
+        user.save()
         return redirect('add-expenses')
     
     if login:
         messages.success(request, f'Welcome, {user.first_name}!')
         user.is_active = True
+        user.save()
         return redirect('add-expenses')
     else:
         messages.error(request, 'We could not log you in. Please try again')
@@ -219,6 +221,7 @@ class LoginView(View):
 
         if email and password:
             user = authenticate(request, username=email, password=password)
+            return render(request, 'authentication/register.html')
 
       
             if user is not None:
@@ -233,7 +236,7 @@ class LoginView(View):
         else: 
             messages.error(request, 'Please fill in all fields')
     
-        return render(request, 'authentication/login.html')
+        return render(request, 'authentication/register.html')
     
     
 class LogoutView(View):
