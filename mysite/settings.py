@@ -15,6 +15,11 @@ import environ
 import os
 import django_heroku
 from django.contrib import messages
+import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 env = environ.Env()
 environ.Env.read_env()  
@@ -59,7 +64,7 @@ INSTALLED_APPS = [
 ]
 
 
-SITE_ID = 2
+SITE_ID = 1
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {

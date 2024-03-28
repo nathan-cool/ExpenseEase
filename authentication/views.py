@@ -19,9 +19,11 @@ from google.oauth2 import id_token
 from google.auth.transport import requests
 import jwt
 import os 
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import get_user_model
 
 
-
+@csrf_exempt
 def social_auth(request):
     
     token = request.POST['credential']
@@ -35,7 +37,21 @@ def social_auth(request):
 
     request.session['user_data'] = user_data
 
-    return redirect('sign_in')
+    email = user_data['email']
+    User = get_user_model()
+    user, created = User.objects.get_or_create(username=email, defaults={'email': email}, first_name=user_data['given_name'])
+
+
+    user.backend = 'django.contrib.auth.backends.ModelBackend'
+    login(request, user)
+    
+    if login:
+        messages.success(request, f'Welcome, {user.first_name}!')
+        return redirect('add-expenses')
+    else:
+        messages.error(request, 'We could not log you in. Please try again')
+        return redirect('login')
+
 
 
 
@@ -191,6 +207,7 @@ class LoginView(View):
         return render(request, 'authentication/login.html')
     
     def post(self, request):
+        
         email = request.POST.get('email')
         password = request.POST.get('password')
 

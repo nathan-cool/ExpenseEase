@@ -5,6 +5,7 @@ const feedback = document.getElementsByClassName('invalid-feedback');
 const showPassword = document.getElementsByClassName('showPasswordToggle')[0];
 const registerButton = document.getElementById('register')
 document.getElementById("form").setAttribute("autocomplete", "off");
+const googleButton = document.getElementsByClassName('googleButton');
 
 // Event listener for show/hide password toggle
 showPassword.addEventListener('click', (e) => {
@@ -115,6 +116,7 @@ users_password.addEventListener('keyup', (e) => {
       });
   }
 });
+
 
 
 
