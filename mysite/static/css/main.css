@@ -1,7 +1,4 @@
-@font-face {
-	font-family: 'cube';
-	src: url('fonts/Cube.tff');
-}
+
 
 .bd-placeholder-img {
 	font-size: 1.125rem;
@@ -11,10 +8,6 @@
 	user-select: none;
 }
 
-.card-logo {
-	font-family: 'cube';
-	font-size: 0.7rem;
-}
 
 .b-example-divider {
 	width: 100%;
