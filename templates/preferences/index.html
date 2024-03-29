@@ -6,22 +6,24 @@
 
 
 
-	<div class="input-group mb-3">
-		<div class="input-group-prepend">
-			<label class="input-group-text" for="inputGroupSelect01"
-				>Currency</label
-			>
-		</div>
+	<div class="input-group input-group-lg mb-3">
+		<div class="input-group">
+			
 		<select name='currency' class="custom-select" id="inputGroupSelect01">
-			<option selected>Choose...</option>
-			{% for currency in currencies %}
+			{% if user_preferences.currency%}
+            
+            <option name='currency' selected value="{{user_preferences.currency}}">
+                {{user_preferences.currency}}</option>
+            
+            {% endif %} {% for currency in currencies %}
 
-			<option name='currency' value>{{currency.name}} - {{currency.value}}</option>
+            <option name='currency' value="{{currency.name}} - {{currency.value}}">
+                {{currency.name}} - {{currency.value}}</option> 
 
 			{% endfor%}
 		
 		<div class="input-group-append">
-			<input class="btn btn-outline-secondary" type="submit" value="save">
+			<input class="btn btn-outline-secondary" type="submit" value="save" id="currencySubmitBtn">
 		</div>
 	</div>
     </form>

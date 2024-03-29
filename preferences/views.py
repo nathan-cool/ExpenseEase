@@ -42,5 +42,7 @@ def index(request):
             user_preferences = UserPreferences.objects.create(user=request.user, currency=currency)
         messages.success(request, "Changes saved")
         return render(
-                request, "preferences/index.html", {"currencies": currency_list}
-            )
+            request,
+            "preferences/index.html",
+            {"currencies": currency_list, "user_preferences": user_preferences},
+        )
