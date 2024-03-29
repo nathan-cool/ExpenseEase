@@ -3,3 +3,4 @@ __pycache__/
 makefile
 .env
 staticfiles
+preferences/migrations/0002_rename_currency_userpreferences_currencies.py

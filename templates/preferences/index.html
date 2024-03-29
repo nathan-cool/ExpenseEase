@@ -12,14 +12,14 @@
 				>Currency</label
 			>
 		</div>
-		<select class="custom-select" id="inputGroupSelect01">
+		<select name='currency' class="custom-select" id="inputGroupSelect01">
 			<option selected>Choose...</option>
 			{% for currency in currencies %}
 
-			<option selected>{{currency.name}} - {{currency.value}}</option>
+			<option name='currency' value>{{currency.name}} - {{currency.value}}</option>
 
 			{% endfor%}
-		</select>
+		
 		<div class="input-group-append">
 			<input class="btn btn-outline-secondary" type="submit" value="save">
 		</div>
