@@ -10,6 +10,39 @@ const googleButton = document.getElementsByClassName('g_id_signin');
 
 
 // Event listener for user name input
+function validateName(users_nameValue) {
+  if (users_nameValue.length > 0) {
+    fetch('/authentication/validate-name', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ users_name: users_nameValue }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.users_name_valid) {
+          users_name.classList.add('is-valid');
+          users_name.classList.remove('is-invalid');
+          feedback[0].style.display = 'none';
+          registerButton.disabled = false;
+        } else {
+          users_name.classList.remove('is-valid');
+          users_name.classList.add('is-invalid');
+          feedback[0].style.display = 'block';
+          feedback[0].innerHTML = `<p>${data.users_name_error}</p>`;
+          registerButton.disabled = true;
+        }
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+  }
+  if (users_nameValue.length < 1) {
+    users_name.classList.remove('is-valid');
+    users_name.classList.remove('is-invalid');
+    feedback[0].style.display = 'none';
+  }
+}
 users_name.addEventListener('keyup', (e) => {
   const users_nameValue = e.target.value;
 
