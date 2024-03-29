@@ -90,7 +90,11 @@ display: block !important;
 height: 100%;
 }
 
-.btn {
+.custom-select{
+  width: 60%;
+}
+
+.btnAuth {
 width: 100%;
 min-height: calc(1.9em + 1rem + calc(var(--bs-border-width) * 2));
 padding: 0.5rem 1rem;
