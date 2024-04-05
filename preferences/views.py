@@ -46,3 +46,6 @@ def index(request):
             "preferences/index.html",
             {"currencies": currency_list, "user_preferences": user_preferences},
         )
+
+
+data = jason.load(open(os.path.join(settings.BASE_DIR, "currencies.json"), "r"))

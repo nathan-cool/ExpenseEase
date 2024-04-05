@@ -2,17 +2,31 @@ const users_name = document.getElementById('users_name');
 const email = document.getElementById('email');
 const users_password = document.getElementById('password');
 const feedback = document.getElementsByClassName('invalid-feedback');
-const showPassword = document.getElementsByClassName('showPasswordToggle')[0];
+const showPassword = document.getElementById('showPasswordToggle');
 const registerButton = document.getElementById('register');
 const googleButton = document.getElementsByClassName('g_id_signin');
-
 
 validateName(users_name);
 validateEmail(email);
 validatePassword(users_password);
-showPasswordToggle();
 googleAuth();
+showPasswordToggle();
 
+// Event listener for show/hide password toggle
+function showPasswordToggle() {
+  showPassword.addEventListener('click', (e) => {
+    console.log("Hello")
+		e.preventDefault();
+
+    showPassword.style.color = 'black';
+		if (users_password.getAttribute('type') === 'password') {
+			users_password.setAttribute('type', 'text'); // Show password
+		} else {
+			users_password.setAttribute('type', 'password'); // Hide password
+		}
+  });
+}
+showPasswordToggle();
 // Event listener for user name input
 function validateName(users_name) {
   users_name.addEventListener('keyup', (e) => {
@@ -139,35 +153,27 @@ function validatePassword(users_password) {
       showPassword.disabled = true;
       password.setAttribute('type', 'password');
     } else {
-      // Optionally reset the color if no characters are typed
-      showPassword.style.color = 'black'; // Reset to default or specify a different color
+      showPassword.style.color = 'black';
       users_password.classList.remove('is-valid');
       users_password.classList.remove('is-invalid');
       feedback[2].style.display = 'none';
       showPassword.style.cursor = 'pointer';
       showPassword.disabled = false;
-
     }
+    showPassword.addEventListener('click', (e) => {
+      console.log("Hello")
+      e.preventDefault();
+
+      showPassword.style.color = 'black';
+      if (users_password.getAttribute('type') === 'password') {
+        users_password.setAttribute('type', 'text'); // Show password
+      } else {
+        users_password.setAttribute('type', 'password'); // Hide password
+      }
+    })
   })
 };
 
-// Event listener for show/hide password toggle
-function showPasswordToggle() {
-  if (password.getAttribute('type') === 'password') {
-    password.setAttribute('type', 'text'); // Show password
-  }
-  else {
-    password.setAttribute('type', 'password'); // Hide password
-  }
-}
-
-// Event listener for google sign in button
-function googleAuth(){
-  googleButton.addEventListener('click', (e) => {
-    e.preventDefault();
-
-  })
-};
 
 
 

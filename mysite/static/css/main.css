@@ -1,11 +1,127 @@
-.bd-placeholder-img {
+/* html and body font */
+html,
+body {
+	font-family: 'Nunito', sans-serif;
+}
+/* Styles for input elements */
+input {
+	border-radius: 5px !important;
+}
+/* Styles for card-body class */
+card-body {
+	box-shadow: #5a23c8;
+}
+/* Font size for label and p elements */
+label,
+p {
+	font-size: 14px;
+}
+/* Styles for horizontal rule (hr) element */
+hr {
+  border: 0;
+	height: 1px;
+	background-image: linear-gradient(
+    to right,
+		rgba(0, 0, 0, 0),
+		rgba(0, 0, 0, 0.75),
+		rgba(0, 0, 0, 0)
+    );
+  }
+ /* Removes the default background image for form-control class */
+  .form-control {
+    background-image: none !important;
+  }
+   /* Hover styles for buttons */
+  .btn:hover {
+    background-color: #202020;
+    border-color: #202020;
+  }
+	.btn:disabled{
+		background-color: #202020;
+    border-color: #202020;
+
+	}
+  /* Styles for card with custom minimum and maximum width */
+  .card.custom-min-width {
+    min-width: 200px;
+    max-width: 500px;
+  }
+  
+  #main_auth {
+    background-color: #ffffff;
+    opacity: 0.9;
+    background-image: radial-gradient(#000000 0.6px, #ffffff 0.5px);
+    background-size: 10px 10px;
+  }
+  
+   /* Styles for form-group class */
+  .form-group {
+    position: relative;
+  }
+  
+  #password {
+    padding-right: 40px;
+  }
+  /* Styles for authentication navbar */
+  .navbarAuth {
+    justify-content: end;
+  }
+   /* Styles for authentication navbar text */
+  .navbarAuthText {
+    font-size: 19px;
+    color: #333533;
+    padding: 20px;
+  }
+  /* Styles for success alert */
+  .alert-success {
+    background-color: #1f7c4d;
+    border-color: #ffffff;
+    color: #ffffff;
+  }
+  
+  .showPasswordToggle {
+    position: absolute;
+    right: 15px;
+    top: 57%;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: rgba(0, 0, 0, 0.365);
+  }
+   /* Styles for row */
+  .row {
+    height: 100%;
+  }
+   /* Styles for custom select element */
+  .custom-select {
+    width: 60%;
+    height: 45px;
+  }
+   /* Styles for currency submit button */
+  #currencySubmitBtn {
+    border-left: none;
+    border-radius: 0px !important;
+  }
+/* Styles for input group */
+  .input-group {
+    justify-content: center;
+  }
+ /* Styles for Google sign-in button */
+  .btn-google {
+    color: #545454;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px 1px #ddd;
+    align-items: center;
+  }
+ /* Styles for placeholder images */
+  .bd-placeholder-img {
 	font-size: 1.125rem;
 	text-anchor: middle;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	user-select: none;
 }
-
+/* Styles for example divider */
 .b-example-divider {
 	width: 100%;
 	height: 3rem;
@@ -16,13 +132,7 @@
 		inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
 }
 
-.btn-google {
-	color: #545454;
-	background-color: #ffffff;
-	box-shadow: 0 1px 2px 1px #ddd;
-	align-items: center;
-}
-
+/* Styles for example vertical rule */
 .b-example-vr {
 	flex-shrink: 0;
 	width: 1.5rem;
@@ -76,22 +186,6 @@
 	display: block !important;
 }
 
-.row {
-	height: 100%;
-}
-
-.custom-select {
-	width: 60%;
-	height: 45px;
-}
-
-#currencySubmitBtn {
-	border-left: none;
-	border-radius: 0px !important;
-}
-.input-group {
-	justify-content: center;
-}
 
 .btnAuth {
 	width: 100%;
@@ -104,89 +198,6 @@
 	background-color: #333533;
 }
 
-.form-control {
-	background-image: none !important;
-}
-
-.btn:hover {
-	background-color: #202020;
-	border-color: #202020;
-}
-
-input {
-	border-radius: 5px !important;
-}
-
-card-body {
-	box-shadow: #5a23c8;
-}
-
-label,
-p {
-	font-size: 14px;
-}
-
-html,
-body {
-	font-family: 'Nunito', sans-serif;
-}
-
-hr {
-	border: 0;
-	height: 1px;
-	background-image: linear-gradient(
-		to right,
-		rgba(0, 0, 0, 0),
-		rgba(0, 0, 0, 0.75),
-		rgba(0, 0, 0, 0)
-	);
-}
-
-.card.custom-min-width {
-	min-width: 200px;
-	max-width: 500px;
-}
-
-#main_auth {
-	background-color: #ffffff;
-	opacity: 0.9;
-	background-image: radial-gradient(#000000 0.6px, #ffffff 0.5px);
-	background-size: 10px 10px;
-}
-
-.navbarAuth {
-	justify-content: end;
-}
-
-.navbarAuthText {
-	font-size: 19px;
-	color: #333533;
-	padding: 20px;
-}
-
-.alert-success {
-	background-color: #1f7c4d;
-	border-color: #ffffff;
-	color: #ffffff;
-}
-
-.showPasswordToggle {
-	position: absolute;
-	right: 15px;
-	top: 57%;
-	cursor: pointer;
-	background-color: transparent;
-	border: none;
-	color: rgba(0, 0, 0, 0.365);
-}
-
-.form-group {
-	position: relative;
-}
-
-#password {
-	padding-right: 40px;
-}
 
 /* Smaller devices */
 @media only screen and (max-width: 650px) {
@@ -198,7 +209,6 @@ hr {
 		width: 100%;
 	}
 }
-/* css wallpaper site */
 
 /* Tablets */
 @media only screen and (min-width: 650px) {
@@ -242,7 +252,6 @@ hr {
 }
 
 .showPasswordToggle:hover {
-	transform: scale(1.2);
 	cursor: pointer;
 	transition: 500ms;
 }
