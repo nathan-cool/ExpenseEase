@@ -2,7 +2,51 @@
 
 {% block content %}
 
-<h1>add Expenses</h1>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+<div class="container">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{ url 'expenses'}">Expenses</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Add Expenses</li>
+  </ol>
+</nav>
+<form action="{% url 'expenses' %}" method="POST">
+  {% csrf_token %}
+  <div class="card">
+    <div class="card-body">
+      <div class="form-group">
+        <label for="amount_input">Amount</label>
+        <input type="number" class="form-control" id="amount_input" aria-describedby="amount input" placeholder="Enter Amount">
+      </div>
+      <div class="form-group">
+        <label for="date_input">Date</label>
+        <input type="date" class="form-control" id="date_input" aria-describedby="date input" placeholder="Enter Date">
+      </div>
+      <div class="form-group">
+        <label for="description_input">Description</label>
+        <input type="text" class="form-control" id="description_input" aria-describedby="description input" placeholder="Enter Description">
+      </div>
+      <div class="form-group">
+        <label for="category_input">Category</label>
+        <select name="category" class="form-control">
+          
+          {% for category in categories %} 
+          <option name="category" value="{{ category.name }}">{{ category.name }}</option>
+          {% endfor %}
+
+
+         
+        </select>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+    </form>
+  </div>
 
 {% endblock %}
 

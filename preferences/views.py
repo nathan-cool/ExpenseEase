@@ -48,4 +48,4 @@ def index(request):
         )
 
 
-data = jason.load(open(os.path.join(settings.BASE_DIR, "currencies.json"), "r"))
+data = json.load(open(os.path.join(settings.BASE_DIR, "currencies.json"), "r"))

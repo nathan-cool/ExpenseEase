@@ -1,23 +1,25 @@
-{% extends 'base.html'%}
+{% extends 'base.html'%} {% block content %}
+<div class="container">
+<div class="row">
+	<div class="col-md-9">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="">Expenses</a></li>
+				<li class="breadcrumb-item active" aria-current="page">
+					My Expenses
+				</li>
+			</ol>
+		</nav>
+    </div>
 
-{% block content %}
-
-<h1> Expenses list</h1>
-
-<ul class= "list-group">
-    <li class="list-group-item"> Rent:</li>
-    <li class="list-group-item"> Rent:</li>
-    <li class="list-group-item"> Rent:</li>
-    <li class="list-group-item"> Rent:</li>
-    <li class="list-group-item"> Rent:</li>
-    <li class="list-group-item"> Rent:</li>
-    <li class="list-group-item"> Rent:</li>
-    <li class="list-group-item"> Rent:</li>
-    <li class="list-group-item"> Rent:</li>
-    <li class="list-group-item"> Rent:</li>
-</ul>
+		<div class="col-md-3">
+			<a href="{% url 'add-expenses' %}" class="btn btn-primary"
+				>Add Expense</a
+			>
+		</div>
+	</div>
+</div>
+		{% include 'partials/_messages.html' %} {% endblock %}
 
 
-{% endblock %}
-
-
+</div>
