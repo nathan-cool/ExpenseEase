@@ -50,13 +50,13 @@ def social_auth(request):
         messages.success(request, f"Your account has been created, {user.first_name}!")
         user.is_active = True
         user.save()
-        return redirect("add-expenses")
+        return redirect("expenses")
 
     if login:
         messages.success(request, f"Welcome, {user.first_name}!")
         user.is_active = True
         user.save()
-        return redirect("add-expenses")
+        return redirect("expenses")
     else:
         messages.error(request, "We could not log you in. Please try again")
         return redirect("login")
@@ -251,7 +251,7 @@ class LoginView(View):
                 if user.is_active:
                     login(request, user)
                     messages.success(request, f"Welcome, {user.first_name}!")
-                    return redirect("add-expenses")
+                    return redirect("expenses")
                 else:
                     messages.error(request, "Account is not activated")
             else:
