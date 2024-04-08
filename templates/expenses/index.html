@@ -1,16 +1,16 @@
 {% extends 'base.html'%} {% block content %}
 <div class="container">
-<div class="row">
-	<div class="col-md-9">
-		<nav aria-label="breadcrumb">
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="">Expenses</a></li>
-				<li class="breadcrumb-item active" aria-current="page">
-					My Expenses
-				</li>
-			</ol>
-		</nav>
-    </div>
+	<div class="row">
+		<div class="col-md-9">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="">Expenses</a></li>
+					<li class="breadcrumb-item active" aria-current="page">
+						My Expenses
+					</li>
+				</ol>
+			</nav>
+		</div>
 
 		<div class="col-md-3">
 			<a href="{% url 'add-expenses' %}" class="btn btn-primary"
@@ -18,8 +18,27 @@
 			>
 		</div>
 	</div>
-</div>
-		{% include 'partials/_messages.html' %} {% endblock %}
 
+{% include 'partials/_messages.html' %}
 
+<div class="container">
+	<table class="table-striped table-hover table">
+		<thead>
+			<tr>
+				<th>Expense</th>
+				<th>Amount</th>
+				<th>Description</th>
+				<th>date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>100</td>
+				<td>1000</td>
+				<td>11/11/11</td>
+				<td>11/11/11</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
+{% endblock %}

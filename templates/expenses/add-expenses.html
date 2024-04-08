@@ -18,18 +18,18 @@
   <div class="card">
     <div class="card-body">
       <div class="form-group">
-        <label for="amount_input">Amount</label>
-        <input type="number" class="form-control" id="amount_input" aria-describedby="amount input" placeholder="Enter Amount">
+        <label for="amount">Amount</label>
+        <input type="number" class="form-control" id="amount" name="amount" value="{{values.amount}}" aria-describedby="amount input" placeholder="Enter Amount">
       </div>
-      <div class="form-group">
+      <div class="form-group mt-1">
         <label for="date_input">Date</label>
-        <input type="date" class="form-control" id="date_input" aria-describedby="date input" placeholder="Enter Date">
+        <input type="date" class="form-control" id="date" name ="date" value="{{values.date}}" aria-describedby="date input" placeholder="Enter Date">
       </div>
-      <div class="form-group">
+      <div class="form-group mt-1">
         <label for="description_input">Description</label>
-        <input type="text" class="form-control" id="description_input" aria-describedby="description input" placeholder="Enter Description">
+        <input type="text" class="form-control" id="description_input" value="{{values.description}}" name="description" aria-describedby="description input" placeholder="Enter Description">
       </div>
-      <div class="form-group">
+      <div class="form-group mt-1">
         <label for="category_input">Category</label>
         <select name="category" class="form-control">
           
@@ -41,13 +41,13 @@
          
         </select>
       </div>
-      <div class="form-group">
+      <div class="form-group mt-1">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
     </div>
     </form>
   </div>
-  {% include 'partials/_messages.html' %}
+  
 
 {% endblock %}
 

@@ -13,20 +13,46 @@ def index(request):
     return render(request, 'expenses/index.html')
 
 def add_expenses(request):
-    if request.method == "GET":
-        categories = Category.objects.all()
-        context = {
+    categories = Category.objects.all()
+    context = {
             "categories": categories,
+            "values": request.POST
         }
-        
+
+    if request.method == "GET":
+        return render(request, "expenses/add-expenses.html", context)
 
     if request.method == "POST":
-        amount = request.POST['amount']
-            
+        amount = request.POST["amount"]
+        date = request.POST["date"]
+        category = request.POST["category"]
+        description = request.POST["description"]
+        owner = request.user
+        
+
         if not amount:
             messages.error(request, "Amount is required")
-    
+            return render(request, "expenses/add-expenses.html", context)
         
-    return render(request, "expenses/add-expenses.html", context)
-
+        if not date:
+            messages.error(request, "Date is required")
+            return render(request, "expenses/add-expenses.html", context)
+        
+        if not category:
+            messages.error(request, "Category is required")
+            return render(request, "expenses/add-expenses.html", context)
+        
+        if not description:
+            messages.error(request, "Description is required")
+            return render(request, "expenses/add-expenses.html", context)
+        
+        Expenses.objects.create(
+            owner=owner,
+            amount=amount,
+            date=date,
+            category=category,
+            description=description
+        )
+        messages.success(request, "Expenses saved successfully")
+        return redirect('expenses')
 
