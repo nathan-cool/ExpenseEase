@@ -13,7 +13,7 @@
     <li class="breadcrumb-item active" aria-current="page">Add Expenses</li>
   </ol>
 </nav>
-<form action="{% url 'expenses' %}" method="POST">
+<form action="{% url 'add-expenses' %}" method="POST">
   {% csrf_token %}
   <div class="card">
     <div class="card-body">
@@ -47,6 +47,7 @@
     </div>
     </form>
   </div>
+  {% include 'partials/_messages.html' %}
 
 {% endblock %}
 
