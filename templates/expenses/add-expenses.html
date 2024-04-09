@@ -3,7 +3,6 @@
 {% block content %}
 
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 
 <div class="container">
@@ -32,10 +31,21 @@
       <div class="form-group mt-1">
         <label for="category_input">Category</label>
         <select name="category" class="form-control">
+
+
           
           {% for category in categories %} 
           <option name="category" value="{{ category.name }}">{{ category.name }}</option>
           {% endfor %}
+      
+      <div class="form-group mt-1">
+        <label for="invoice_number">Invoice Number</label>
+        <input type="text" class="form-control" id="invoice_number" name="invoice_number" value="{{values.invoice_number}}" aria-describedby="invoice number input" placeholder="Enter Invoice Number">
+
+      </div>
+      <div class="form-group mt-1">
+        <label for="reference">reference number</label>
+        <input type="text" class="form-control" id="reference" name="reference" value="{{values.reference}}" aria-describedby="reference number input" placeholder="Enter Reference Number">
 
 
          
@@ -47,6 +57,7 @@
     </div>
     </form>
   </div>
+</div>
   
 
 {% endblock %}

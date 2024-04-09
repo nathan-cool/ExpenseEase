@@ -13,7 +13,7 @@
     <li class="breadcrumb-item active" aria-current="page">Edit Expense</li>
   </ol>
 </nav>
-<form action="{% url 'add-expenses' %}" method="POST">
+<form action="{% url 'expense-edit' expense.id %}" method="POST">
   {% csrf_token %}
   <div class="card">
     <div class="card-body">
@@ -32,13 +32,19 @@
       <div class="form-group mt-1">
         <label for="category_input">Category</label>
         <select name="category" class="form-control">
-          
+          <option selected name="category" value="{{ values.category}}">{{ values.category }}</option>
           {% for category in categories %} 
           <option name="category" value="{{ category.name }}">{{ category.name }}</option>
           {% endfor %}
+           <div class="form-group mt-1">
+        <label for="invoice_number">Invoice Number</label>
+        <input type="text" class="form-control" id="invoice_number" name="invoice_number" value="{{values.invoice_number}}" aria-describedby="invoice number input" placeholder="Enter Invoice Number">
 
+      </div>
+      <div class="form-group mt-1">
+        <label for="reference">reference number</label>
+        <input type="text" class="form-control" id="reference" name="reference" value="{{values.reference}}" aria-describedby="reference input" placeholder="Enter reference number">
 
-         
         </select>
       </div>
       <div class="form-group mt-1">

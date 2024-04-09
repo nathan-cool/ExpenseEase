@@ -9,6 +9,9 @@ class Expenses(models.Model):
   description=models.TextField()
   owner=models.ForeignKey(to=User, on_delete=models.CASCADE)
   category=models.CharField(max_length=255)
+  invoice_number = models.CharField(max_length=255, blank=True, null=True)
+  reference = models.CharField(max_length=255, blank=True, null=True)
+  
   
   def __str__(self):
     return self.category
