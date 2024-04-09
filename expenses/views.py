@@ -117,3 +117,13 @@ def expense_edit(request, id):
     else:
         messages.info(request, "Expense not edited")
         return render(request, "expenses/edit-expense.html", context)
+
+
+def delete_expense(request, id):
+    if request.method == "GET":
+        
+    
+        expense = Expenses.objects.get(pk=id)
+        expense.delete()
+        messages.success(request, "Expense deleted successfully")
+        return redirect('expenses')

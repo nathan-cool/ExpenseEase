@@ -3,18 +3,20 @@
 <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary ">
       <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="sidebarMenuLabel">Expenses</h5>
+          <h6 class="offcanvas-title" id="sidebarMenuLabel">Expenses</h6>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+            <span>Dashboard</span>
+          </h6>
+          <hr>
+    
+        <div class="offcanvas-body d-md-flex flex-column p-0  overflow-y-auto">
           <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
-                Dashboard
-              </a>
+
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="{% url 'expenses'%}">
+              <a class="nav-link d-flex align-items-center gap-2 active" href="{% url 'expenses'%}">
                 Expenses
               </a>
             </li>
@@ -27,9 +29,9 @@
 
           <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
             <span>Summary</span>
-            <a class="link-secondary" href="#" aria-label="Add a new report">
-            </a>
+            
           </h6>
+          <hr>
           <ul class="nav flex-column mb-auto">
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="#">
@@ -49,9 +51,8 @@
           </ul>
            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
             <span>Settings</span>
-            <a class="link-secondary" href="#" aria-label="Add a new report">
-            </a>
           </h6>
+          <hr>
           <ul class="nav flex-column mb-auto">
             <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2" href="{% url 'preferences' %}">

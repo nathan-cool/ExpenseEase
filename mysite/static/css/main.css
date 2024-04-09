@@ -46,6 +46,8 @@ hr {
     min-width: 200px;
     max-width: 500px;
   }
+
+	
   
   #main_auth {
     background-color: #ffffff;
@@ -262,3 +264,24 @@ hr {
 	margin-bottom: 10px;
 	border-radius: 4px;
 }
+
+@media (max-width: 576px) {
+    .table-responsive thead {
+      display: none;
+    }
+    .table-responsive td {
+      display: block;
+      text-align: left;
+      padding-right: 50%;
+      position: relative;
+    }
+    .table-responsive td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 0;
+      width: 50%;
+      padding-left: 15px;
+      font-weight: bold;
+      text-align: left;
+    }
+  }
