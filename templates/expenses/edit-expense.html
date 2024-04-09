@@ -3,57 +3,107 @@
 {% block content %}
 
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{% url 'expenses'%}">Expenses</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        Edit Expenses
+      </li>
+    </ol>
+  </nav>
 
 
 <div class="container">
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{% url 'expenses'%}">Expenses</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Edit Expense</li>
-  </ol>
-</nav>
-<form action="{% url 'expense-edit' expense.id %}" method="POST">
-  {% csrf_token %}
-  <div class="card">
-    <div class="card-body">
-      <div class="form-group">
-        <label for="amount">Amount</label>
-        <input type="number" class="form-control" id="amount" name="amount" value="{{values.amount}}" aria-describedby="amount input" placeholder="Enter Amount">
-      </div>
-      <div class="form-group mt-1">
-        <label for="date_input">Date</label>
-        <input type="date" class="form-control" id="date" name ="date" value="{{values.date}}" aria-describedby="date input" placeholder="Enter Date">
-      </div>
-      <div class="form-group mt-1">
-        <label for="description_input">Description</label>
-        <input type="text" class="form-control" id="description_input" value="{{values.description}}" name="description" aria-describedby="description input" placeholder="Enter Description">
-      </div>
-      <div class="form-group mt-1">
-        <label for="category_input">Category</label>
-        <select name="category" class="form-control">
-          <option selected name="category" value="{{ values.category}}">{{ values.category }}</option>
-          {% for category in categories %} 
-          <option name="category" value="{{ category.name }}">{{ category.name }}</option>
-          {% endfor %}
-           <div class="form-group mt-1">
-        <label for="invoice_number">Invoice Number</label>
-        <input type="text" class="form-control" id="invoice_number" name="invoice_number" value="{{values.invoice_number}}" aria-describedby="invoice number input" placeholder="Enter Invoice Number">
-
-      </div>
-      <div class="form-group mt-1">
-        <label for="reference">reference number</label>
-        <input type="text" class="form-control" id="reference" name="reference" value="{{values.reference}}" aria-describedby="reference input" placeholder="Enter reference number">
-
-        </select>
-      </div>
-      <div class="form-group mt-1">
-        <button value="save" type="submit" class="btn btn-primary">Save</button>
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-body">
+            <form action="{% url 'add-expenses' %}" method="POST">
+              {% csrf_token %}
+              <div class="row mb-3">
+                <div class="col-sm-8">
+                  <label for="amount" class="form-label">Amount</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="amount"
+                    name="amount"
+                    value="{{values.amount}}"
+                    placeholder="Enter Amount"
+                    required
+                  />
+                </div>
+                <div class="col-sm-4">
+                  <label for="invoice_number" class="form-label">Invoice #</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="invoice_number"
+                    name="invoice_number"
+                    value="{{values.invoice_number}}"
+                    placeholder="Invoice Number"
+                  />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="reference" class="form-label">Reference</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="reference"
+                  name="reference"
+                  value="{{values.reference}}"
+                  placeholder="Enter Reference"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <select name="category" class="form-select" required>
+                  {% for category in categories %}
+                  <option value="{{ category.name }}">
+                    {{ category.name }}
+                  </option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="date" class="form-label">Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="date"
+                  name="date"
+                  value="{{values.date}}"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="description"
+                  name="description"
+                  value="{{values.description}}"
+                  placeholder="Enter Description"
+                  required
+                />
+              </div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-    </form>
   </div>
-  
+</div>
 
 {% endblock %}
 
