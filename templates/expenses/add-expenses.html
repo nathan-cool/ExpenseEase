@@ -93,13 +93,14 @@
 									required
 								/>
 							</div>
-							<<div class="mb-3">
+							<div class="mb-3">
   <label for="description" class="form-label">Description</label>
   <div class="form-control" style="height: auto;">
     <div class="d-flex flex-column" style="min-height: 100px;">
-      <textarea id="description" name="description" placeholder="Enter Description" required class="flex-grow-1" style="border: none; outline: none; resize: none;"></textarea>
+      <textarea id="description" name="description" placeholder="Enter Description" required class="flex-grow-1" style="border: none; outline: none; resize: none;"> {{description}}</textarea>
       <div class="d-flex justify-content-end mt-2">
-        <a href="{% url 'generate-description' %}?amount={{values.amount}}&invoice_number={{values.invoice_number}}&reference={{values.reference}}&category={{values.category}}&date={{values.date}}"><img src="{% static '/images/chat.png' %}" alt="Icon" class="icon"></a>
+       
+        <a href="{% url 'generate-description'%}"><img src="{% static '/images/chat.png' %}" alt="Icon" class="icon"></a>
       </div>
     </div>
   </div>

@@ -7,7 +7,7 @@ import openai
 
 
 # Create your views here.
-@login_required(login_url='/authentication/login')
+@login_required(login_url="/authentication/login")
 def index(request):
     categories = Category.objects.all()
     expenses = Expenses.objects.filter(owner=request.user)
@@ -18,12 +18,10 @@ def index(request):
 
     return render(request, "expenses/index.html", context)
 
+
 def add_expenses(request):
     categories = Category.objects.all()
-    context = {
-            "categories": categories,
-            "values": request.POST
-        }
+    context = {"categories": categories, "values": request.POST}
 
     if request.method == "GET":
         return render(request, "expenses/add-expenses.html", context)
@@ -34,7 +32,7 @@ def add_expenses(request):
         category = request.POST["category"]
         description = request.POST["description"]
         invoice_number = request.POST.get("invoice_number", " ")
-        reference = request.POST.get("reference"," ")
+        reference = request.POST.get("reference", " ")
         owner = request.user
 
         if not amount:
@@ -63,7 +61,7 @@ def add_expenses(request):
             reference=reference,
         )
         messages.success(request, "Expenses saved successfully")
-        return redirect('expenses')
+        return redirect("expenses")
 
 
 def expense_edit(request, id):
@@ -111,7 +109,7 @@ def expense_edit(request, id):
         expense.invoice_number = invoice_number
         expense.reference = reference
         expense.save()
-        
+
         messages.success(request, "Expense Saved Successfully")
         return render(request, "expenses/index.html", context)
 
@@ -122,42 +120,51 @@ def expense_edit(request, id):
 
 def delete_expense(request, id):
     if request.method == "GET":
-        
-    
+
         expense = Expenses.objects.get(pk=id)
         expense.delete()
         messages.success(request, "Expense deleted successfully")
-        return redirect('expenses')
-    
+        return redirect("expenses")
 
 
+openai.api_key = "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"
 
 
 def create_assistant(expense_details):
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": "Generate a description for this expense based on the provided details"},
-            {"role": "user", "content": expense_details}
-        ]
-    )
-    return response.choices[0].message.content.strip()
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "Generate a description for this expense based on the provided details"},
+                {"role": "user", "content": f"Amount: {expense_details['amount']}\nInvoice Number: {expense_details['invoice_number']}\nReference: {expense_details['reference']}\nCategory: {expense_details['category']}\nDate: {expense_details['date']}"}
+            ]
+        )
+        print("API Response:", response)  # Print the API response
+        return response.choices[0].message.content.strip()
+    except Exception as e:
+        print(f"Error: {str(e)}")
+        return "An error occurred while generating the description."
 
 def generate_description(request):
-    if request.method == "GET" and "generate" in request.GET:
-        
-        amount = request.GET.get("amount", "")
+    if request.method == "GET":
+        amount = request.GET.get("amount")
         invoice_number = request.GET.get("invoice_number", "")
         reference = request.GET.get("reference", "")
         category = request.GET.get("category", "")
         date = request.GET.get("date", "")
-        print(amount, invoice_number, reference, category, date)
-
-        expense_details = "Amount: 100\nInvoice Number: INV001\nReference: REF001\nCategory: Office Supplies\nDate: 2023-06-07"
-        print(expense_details)
-
-        description = create_assistant(expense_details)
-
-        return render(request, "expenses/add-expenses.html", {"description": description, "values": request.GET})
-
-    return render(request, "expenses/add-expenses.html")
+        
+        values= {
+            'amount': amount,
+            'invoice_number': invoice_number,
+            'reference': reference,
+            'category': category,
+            'date': date
+        }
+        
+        
+        print(values)
+        
+        
+        description = create_assistant(values)  
+        
+        return render(request, "expenses/add-expenses.html", {"description": description,'amount': amount, "values": request.GET})
