@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Category, Expenses
 from django.shortcuts import redirect
 from django.contrib import messages
+import openai
 
 
 # Create your views here.
@@ -127,3 +128,36 @@ def delete_expense(request, id):
         expense.delete()
         messages.success(request, "Expense deleted successfully")
         return redirect('expenses')
+    
+
+
+
+
+def create_assistant(expense_details):
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "Generate a description for this expense based on the provided details"},
+            {"role": "user", "content": expense_details}
+        ]
+    )
+    return response.choices[0].message.content.strip()
+
+def generate_description(request):
+    if request.method == "GET" and "generate" in request.GET:
+        
+        amount = request.GET.get("amount", "")
+        invoice_number = request.GET.get("invoice_number", "")
+        reference = request.GET.get("reference", "")
+        category = request.GET.get("category", "")
+        date = request.GET.get("date", "")
+        print(amount, invoice_number, reference, category, date)
+
+        expense_details = "Amount: 100\nInvoice Number: INV001\nReference: REF001\nCategory: Office Supplies\nDate: 2023-06-07"
+        print(expense_details)
+
+        description = create_assistant(expense_details)
+
+        return render(request, "expenses/add-expenses.html", {"description": description, "values": request.GET})
+
+    return render(request, "expenses/add-expenses.html")

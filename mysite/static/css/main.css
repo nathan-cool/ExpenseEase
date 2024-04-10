@@ -164,6 +164,11 @@ hr {
 	-webkit-overflow-scrolling: touch;
 }
 
+.icon {
+  width: 20px ;
+  height: 20px;
+}
+
 .btn-bd-primary {
 	--bd-violet-bg: #712cf9;
 	--bd-violet-rgb: 112.520718, 44.062154, 249.437846;
@@ -183,6 +188,8 @@ hr {
 .bd-mode-toggle {
 	z-index: 1500;
 }
+
+
 
 .bd-mode-toggle .dropdown-menu .active .bi {
 	display: block !important;
@@ -221,6 +228,11 @@ hr {
 	.col-md-5 {
 		width: 540px;
 	}
+	.icon {
+  width: 25px ;
+  height: 25px;
+}
+
 }
 
 /* Desktops and laptops */
