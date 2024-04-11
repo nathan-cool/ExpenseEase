@@ -85,6 +85,10 @@ def expense_edit(request, id):
         description = request.POST.get("description")
         invoice_number = request.POST.get("invoice_number")
         reference = request.POST.get("reference")
+        x = expense.amount, expense.date,  expense.category, expense.description, expense.invoice_number, expense.reference
+        print(x)
+        print(expense)
+        print("hello")
 
         if not amount:
             messages.error(request, "Amount is required")
@@ -108,10 +112,15 @@ def expense_edit(request, id):
         expense.description = description
         expense.invoice_number = invoice_number
         expense.reference = reference
+        x = expense.amount, expense.date,  expense.category, expense.description, expense.invoice_number, expense.reference
+        print(x)
+        print(expense)
+        print("hello")
+        
         expense.save()
 
         messages.success(request, "Expense Saved Successfully")
-        return render(request, "expenses/index.html", context)
+        return redirect("expenses")
 
     else:
         messages.info(request, "Expense not edited")
