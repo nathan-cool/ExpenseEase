@@ -136,7 +136,7 @@ def delete_expense(request, id):
         return redirect("expenses")
 
 
-openai.api_key = "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"
+
 
 
 def create_assistant(expense_details):
