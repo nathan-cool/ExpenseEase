@@ -31,7 +31,7 @@
 									class="form-control"
 									id="amount"
 									name="amount"
-									value="{{values.amount}}"
+									value="{{amount}}"
 									placeholder="Enter Amount"
 									required
 								/>
@@ -45,7 +45,7 @@
 									class="form-control"
 									id="invoice_number"
 									name="invoice_number"
-									value="{{values.invoice_number}}"
+									value="{{ invoice_number }}"
 									placeholder="Invoice Number"
 								/>
 							</div>
@@ -59,7 +59,7 @@
 								class="form-control"
 								id="reference"
 								name="reference"
-								value="{{values.reference}}"
+								value="{{reference}}"
 								placeholder="Enter Reference"
 							/>
 						</div>
@@ -74,7 +74,7 @@
 							>
 								{% for category in categories %}
 								<option value="{{ category.name }}">
-									{{ category.name }}
+									{{ category }}
 								</option>
 								{% endfor %}
 							</select>
@@ -86,7 +86,7 @@
 								class="form-control"
 								id="date"
 								name="date"
-								value="{{values.date}}"
+								value="{{date}}"
 								required
 							/>
 						</div>
@@ -117,7 +117,7 @@
 										class="d-flex justify-content-end mt-2"
 									>
 										<a
-											href="{% url 'generate-description'%}"
+											href="{% url 'generate-description' expense.id %}"
 											><img
 												src="{% static '/images/chat.png' %}"
 												alt="Icon"

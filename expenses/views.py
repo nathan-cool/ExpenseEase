@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
 from .models import Category, Expenses
 from django.shortcuts import redirect
@@ -70,8 +71,12 @@ def expense_edit(request, id):
 
     context = {
         "expense": expense,
-        "values": expense,
-        "categories": Category.objects.all(),
+        "invoice_number": expense.invoice_number,
+        "reference": expense.reference,
+        "amount": expense.amount,
+        "category": expense.category,
+        "date": expense.date,
+        "description": expense.description,
     }
 
     if request.method == "GET":
@@ -85,10 +90,7 @@ def expense_edit(request, id):
         description = request.POST.get("description")
         invoice_number = request.POST.get("invoice_number")
         reference = request.POST.get("reference")
-        x = expense.amount, expense.date,  expense.category, expense.description, expense.invoice_number, expense.reference
-        print(x)
-        print(expense)
-        print("hello")
+
 
         if not amount:
             messages.error(request, "Amount is required")
@@ -112,10 +114,6 @@ def expense_edit(request, id):
         expense.description = description
         expense.invoice_number = invoice_number
         expense.reference = reference
-        x = expense.amount, expense.date,  expense.category, expense.description, expense.invoice_number, expense.reference
-        print(x)
-        print(expense)
-        print("hello")
         
         expense.save()
 
@@ -136,7 +134,7 @@ def delete_expense(request, id):
         return redirect("expenses")
 
 
-
+openai.api_key = "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"
 
 
 def create_assistant(expense_details):
@@ -154,26 +152,29 @@ def create_assistant(expense_details):
         print(f"Error: {str(e)}")
         return "An error occurred while generating the description."
 
-def generate_description(request):
+def generate_description(request, id):
+    expense = get_object_or_404(Expenses, pk=id)
+    expense_details = {
+        'amount': expense.amount,
+        'invoice_number': expense.invoice_number,
+        'reference': expense.reference,
+        'category': expense.category, 
+        'date': expense.date.strftime("%Y-%m-%d"),  
+    }
+    generated_description = create_assistant(expense_details)
+    invoice_number = expense.invoice_number
+    
+    context = {
+        "description": generated_description,
+        "expense": expense,
+        "invoice_number": invoice_number,
+        "reference": expense.reference,
+        "amount": expense.amount,
+        "category": expense.category,
+        "date": expense.date,
+    }
+    
     if request.method == "GET":
-        amount = request.GET.get("amount")
-        invoice_number = request.GET.get("invoice_number", "")
-        reference = request.GET.get("reference", "")
-        category = request.GET.get("category", "")
-        date = request.GET.get("date", "")
-        
-        values= {
-            'amount': amount,
-            'invoice_number': invoice_number,
-            'reference': reference,
-            'category': category,
-            'date': date
-        }
-        
-        
-        print(values)
-        
-        
-        description = create_assistant(values)  
-        
-        return render(request, "expenses/add-expenses.html", {"description": description,'amount': amount, "values": request.GET})
+        return render(request, "expenses/edit-expense.html", context)
+    
+ 
