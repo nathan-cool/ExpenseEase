@@ -153,6 +153,10 @@ hr {
 	overflow-y: hidden;
 }
 
+#expense_dsc {
+
+}
+
 .nav-scroller .nav {
 	display: flex;
 	flex-wrap: nowrap;

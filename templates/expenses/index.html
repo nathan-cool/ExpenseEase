@@ -44,7 +44,7 @@
 					<tbody>
 						{% for expense in expenses %}
 						<tr>
-							<td>{{expense.description}}</td>
+							<td id="expense_dsc">{{expense.description|truncatechars:20 }}</td>
 							<td>{{expense.amount}}</td>
 							<td>{{expense.category}}</td>
 							<td>{{expense.date}}</td>
