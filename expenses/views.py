@@ -18,7 +18,6 @@ def index(request):
     returns:
         HttpResponse: The response object.
     """
-
     # categories = Category.objects.all() ??
     expenses = Expenses.objects.filter(owner=request.user)
 
@@ -30,6 +29,7 @@ def index(request):
 
 
 # Add expenses
+@login_required(login_url="/authentication/login")
 def add_expenses(request):
     """
     Add an expense to the database.
@@ -40,6 +40,7 @@ def add_expenses(request):
     Returns:
         HttpResponseRedirect: A redirect to the expenses page or an error message.
     """
+
     try:
         categories = Category.objects.all()
         context = {"categories": categories, "values": request.POST}
@@ -93,6 +94,7 @@ def add_expenses(request):
 
 
 # Edit expenses
+@login_required(login_url="/authentication/login")
 def expense_edit(request, id):
     """
     Edit an expense in the database.
@@ -124,14 +126,7 @@ def expense_edit(request, id):
             description = request.POST.get("description")
             invoice_number = request.POST.get("invoice_number")
             reference = request.POST.get("reference")
-            x = (
-                expense.amount,
-                expense.date,
-                expense.category,
-                expense.description,
-                expense.invoice_number,
-                expense.reference,
-            )
+            # x = expense.amount, expense.date,  expense.category, expense.description, expense.invoice_number, expense.reference ??
 
             if not amount:
                 messages.error(request, "Amount is required")
@@ -166,6 +161,7 @@ def expense_edit(request, id):
 
 
 # Delete expenses
+@login_required(login_url="/authentication/login")
 def delete_expense(request, id):
     """
     Delete an expense from the database.
@@ -177,6 +173,7 @@ def delete_expense(request, id):
     Returns:
         HttpResponseRedirect: A redirect to the expenses page or an error message.
     """
+
     if request.method == "GET":
         try:
             expense = Expenses.objects.get(pk=id)
