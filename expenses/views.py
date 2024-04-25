@@ -1,9 +1,12 @@
+import os
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
+from dotenv import load_dotenv
 from .models import Category, Expenses
 from django.shortcuts import redirect
 from django.contrib import messages
 import openai
+load_dotenv(override=True)
 
 
 # Create your views here.
@@ -112,6 +115,7 @@ def expense_edit(request, id):
 
     # Retrieve the current category of the expense
     current_category = expense.category
+    formatted_date = expense.date.strftime("%Y-%m-%d")
 
     context = {
         "expense": expense,
@@ -119,8 +123,8 @@ def expense_edit(request, id):
         "reference": expense.reference,
         "amount": expense.amount,
         "categories": categories,
-        "current_category": current_category,  # Pass the current category
-        "date": expense.date,
+        "current_category": current_category,
+        "date": formatted_date,
         "description": expense.description,
     }
 
@@ -194,6 +198,7 @@ def delete_expense(request, id):
             messages.error(request, "An error occurred while deleting the expense")
             return redirect("expenses")
 
+print("Using API Key:", os.getenv("OPENAI_API_KEY"))  # Temporarily check the API key
 
 # Generate description
 def create_assistant(expense_details):
@@ -219,6 +224,9 @@ def create_assistant(expense_details):
                     "content": f"Amount: {expense_details['amount']}\nInvoice Number: {expense_details['invoice_number']}\nReference: {expense_details['reference']}\nCategory: {expense_details['category']}\nDate: {expense_details['date']}",
                 },
             ],
+            api_key=os.getenv("OPENAI_API_KEY"), 
+            
+
         )
         print("API Response:", response)
         return response.choices[0].message.content.strip()
@@ -237,6 +245,7 @@ def generate_description(request, id):
     returns:
         HttpResponse: The response object.
     """
+
     expense = get_object_or_404(Expenses, pk=id)
     expense_details = {
         "amount": expense.amount,
@@ -246,23 +255,23 @@ def generate_description(request, id):
         "date": expense.date.strftime("%Y-%m-%d"),
     }
     generated_description = create_assistant(expense_details)
-    invoice_number = expense.invoice_number
 
+    expense = Expenses.objects.get(pk=id)
     categories = Category.objects.all()
-    selected_category = None
-    for category in categories:
-        if category.name == expense.category:
-            selected_category = category
-            break
+
+    # Retrieve the current category of the expense
+    current_category = expense.category
+    formatted_date = expense.date.strftime("%Y-%m-%d")
+
     context = {
         "description": generated_description,
         "expense": expense,
-        "invoice_number": invoice_number,
+        "invoice_number": expense.invoice_number,
         "reference": expense.reference,
         "amount": expense.amount,
-        "category": selected_category,
         "categories": categories,
-        "date": expense.date,
+        "current_category": current_category,
+        "date": formatted_date,
     }
 
     if request.method == "GET":

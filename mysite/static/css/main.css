@@ -80,6 +80,11 @@ hr {
     border-color: #ffffff;
     color: #ffffff;
   }
+	.signin_reg_container {
+		display: flex;
+		justify-content: center;
+	}
+
   
   .showPasswordToggle {
     position: absolute;
@@ -153,10 +158,6 @@ hr {
 	overflow-y: hidden;
 }
 
-#expense_dsc {
-
-}
-
 .nav-scroller .nav {
 	display: flex;
 	flex-wrap: nowrap;
@@ -193,12 +194,9 @@ hr {
 	z-index: 1500;
 }
 
-
-
 .bd-mode-toggle .dropdown-menu .active .bi {
 	display: block !important;
 }
-
 
 .btnAuth {
 	width: 100%;
