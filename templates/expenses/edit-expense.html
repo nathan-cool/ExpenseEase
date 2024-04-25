@@ -75,10 +75,11 @@
 								class="form-select"
 								required
 							>
+								
 								{% for category in categories %}
-								<option value="{{ category.name }}">
-									{{ category.name }}
-								</option>
+    <option value="{{ category.name }}" {% if category.name == current_category %}selected{% endif %}>
+        {{ category.name }}
+    </option>
 								{% endfor %}
 							</select>
 						</div>

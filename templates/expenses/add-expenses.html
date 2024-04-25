@@ -68,17 +68,13 @@
 								<label for="category" class="form-label"
 									>Category</label
 								>
-								<select
-									name="category"
-									class="form-select"
-									required
-								>
-									{% for category in categories %}
-									<option value="{{ category.name }}">
-										{{ category.name }}
-									</option>
-									{% endfor %}
-								</select>
+								<select name="category" class="form-control form-select">
+  {% for category in categories %}
+    <option value="{{ category.name }}" {% if category.name == expense.category %}selected{% endif %}>
+      {{ category.name }}
+    </option>
+  {% endfor %}
+</select>
 							</div>
 							<div class="mb-3">
 								<label for="date" class="form-label"

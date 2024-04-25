@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required
 from .models import Category, Expenses
 from django.shortcuts import redirect
@@ -108,11 +108,20 @@ def expense_edit(request, id):
     """
 
     expense = Expenses.objects.get(pk=id)
+    categories = Category.objects.all()
+
+    # Retrieve the current category of the expense
+    current_category = expense.category
 
     context = {
         "expense": expense,
-        "values": expense,
-        "categories": Category.objects.all(),
+        "invoice_number": expense.invoice_number,
+        "reference": expense.reference,
+        "amount": expense.amount,
+        "categories": categories,
+        "current_category": current_category,  # Pass the current category
+        "date": expense.date,
+        "description": expense.description,
     }
 
     if request.method == "GET":
@@ -218,7 +227,7 @@ def create_assistant(expense_details):
         return "An error occurred while generating the description."
 
 
-def generate_description(request):
+def generate_description(request, id):
     """
     Generate a description for an expense based on the provided details.
 
@@ -228,34 +237,33 @@ def generate_description(request):
     returns:
         HttpResponse: The response object.
     """
+    expense = get_object_or_404(Expenses, pk=id)
+    expense_details = {
+        "amount": expense.amount,
+        "invoice_number": expense.invoice_number,
+        "reference": expense.reference,
+        "category": expense.category,
+        "date": expense.date.strftime("%Y-%m-%d"),
+    }
+    generated_description = create_assistant(expense_details)
+    invoice_number = expense.invoice_number
+
+    categories = Category.objects.all()
+    selected_category = None
+    for category in categories:
+        if category.name == expense.category:
+            selected_category = category
+            break
+    context = {
+        "description": generated_description,
+        "expense": expense,
+        "invoice_number": invoice_number,
+        "reference": expense.reference,
+        "amount": expense.amount,
+        "category": selected_category,
+        "categories": categories,
+        "date": expense.date,
+    }
+
     if request.method == "GET":
-        try:
-            amount = request.GET.get("amount")
-            invoice_number = request.GET.get("invoice_number", "")
-            reference = request.GET.get("reference", "")
-            category = request.GET.get("category", "")
-            date = request.GET.get("date", "")
-
-            values = {
-                "amount": amount,
-                "invoice_number": invoice_number,
-                "reference": reference,
-                "category": category,
-                "date": date,
-            }
-
-            print(values)
-
-            description = create_assistant(values)
-
-            return render(
-                request,
-                "expenses/add-expenses.html",
-                {"description": description, "amount": amount, "values": request.GET},
-            )
-        except Exception as e:
-            print(f"Error: {str(e)}")
-            messages.error(
-                request, "An error occurred while generating the description"
-            )
-            return redirect("expenses")
+        return render(request, "expenses/edit-expense.html", context)
