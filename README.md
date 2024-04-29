@@ -93,6 +93,45 @@
 
 ### Frameworks, Libraries & Programs Used
 
+#### Django
+- A high-level Python web framework used for developing the web application.
+- Provides a robust set of tools and features for building scalable and maintainable web applications.
+- The code uses various Django components such as views, models, authentication, and URL routing.
+
+#### Python Standard Library
+- Several modules from the Python standard library are used, including:
+ - `os`: Used for interacting with the operating system.
+ - `json`: Used for working with JSON data.
+ - `re`: Used for regular expression matching and validation.
+
+#### dotenv
+- A Python library used for loading environment variables from a `.env` file.
+- Allows sensitive information, such as API keys, to be stored securely outside of the codebase.
+
+#### OpenAI
+- The OpenAI API is used to generate descriptions for expenses using the ChatCompletion model.
+- Requires an OpenAI API key to be set in the environment variables.
+
+#### Google OAuth
+- Functionality for Google OAuth authentication is included.
+- Uses the `google-auth` library to verify the OAuth token and retrieve user data.
+
+#### JSON Web Tokens (JWT)
+- The `jwt` library is used for working with JSON Web Tokens.
+- Likely used for authentication and authorization purposes.
+
+#### Django Messages Framework
+- Used to display success and error messages to the user.
+- Provides a convenient way to store and retrieve messages across requests.
+
+#### Django Authentication System
+- The built-in Django authentication system is utilized for user registration, login, and logout functionality.
+- Uses the `User` model provided by Django to store user information.
+
+#### Django Email
+- Django's email functionality is used to send verification emails to users during the registration process.
+- Utilizes the `EmailMessage` class from `django.core.mail` to compose and send emails.
+
 ## Testing
 
 ### Validator Testing 
