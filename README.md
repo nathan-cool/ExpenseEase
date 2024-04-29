@@ -79,6 +79,18 @@
 
 ### Languages Used
 
+#### Python
+- **Python 3**: The core backend programming language used for the application. Django, a high-level Python web framework, is employed to handle backend logic, database operations, and application routing.
+
+#### HTML5
+- **HTML5**: Used for structuring the web pages of the application. HTML5 is the latest standard, offering a wide range of features for web documents.
+
+#### CSS3
+- **CSS3**: Used to style the HTML content. CSS3 provides a variety of styling options through selectors, properties, and values to create responsive and visually appealing web pages.
+
+#### JavaScript
+- **JavaScript**: Employed for adding interactive behaviors to web pages. JavaScript is used sparingly to enhance user interfaces and improve user experience, for instance, in form validations and dynamic content updates.
+
 ### Frameworks, Libraries & Programs Used
 
 ## Testing
