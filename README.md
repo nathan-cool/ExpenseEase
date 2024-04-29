@@ -33,6 +33,12 @@
 
 ### Features which could be implemented in the future
 
+- **Password Reset**: Allows users to reset their password if forgotten, via a link sent to their registered email.
+- **Two-Factor Authentication**: Adds an extra layer of security by requiring a second form of identification beyond just the username and password.
+
+
+
+
 ## Design
 
 -   ### Wireframes
