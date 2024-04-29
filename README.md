@@ -172,6 +172,24 @@ Follow these steps to set up your local development environment for the Django e
 
 ### Create Application and Postgres DB on Heroku
 
+1. **Sign Up or Log In to Heroku**:
+    - If you do not already have a Heroku account, go to [Heroku's website](https://signup.heroku.com/) to sign up.
+    - If you have an account, simply log in.
+
+2. **Create a New Application**:
+    - Navigate to your Heroku dashboard.
+    - Click on the "New" button in the top right corner, then select "Create new app."
+    - Enter a name for your application. It must be unique across all Heroku apps.
+    - Select the region closest to your users to minimize latency.
+    - Click on "Create app."
+
+3. **Add a PostgreSQL Database**:
+    - Once your app is created, go to the "Resources" tab in your Heroku dashboard.
+    - In the "Add-ons" section, start typing "Heroku Postgres" in the search box, then select it when it appears.
+    - Choose a plan. For development purposes, you can select the free "Hobby Dev" plan.
+    - Click "Submit Order Form" to add the PostgreSQL add-on to your application.
+
+
 ### Configure Cloudinary to host images used by the application
 
 ### Connect the Heroku app to the GitHub repository
