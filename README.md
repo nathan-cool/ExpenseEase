@@ -189,10 +189,27 @@ Follow these steps to set up your local development environment for the Django e
     - Choose a plan. For development purposes, you can select the free "Hobby Dev" plan.
     - Click "Submit Order Form" to add the PostgreSQL add-on to your application.
 
+4. **Configure Environment Variables**:
+    - Go to the "Settings" tab in your Heroku dashboard.
+    - Under the "Config Vars" section, click on "Reveal Config Vars."
+    - Enter the necessary configuration variables such as `DJANGO_SECRET_KEY`, `DEBUG`, and any other variables your app requires. For example:
+      - Key: `DJANGO_SECRET_KEY`, Value: `<your_secret_key>`
+      - Key: `DEBUG`, Value: `False`
 
-### Configure Cloudinary to host images used by the application
+5. **Deploy Your Application**:
+    - Connect your GitHub account under the "Deploy" tab by selecting "GitHub" as the deployment method.
+    - Search for your repository and connect to it.
+    - Enable Automatic Deploys for automatic deployment when you push to your repository, or use the "Manual Deploy" section to deploy a specific branch.
 
-### Connect the Heroku app to the GitHub repository
+6. **Run Migrations**:
+    - After deploying, you need to run your database migrations.
+    - In the "More" dropdown menu at the top right corner of your application dashboard, select "Run console."
+    - Type `python manage.py migrate` and click "Run" to execute the migrations.
+
+7. **Open Your App**:
+    - You can open your application by clicking on the "Open app" button in the top right corner of the dashboard.
+
+By following these steps, you can set up and deploy your Django Expenses app on Heroku using the web interface.
 
 ### Executing automated tests
 
