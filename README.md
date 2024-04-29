@@ -52,7 +52,18 @@
 ### Features which could be implemented in the future
 
 - **Password Reset**: Allows users to reset their password if forgotten, via a link sent to their registered email.
+
 - **Two-Factor Authentication**: Adds an extra layer of security by requiring a second form of identification beyond just the username and password.
+
+- **Expense Analytics**: Visual representations of expenses over time, categories, or other criteria to provide users with insights into their spending habits.
+
+- **Budget Planning**: Tools to set monthly or annual budgets for various categories, with notifications for when spending approaches or exceeds these limits.
+
+- **Expense Sharing**: Functionality for users to split and share expenses with others, useful for group activities or shared living arrangements.
+
+- **Receipt Scanning**: Automatically populate expense entries by scanning receipts using OCR technology, reducing manual entry errors and saving time.
+
+- **Multi-Currency Support**: Allow users to record expenses in different currencies, automatically converting them based on current exchange rates for easier management in a global context.
 
 
 
