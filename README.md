@@ -97,6 +97,79 @@
 
 ### How to Clone the Repository 
 
+To clone this repository and run the Django expenses app locally, follow these steps:
+
+1. **Open Terminal**: Open your terminal if you are on macOS or Linux, or open CMD or PowerShell if you are on Windows.
+
+2. **Install Git**: Ensure you have Git installed on your system. You can download and install it from [Git's official site](https://git-scm.com/downloads).
+
+3. **Clone the Repository**:
+    Execute the following command in your terminal to clone the repository:
+
+    ```bash
+    git clone https://github.com/yourusername/django-expenses-app.git
+    ```
+    Replace `yourusername` with your GitHub username or the username of the repository owner. Adjust the repository URL if it is hosted on a different platform or has a different path.
+
+4. **Navigate to the Project Directory**:
+    After cloning, enter the directory where the repository has been cloned:
+
+    ```bash
+    cd django-expenses-app
+    ```
+
+5. **Create a Virtual Environment** (Recommended):
+    To create a virtual environment, you need to have Python installed on your system. You can create a virtual environment by running:
+
+    ```bash
+    python -m venv venv
+    ```
+
+    Activate the virtual environment:
+
+    - On macOS and Linux:
+
+        ```bash
+        source venv/bin/activate
+        ```
+
+    - On Windows:
+
+        ```bash
+        .\venv\Scripts\activate
+        ```
+
+6. **Install Dependencies**:
+    Install all the dependencies required for the project by running:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+7. **Set Environment Variables**:
+    Create a `.env` file in the root directory of the project and add the necessary environment variables like `DJANGO_SECRET_KEY`, `DATABASE_URL`, and any other required API keys.
+
+8. **Migrate Database**:
+    Apply the migrations to create your database schema:
+
+    ```bash
+    python manage.py migrate
+    ```
+
+9. **Run the Development Server**:
+    Start the Django development server:
+
+    ```bash
+    python manage.py runserver
+    ```
+
+    Once the server is running, you can access the Django expenses app at `http://127.0.0.1:8000` in your web browser.
+
+10. **Access the Application**:
+    Open a browser and go to `http://127.0.0.1:8000` to start using the Django expenses app.
+
+Follow these steps to set up your local development environment for the Django expenses app. This will allow you to run the application on your local machine for development and testing purposes.
+
 ### Create Application and Postgres DB on Heroku
 
 ### Configure Cloudinary to host images used by the application
