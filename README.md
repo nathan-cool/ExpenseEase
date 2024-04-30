@@ -18,7 +18,13 @@
 The primary goal of this project is to develop a financial management application that not only streamlines user authentication but also enhances the efficiency of managing personal expenses. By integrating advanced features such as Google OAuth and AI-driven expense descriptions, this application aims to provide a secure, user-friendly platform for users to track and manage their daily financial activities effectively.
 
 ### User stories :
-- As a user, I want to be able to easily register and log in, so that I can manage my expenses securely.
+
+- As a user, I need to create a personalised account to securely access my expense details from any device.
+- As a user, I need a straightforward way to record expenses, including amount, date, category, and notes, to monitor my spending.
+- As a user, I want to manually add receipts for a paperless record.
+- As a user, I need to view and manage my expenses in an intuitive interface, with filters and sorting options.
+- As a user, I want to generate detailed reports with charts and graphs to analyse my spending and make informed financial decisions.
+
 
 ## Features
 
