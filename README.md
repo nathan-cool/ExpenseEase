@@ -14,6 +14,9 @@
 
 ## User Experience (UX)
 
+### Objective
+The primary goal of this project is to develop a financial management application that not only streamlines user authentication but also enhances the efficiency of managing personal expenses. By integrating advanced features such as Google OAuth and AI-driven expense descriptions, this application aims to provide a secure, user-friendly platform for users to track and manage their daily financial activities effectively.
+
 ### User stories :
 - As a user, I want to be able to easily register and log in, so that I can manage my expenses securely.
 
@@ -131,6 +134,41 @@
 #### Django Email
 - Django's email functionality is used to send verification emails to users during the registration process.
 - Utilizes the `EmailMessage` class from `django.core.mail` to compose and send emails.
+
+### Software & Web Applications Used
+
+#### Git
+- Git is used for version control and collaboration among developers.
+- It allows tracking changes in the codebase, creating branches for feature development, and merging changes back into the main branch.
+
+#### GitHub
+- GitHub is a web-based platform for hosting Git repositories.
+- It provides a centralized location for storing and managing the project's source code.
+- GitHub also offers features like issue tracking, pull requests, and project documentation.
+
+#### Visual Studio Code
+- Visual Studio Code is a lightweight and extensible code editor used for developing the application.
+- It provides a rich set of features and extensions for Python development, including syntax highlighting, code completion, and debugging support.
+
+#### Heroku
+- Heroku is a cloud platform used for deploying and hosting the web application.
+- It provides a seamless way to deploy Django applications and manages the infrastructure and scaling of the application.
+
+#### PostgreSQL
+- PostgreSQL is a powerful and open-source relational database management system.
+- It is used as the primary database for storing application data, including user information, expenses, and categories.
+
+#### Google Fonts
+- Google Fonts is a library of free and open-source fonts used for typography in the application.
+- It provides a wide range of font styles and weights to enhance the visual appeal of the application.
+
+#### Balsamiq
+- Balsamiq is a user interface (UI) wireframing tool used for creating mockups and prototypes of the application's user interface.
+- It helps in visualizing and iterating on the design before implementing it in code.
+
+#### Draw.io
+- Draw.io is a diagramming and flowcharting tool used for creating visual representations of the application's architecture and user flows.
+- It helps in documenting and communicating complex systems and processes.
 
 ## Testing
 
