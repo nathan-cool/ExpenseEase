@@ -207,6 +207,11 @@ The primary goal of this project is to develop a financial management applicatio
 
 ### Browser Compatibility
 
+
+![Browser Testing](https://github.com/nathan-cool/django-expense-organizer/assets/127421398/803a96f7-b3be-4628-9c2b-2927e985ca0e)
+
+
+
 ### Manual Testing Test Cases and Results
 
 ### Known bugs
