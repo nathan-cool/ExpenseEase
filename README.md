@@ -78,21 +78,32 @@ The primary goal of this project is to develop a financial management applicatio
 
 ## Design
 
--   ### Wireframes
+### Wireframes
 
+<details>
+<summary>Main User Panel Wireframe</summary>
+<br>
+<img src="https://github.com/nathan-cool/django-expense-organizer/assets/127421398/bd58da71-5489-4f9f-a3ee-5acfe4f9a446" alt="Main User Panel">
+</details>
 
-![image](https://github.com/nathan-cool/django-expense-organizer/assets/127421398/bd58da71-5489-4f9f-a3ee-5acfe4f9a446)
+<details>
+<summary>Login Screen Wireframe</summary>
+<br>
+<img src="https://github.com/nathan-cool/django-expense-organizer/assets/127421398/aa88acc9-0e5f-45aa-80c9-d30c2b398442" alt="Login Screen">
+</details>
 
-![image](https://github.com/nathan-cool/django-expense-organizer/assets/127421398/aa88acc9-0e5f-45aa-80c9-d30c2b398442)
+<details>
+<summary>Sign Up Screen Wireframe</summary>
+<br>
+<img src="https://github.com/nathan-cool/django-expense-organizer/assets/127421398/ea565ffb-fce8-40f4-8c36-68b1510cd27b" alt="Sign Up Screen">
+</details>
 
-![image](https://github.com/nathan-cool/django-expense-organizer/assets/127421398/ea565ffb-fce8-40f4-8c36-68b1510cd27b)
+<details>
+<summary>Edit/Add Expense Screen Wireframe</summary>
+<br>
+<img src="https://github.com/nathan-cool/django-expense-organizer/assets/127421398/f1b00191-8bb1-4f60-b347-95b7e0aacde1" alt="Edit/Add Expense Screen">
+</details>
 
-![image](https://github.com/nathan-cool/django-expense-organizer/assets/127421398/f1b00191-8bb1-4f60-b347-95b7e0aacde1)
-
-
-
-
--   ### Entity-Relationship diagrams for DBMS
 
 ## Planning
 
