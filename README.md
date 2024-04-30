@@ -216,6 +216,10 @@ The primary goal of this project is to develop a financial management applicatio
 
 ### Known bugs
 
+#### Generate Expense Descriptions Using AI
+
+- When attempting to create a new invoice, users are expected to be able to use AI to generate descriptive texts based on minimal input. However, this functionality does not trigger during the invoice creation process, although it operates correctly during the editing of invoices.
+
 ## Deployment
 
 ### How to Clone the Repository 
