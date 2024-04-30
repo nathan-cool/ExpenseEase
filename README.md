@@ -351,3 +351,5 @@ By following these steps, you can set up and deploy your Django Expenses app on 
 ### Media 
 
 ### Acknowledgments
+
+I would like to express my gratitude to the Slack Community for their invaluable assistance. Stephen Seagrave for helping me throughout my coding. My mentor Brian Macharia.
