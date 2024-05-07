@@ -144,6 +144,20 @@ The database schema for this project is as follows:
    - `invoice_number`: CharField for storing the invoice number (optional).
    - `reference`: CharField for storing the reference (optional).
 
+## Design
+
+#### **Colour Scheme**
+
+- `#FFFFFF` ![Colour](place) - Primary background color for pages, offering a bright and clean canvas.
+- `#333533` ![Colour](place) - Main text and primary elements color, providing a stark, readable contrast.
+- `#712cf9` ![Colour](place) - Accent colour for buttons and interactive elements, adding vibrancy and emphasis.
+- `#202020` ![Colour](place) - Hover states for buttons, deepening the visual interaction feedback.
+- `#1f7c4d` ![Colour](place) - Success messages and confirmations, associating with positive actions.
+- `#5a23c8` ![Colour](place) - Shadows to enriching the depth of design elements.
+- `#ffffff` ![Colour](place) - Background colour for the authentication area, patterned using a design from [MagicPattern](https://www.magicpattern.design/tools/css-backgrounds), specifically the radial gradient of black and white, enhancing the visual appeal while maintaining functional simplicity.
+
+
+
 ## Planning
 
 ## Technologies Used
