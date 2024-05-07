@@ -31,7 +31,12 @@ The project aims to cater to a target audience of individuals who want to take c
 
 The Agile methodology was employed to plan and manage the development of the Django Expense Organizer project. GitHub was used as the primary tool to demonstrate the Agile approach.
 
-User Stories were then created as GitHub Issues, linked to the Epics. Custom issue templates were used to ensure consistency and clarity in describing the User Stories. Each User Story followed a specific format, including a title, description, acceptance criteria, and any relevant dependencies or notes.
+User Stories were then created as GitHub Issues, linked to the Epics. Custom issue templates were used to ensure consistency and clarity in describing the User Stories. Each User Story followed a specific format, including a title, description.
+
+A link to my Kanban board can be found [here](https://github.com/users/nathan-cool/projects/2/views/1?pane=issue&itemId=55533266)
+
+![image](https://github.com/nathan-cool/django-expense-organizer/assets/127421398/035d6f2e-927e-4062-8ffd-3d0639c2d248)
+
 
 
 ## Features
