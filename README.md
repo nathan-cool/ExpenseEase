@@ -89,7 +89,7 @@ A link to my Kanban board can be found [here](https://github.com/users/nathan-co
 
 
 
-## Design
+## The Skeleton Plain
 
 ### Wireframes
 
@@ -117,6 +117,32 @@ A link to my Kanban board can be found [here](https://github.com/users/nathan-co
 <img src="https://github.com/nathan-cool/django-expense-organizer/assets/127421398/f1b00191-8bb1-4f60-b347-95b7e0aacde1" alt="Edit/Add Expense Screen">
 </details>
 
+### Database Schema
+
+The database schema for this project is as follows: 
+
+- **User Model (Built-in Django User Model)**
+ - Fields:
+   - `username`: CharField for storing the username (unique).
+   - `email`: EmailField for storing the user's email address (unique).
+   - `first_name`: CharField for storing the user's first name.
+   - `last_name`: CharField for storing the user's last name.
+   - `password`: CharField for storing the hashed password.
+   - `is_active`: BooleanField indicating whether the user account is active.
+
+- **Category Model**
+ - Fields:
+   - `name`: CharField for storing the name of the expense category.
+
+- **Expenses Model**
+ - Fields:
+   - `owner`: ForeignKey relationship with the User model (on_delete=models.CASCADE).
+   - `amount`: DecimalField for storing the expense amount.
+   - `date`: DateField for storing the expense date.
+   - `category`: CharField for storing the expense category.
+   - `description`: TextField for storing the expense description.
+   - `invoice_number`: CharField for storing the invoice number (optional).
+   - `reference`: CharField for storing the reference (optional).
 
 ## Planning
 
