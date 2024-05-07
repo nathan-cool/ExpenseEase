@@ -15,7 +15,9 @@
 ## User Experience (UX)
 
 ### Objective
-The primary goal of this project is to develop a financial management application that not only streamlines user authentication but also enhances the efficiency of managing personal expenses. By integrating advanced features such as Google OAuth and AI-driven expense descriptions, this application aims to provide a secure, user-friendly platform for users to track and manage their daily financial activities effectively.
+The Django Expense Organizer project was developed to address the need for a user-friendly and secure platform for managing personal expenses. The primary goal is to provide users with a streamlined and efficient way to track their daily financial activities, while also offering advanced features such as Google OAuth integration and AI-driven expense descriptions.
+
+The project aims to cater to a target audience of individuals who want to take control of their personal finances and gain insights into their spending habits. By providing a centralized platform for recording and analyzing expenses, the application empowers users to make informed financial decisions and achieve their financial goals.
 
 ### User stories :
 
