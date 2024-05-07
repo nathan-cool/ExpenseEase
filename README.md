@@ -27,6 +27,12 @@ The project aims to cater to a target audience of individuals who want to take c
 - As a user, I need to view and manage my expenses in an intuitive interface, with filters and sorting options.
 - As a user, I want to generate detailed reports with charts and graphs to analyse my spending and make informed financial decisions.
 
+### Agile
+
+The Agile methodology was employed to plan and manage the development of the Django Expense Organizer project. GitHub was used as the primary tool to demonstrate the Agile approach.
+
+User Stories were then created as GitHub Issues, linked to the Epics. Custom issue templates were used to ensure consistency and clarity in describing the User Stories. Each User Story followed a specific format, including a title, description, acceptance criteria, and any relevant dependencies or notes.
+
 
 ## Features
 
