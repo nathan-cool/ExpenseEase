@@ -265,7 +265,119 @@ The database schema for this project is as follows:
 
 
 
-### Manual Testing Test Cases and Results
+### Manual Testing
+
+<details>
+<summary>Social Authentication</summary>
+
+<table>
+<tr><th>Test</th><th>Result</th></tr>
+<tr><td>Test successful Google OAuth authentication and user creation</td><td>✓</td></tr>
+<tr><td>Test successful Google OAuth authentication with existing user</td><td>✓</td></tr>
+<tr><td>Test failed Google OAuth authentication</td><td>✓</td></tr>
+</table>
+
+</details>
+
+<details>
+<summary>User Registration</summary>
+
+<table>
+<tr><th>Test</th><th>Result</th></tr>
+<tr><td>Test successful user registration with valid data</td><td>✓</td></tr>
+<tr><td>Test registration with invalid password</td><td>✓</td></tr>
+<tr><td>Test registration with invalid name</td><td>✓</td></tr>
+<tr><td>Test registration with invalid email</td><td>✓</td></tr>
+<tr><td>Test registration with existing email</td><td>✓</td></tr>
+</table>
+
+</details>
+
+<details>
+<summary>Email Validation</summary>
+
+<table>
+<tr><th>Test</th><th>Result</th></tr>
+<tr><td>Test email validation with empty email</td><td>✓</td></tr>
+<tr><td>Test email validation with existing email</td><td>✓</td></tr>
+<tr><td>Test email validation with invalid email format</td><td>✓</td></tr>
+<tr><td>Test email validation with valid email</td><td>✓</td></tr>
+</table>
+
+</details>
+
+<details>
+<summary>Name Validation</summary>
+
+<table>
+<tr><th>Test</th><th>Result</th></tr>
+<tr><td>Test name validation with empty name</td><td>✓</td></tr>
+<tr><td>Test name validation with invalid characters</td><td>✓</td></tr>
+<tr><td>Test name validation with valid name</td><td>✓</td></tr>
+</table>
+
+</details>
+
+<details>
+<summary>Password Validation</summary>
+
+<table>
+<tr><th>Test</th><th>Result</th></tr>
+<tr><td>Test password validation with short password</td><td>✓</td></tr>
+<tr><td>Test password validation with password missing required characters</td><td>✓</td></tr>
+<tr><td>Test password validation with valid password</td><td>✓</td></tr>
+</table>
+
+</details>
+
+<details>
+<summary>User Verification</summary>
+
+<table>
+<tr><th>Test</th><th>Result</th></tr>
+<tr><td>Test successful user verification</td><td>✓</td></tr>
+<tr><td>Test verification with invalid token</td><td>✓</td></tr>
+<tr><td>Test verification of already active user</td><td>✓</td></tr>
+</table>
+
+</details>
+
+<details>
+<summary>User Login and Logout</summary>
+
+<table>
+<tr><th>Test</th><th>Result</th></tr>
+<tr><td>Test successful user login</td><td>✓</td></tr>
+<tr><td>Test login with inactive account</td><td>✓</td></tr>
+<tr><td>Test login with invalid credentials</td><td>✓</td></tr>
+<tr><td>Test successful user logout</td><td>✓</td></tr>
+</table>
+
+</details>
+
+<details>
+<summary>Expense Management</summary>
+
+<table>
+<tr><th>Test</th><th>Result</th></tr>
+<tr><td>Test adding expense with valid data</td><td>✓</td></tr>
+<tr><td>Test adding expense with missing required fields</td><td>✓</td></tr>
+<tr><td>Test editing expense with valid data</td><td>✓</td></tr>
+<tr><td>Test editing expense with missing required fields</td><td>✓</td></tr>
+<tr><td>Test deleting expense</td><td>✓</td></tr>
+</table>
+
+</details>
+
+<details>
+<summary>Description Generation</summary>
+
+<table>
+<tr><th>Test</th><th>Result</th></tr>
+<tr><td>Test generating description with valid expense details</td><td>✓</td></tr>
+<tr><td>Test handling error during description generation
+
+
 
 ### Known bugs
 
