@@ -370,14 +370,84 @@ The database schema for this project is as follows:
 </details>
 
 <details>
+ 
 <summary>Description Generation</summary>
 
 <table>
 <tr><th>Test</th><th>Result</th></tr>
 <tr><td>Test generating description with valid expense details</td><td>✓</td></tr>
 <tr><td>Test handling error during description generation
-
+</table>
 </details>
+
+### Device Testing
+<details>
+<summary>Responsivness</summary>
+
+<table>
+  <thead>
+    <tr>
+      <th>Device</th>
+      <th>Test One</th>
+      <th>Test Two</th>
+      <th>Result One</th>
+      <th>Result Two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>iPhone SE</td>
+      <td>Responsiveness</td>
+      <td>Buttons/Features</td>
+      <td>Pass</td>
+      <td>Pass</td>
+    </tr>
+    <tr>
+      <td>iPhone X</td>
+      <td>Responsiveness</td>
+      <td>Buttons/Features</td>
+      <td>Pass</td>
+      <td>Pass</td>
+    </tr>
+    <tr>
+      <td>iPhone 14</td>
+      <td>Responsiveness</td>
+      <td>Buttons/Features</td>
+      <td>Pass</td>
+      <td>Pass</td>
+    </tr>
+    <tr>
+      <td>iPhone 6</td>
+      <td>Responsiveness</td>
+      <td>Buttons/Features</td>
+      <td>Pass</td>
+      <td>Pass</td>
+    </tr>
+    <tr>
+      <td>Galaxy Fold</td>
+      <td>Responsiveness</td>
+      <td>Buttons/Features</td>
+      <td>Pass</td>
+      <td>Pass</td>
+    </tr>
+    <tr>
+      <td>24-inch Monitor</td>
+      <td>Responsiveness</td>
+      <td>Buttons/Features</td>
+      <td>Pass</td>
+      <td>Pass</td>
+    </tr>
+    <tr>
+      <td>13-inch Laptop</td>
+      <td>Responsiveness</td>
+      <td>Buttons/Features</td>
+      <td>Pass</td>
+      <td>Pass</td>
+    </tr>
+  </tbody>
+</table>
+</details>
+
 
 
 
