@@ -265,9 +265,10 @@ The database schema for this project is as follows:
 
 
 
-### Manual Testing
+### Manual Testing with User Storeys 
 
 <details>
+ 
 <summary>Social Authentication</summary>
 
 <table>
@@ -280,6 +281,7 @@ The database schema for this project is as follows:
 </details>
 
 <details>
+ 
 <summary>User Registration</summary>
 
 <table>
@@ -294,6 +296,7 @@ The database schema for this project is as follows:
 </details>
 
 <details>
+ 
 <summary>Email Validation</summary>
 
 <table>
@@ -307,6 +310,7 @@ The database schema for this project is as follows:
 </details>
 
 <details>
+ 
 <summary>Name Validation</summary>
 
 <table>
@@ -319,6 +323,7 @@ The database schema for this project is as follows:
 </details>
 
 <details>
+ 
 <summary>Password Validation</summary>
 
 <table>
@@ -331,6 +336,7 @@ The database schema for this project is as follows:
 </details>
 
 <details>
+ 
 <summary>User Verification</summary>
 
 <table>
