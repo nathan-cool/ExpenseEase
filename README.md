@@ -377,6 +377,8 @@ The database schema for this project is as follows:
 <tr><td>Test generating description with valid expense details</td><td>✓</td></tr>
 <tr><td>Test handling error during description generation
 
+</details>
+
 
 
 ### Known bugs
