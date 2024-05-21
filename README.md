@@ -19,13 +19,25 @@ The Django Expense Organizer project was developed to address the need for a use
 
 The project aims to cater to a target audience of individuals who want to take control of their personal finances and gain insights into their spending habits. By providing a centralized platform for recording and analyzing expenses, the application empowers users to make informed financial decisions and achieve their financial goals.
 
-### User stories :
+### User Stories:
 
-- As a user, I need to create a personalised account to securely access my expense details from any device.
-- As a user, I need a straightforward way to record expenses, including amount, date, category, and notes, to monitor my spending.
-- As a user, I want to manually add receipts for a paperless record.
-- As a user, I need to view and manage my expenses in an intuitive interface, with filters and sorting options.
-- As a user, I want to generate detailed reports with charts and graphs to analyse my spending and make informed financial decisions.
+- As a user, I would like to know when I reach a page I don't have access to.
+- As a user, I would like to log in so that I can access my account.
+- As a user, I would like to register for a new account so that I can create my profile and start managing my expenses.
+- As a user, I would like the ability to add an expense to keep track of my expenses.
+- As a user, I want the ability to view my expenses.
+- As a user, I want the ability to edit my expenses.
+- As a user, I want the ability to delete an expense.
+- As a user, I would like to log out of my account.
+
+### Developer Tasks:
+
+- As a developer, I need to create a readme file.
+- As a developer, I need to set up my project.
+- As a developer, I need to deploy my project to Heroku.
+- As a developer, I need to create a base HTML page and structure.
+- As a developer, I need to Integrate Google authentication.
+
 
 ### Agile
 
