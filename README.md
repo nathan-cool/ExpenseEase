@@ -158,18 +158,41 @@ The database schema for this project is as follows:
    - `invoice_number`: CharField for storing the invoice number (optional).
    - `reference`: CharField for storing the reference (optional).
 
-## Design
+## The Surface Plane
 
-#### **Colour Scheme**
+### Design
 
-- `#FFFFFF` ![Colour](place) - Primary background color for pages, offering a bright and clean canvas.
-- `#333533` ![Colour](place) - Main text and primary elements color, providing a stark, readable contrast.
-- `#712cf9` ![Colour](place) - Accent colour for buttons and interactive elements, adding vibrancy and emphasis.
-- `#202020` ![Colour](place) - Hover states for buttons, deepening the visual interaction feedback.
-- `#1f7c4d` ![Colour](place) - Success messages and confirmations, associating with positive actions.
-- `#5a23c8` ![Colour](place) - Shadows to enriching the depth of design elements.
-- `#ffffff` ![Colour](place) - Background colour for the authentication area, patterned using a design from [MagicPattern](https://www.magicpattern.design/tools/css-backgrounds), specifically the radial gradient of black and white, enhancing the visual appeal while maintaining functional simplicity.
+#### Colour Scheme
 
+- **White (#FFFFFF)**: The main background color, offering a clean and bright look.
+- **Dark Grey (#333533)**: Used for main text and key elements, providing high readability and contrast.
+- **Violet (#712cf9)**: Adds vibrancy to buttons and interactive components.
+- **Dark (#202020)**: Enhances visual feedback with button hover states.
+- **Green (#1f7c4d)**: Signifies success messages and confirmations.
+- **Purple (#5a23c8)**: Adds depth to design elements with shadow effects.
+
+#### Typography
+
+I've chosen **Nunito** as our primary font. It's clean, modern, and easy to read, making for a pleasant user experience.
+
+#### Layout and Elements
+
+- **Input Fields**: Rounded for a modern look.
+- **Cards**: Custom widths and shadows enhance visual appeal.
+- **Forms and Buttons**: Clean and simple, with hover effects to improve interaction feedback.
+- **Responsive Design**: The app adapts to different screen sizes, ensuring a consistent experience whether you're on a phone, tablet, or desktop.
+
+#### Special Elements
+
+- **Alerts**: Success alerts are styled in green with white text to clearly indicate positive actions.
+- **Password Toggle**: Conveniently placed for easy access, blending seamlessly with the form.
+- **Navbar**: Simple and functional, with text styled for readability and a polished look.
+
+#### Imagery
+
+I've used background patterns and radial gradients to add depth and texture, creating a visually appealing and modern interface.
+
+These design choices ensure the Django Expense Organizer looks great and is easy to use, no matter what device you're on.
 
 
 ## Planning
