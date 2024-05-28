@@ -14,10 +14,10 @@
 
 ## User Experience (UX)
 
-### Objective
-The Django Expense Organizer project was developed to address the need for a user-friendly and secure platform for managing personal expenses. The primary goal is to provide users with a streamlined and efficient way to track their daily financial activities, while also offering advanced features such as Google OAuth integration and AI-driven expense descriptions.
+### Overview
+The Django Expense Organizer project was created to offer a user-friendly and secure way to manage personal expenses. It aims to streamline tracking daily financial activities and includes advanced features like Google OAuth integration and AI-driven expense descriptions.
 
-The project aims to cater to a target audience of individuals who want to take control of their personal finances and gain insights into their spending habits. By providing a centralized platform for recording and analyzing expenses, the application empowers users to make informed financial decisions and achieve their financial goals.
+This app is designed for anyone looking to take control of their finances and better understand their spending habits. By centralizing expense recording and analysis, it helps users make informed financial decisions and achieve their financial goals.
 
 ### User Stories:
 
@@ -55,7 +55,7 @@ A link to my Kanban board can be found [here](https://github.com/users/nathan-co
 
 ### Existing Features
 
-#### Authentication System
+#### Authentication System and security 
 
 - **Registration System**: Allows users to create a new account by providing their name, email, and password. The registration view splits the user's name into first and last names, validates the provided information, and if valid, sends a verification email to activate the account.
 
@@ -70,6 +70,8 @@ A link to my Kanban board can be found [here](https://github.com/users/nathan-co
 - **Password Validation**: Checks password strength to ensure it meets the required criteria for security.
 
 - **Account Verification**: After registration, users receive an email with a link to verify their account, ensuring the email address belongs to them.
+
+To restrict access to certain views and features, the Django @login_required decorator is used. This ensures that only registered and authenticated users can access these views. If an unauthenticated user tries to reach these views, they will be redirected to the login page.
 
  #### Expense Management
 
