@@ -2,15 +2,29 @@
 
 [View the live project here](...)
 
-## Index – Table of Contents
-* [User Experience (UX)](#user-experience-ux) 
-* [Features](#features)
-* [Design](#design)
-* [Planning](#planning)
-* [Technologies Used](#technologies-used)
-* [Testing](#testing)
-* [Deployment](#deployment)
-* [Credits](#credits)
+## Table of Contents
+- [User Experience (UX)](#user-experience-ux)
+  - [Overview](#overview)
+  - [User Stories](#user-stories)
+  - [Developer Tasks](#developer-tasks)
+  - [Agile](#agile)
+- [Features](#features)
+  - [Existing Features](#existing-features)
+  - [Future Features](#future-features)
+- [Design](#design)
+  - [Wireframes](#wireframes)
+  - [Database Schema](#database-schema)
+- [Technologies Used](#technologies-used)
+- [Testing](#testing)
+- [Deployment](#deployment)
+  - [How to Clone the Repository](#how-to-clone-the-repository)
+  - [Create Application and Postgres DB on Heroku](#create-application-and-postgres-db-on-heroku)
+- [Credits](#credits)
+  - [Code](#code)
+  - [Content](#content)
+  - [Media](#media)
+  - [Acknowledgments](#acknowledgments)
+
 
 ## User Experience (UX)
 
