@@ -1,4 +1,4 @@
-# Django expenses app 
+# ExpenseEase
 
 [View the live project here](...)
 
@@ -29,7 +29,7 @@
 ## User Experience (UX)
 
 ### Overview
-The Django Expense Organizer project was created to offer a user-friendly and secure way to manage personal expenses. It aims to streamline tracking daily financial activities and includes advanced features like Google OAuth integration and AI-driven expense descriptions. This app is designed for anyone looking to take control of their finances and better understand their spending habits.
+The ExpenseEase project was created to offer a user-friendly and secure way to manage personal expenses. It aims to streamline tracking daily financial activities and includes advanced features like Google OAuth integration and AI-driven expense descriptions. This app is designed for anyone looking to take control of their finances and better understand their spending habits.
 
 ### User Stories
 - As a user, I would like to know when I reach a page I don't have access to.
@@ -51,9 +51,9 @@ The Django Expense Organizer project was created to offer a user-friendly and se
 
 ### Agile
 
-The Agile methodology was employed to plan and manage the development of the Django Expense Organizer project. GitHub was used as the primary tool to demonstrate the Agile approach.
+The Agile methodology was employed to plan and manage the development of the ExpenseEase project. GitHub was used as the primary tool to demonstrate the Agile approach.
 
-User Stories were then created as GitHub Issues, linked to the Epics. Custom issue templates were used to ensure consistency and clarity in describing the User Stories. Each User Story followed a specific format, including a title, description.
+User Stories were then created as GitHub Issues, linked to the Epics. Custom issue templates were used to ensure consistency and clarity in describing the User Stories. Each User Story followed a specific format, including a title, and description.
 
 A link to my Kanban board can be found [here](https://github.com/users/nathan-cool/projects/2/views/1?pane=issue&itemId=55533266)
 
@@ -68,7 +68,7 @@ A link to my Kanban board can be found [here](https://github.com/users/nathan-co
 - **Login System**: Users can log in to their account using their email and password. The system checks if the account is active and has correct credentials before granting access.
 - **Logout System**: Logged-in users can log out of their account, which redirects them to the login page with a success message.
 - **Google OAuth Integration**: Users have the option to authenticate using Google, simplifying the login process without the need for a password.
-- **Email Validation**: Validates emails in real-time during registration to ensure they are not already in use and follow the correct format.
+- **Email Validation**: Validates email in real-time during registration to ensure they are not already in use and follow the correct format.
 - **Password Validation**: Checks password strength to ensure it meets the required criteria for security.
 - **Account Verification**: After registration, users receive an email with a link to verify their account, ensuring the email address belongs to them.
 
@@ -182,7 +182,7 @@ I've chosen **Nunito** as our primary font. It's clean, modern, and easy to read
 
 I've used background patterns and radial gradients to add depth and texture, creating a visually appealing and modern interface.
 
-These design choices ensure the Django Expense Organizer looks great and is easy to use, no matter what device you're on.
+These design choices ensure the ExpenseEase looks great and is easy to use, no matter what device you're on.
 
 
 ## Planning
