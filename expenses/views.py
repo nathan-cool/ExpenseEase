@@ -10,7 +10,7 @@ import json
 from django.http import HttpResponse, JsonResponse
 load_dotenv(override=True)
 
-def searchExpenses(request):
+def search_expenses(request):
     """
     Search for expenses in the database.
 

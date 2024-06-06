@@ -57,14 +57,15 @@
 					></button>
 				</li>
 			</ul>
-			<div id="navbarSearch" class="navbar-search w-100">
-				<input
-					class="form-control w-100 rounded-0 border-0"
-					type="text"
-					placeholder="Search"
-					aria-label="Search"
-				/>
-			</div>
+	
+			<input
+				id="searchField"
+				type="text"
+				class="form-control w-90 rounded-0 border-0"
+				placeholder="Search Expenses"
+			/>
+		
+	</div>
 
 			<form action="{% url 'logout'%}">
 				{% csrf_token %}

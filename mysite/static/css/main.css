@@ -28,6 +28,10 @@ hr {
     );
   }
  /* Removes the default background image for form-control class */
+ #searchField{
+	width: 80% !important; 
+
+ }
   .form-control {
     background-image: none !important;
   }
