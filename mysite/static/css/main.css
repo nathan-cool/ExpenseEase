@@ -28,10 +28,17 @@ hr {
     );
   }
  /* Removes the default background image for form-control class */
- #searchField{
-	width: 80% !important; 
+.row {
+    display: flex;
 
- }
+}
+.row .col-md-6 {
+    display: flex;
+    justify-content: space-between; /* This is not necessary unless you want to adjust specific alignment */
+}
+.breadcrumb {
+    margin-bottom: 0; /* Removes default bottom margin from breadcrumb for better alignment */
+}
   .form-control {
     background-image: none !important;
   }
@@ -50,6 +57,12 @@ hr {
     min-width: 200px;
     max-width: 500px;
   }
+
+	.row.flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+}
 
 	
   
@@ -176,6 +189,32 @@ hr {
 .icon {
   width: 20px ;
   height: 20px;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.breadcrumb {
+    background: transparent; /* Removes the default grey background */
+    padding: 0; /* Removes default padding */
+    margin-bottom: 0; /* Reduces space below the breadcrumb */
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">"; /* Custom separator */
+    color: #333; /* Dark gray color for visibility */
+}
+
+.form-group {
+    margin-top: 20px; /* Adds some space above the search bar */
+}
+
+.btn-primary {
+    padding: .375rem .75rem; /* Standard padding for bootstrap buttons */
+    color: #fff; /* White text */
+    background-color: #007bff; /* Blue background */
+    border-color: #007bff; /* Blue border */
 }
 
 .btn-bd-primary {
