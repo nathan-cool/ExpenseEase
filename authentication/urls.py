@@ -1,7 +1,6 @@
 from django.urls import include, path
 from .views import RegistrationView, EmailValidationView, users_nameValidationView, PasswordValidationView, VerificationView, LoginView, LogoutView, social_auth
 from django.views.decorators.csrf import csrf_exempt
-
 from authentication import views
 
 

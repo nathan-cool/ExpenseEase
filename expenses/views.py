@@ -6,7 +6,38 @@ from .models import Category, Expenses
 from django.shortcuts import redirect
 from django.contrib import messages
 import openai
+import json
+from django.http import HttpResponse, JsonResponse
 load_dotenv(override=True)
+
+def searchExpenses(request):
+    """
+    Search for expenses in the database.
+
+    Args:
+        request (HttpRequest): The request object.
+
+    Returns:
+        HttpResponse: The response object.
+    """
+    if request.method == "POST":
+        search_str = json.loads(request.body).get("searchText",'')
+        expenses = Expenses.objects.filter(
+            amount__istartswith=search_str, owner=request.user
+        ) or Expenses.objects.filter(
+            date__istartswith=search_str, owner=request.user
+        ) or Expenses.objects.filter(
+            category__icontains=search_str, owner=request.user
+        ) or Expenses.objects.filter(
+            description__icontains=search_str, owner=request.user
+        ) or Expenses.objects.filter(
+            invoice_number__icontains=search_str, owner=request.user
+        ) or Expenses.objects.filter(
+            reference__icontains=search_str, owner=request.user
+        )
+        data = expenses.values()
+        return JsonResponse(list(data), safe=False)
+
 
 
 # Create your views here.
