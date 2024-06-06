@@ -105,6 +105,12 @@
 
 
 <script src="{% static 'js/searchExpenses.js' %}"></script>
+<script>
+  let urlTemplates = {
+    editExpense: `{% url 'expense-edit' 999999 %}`.replace('999999', '{id}'),
+    deleteExpense: `{% url 'delete-expense' 999999 %}`.replace('999999', '{id}')
+  };
+</script>
 
 
 {% endblock %}
