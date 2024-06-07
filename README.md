@@ -80,6 +80,8 @@ To restrict access to certain views and features, the Django `@login_required` d
 - **Edit Expenses**: Each expense can be edited using the edit functionality. Users can update the amount, date, category, description, and other relevant details.
 - **Delete Expenses**: Expenses can be deleted with a confirmation step to prevent accidental deletions.
 - **Generate Expense Descriptions Using AI**: Utilizes OpenAI's API to generate descriptive texts for expenses based on minimal input.
+- **Multi-Currency Support**: Allow users to record expenses in different currencies, automatically converting them based on current exchange rates.
+- **Search Expenses**:
 
 ### Future Features
 - **Password Reset**: Allows users to reset their password if forgotten, via a link sent to their registered email.
@@ -88,7 +90,7 @@ To restrict access to certain views and features, the Django `@login_required` d
 - **Budget Planning**: Tools to set monthly or annual budgets for various categories, with notifications for when spending approaches or exceeds these limits.
 - **Expense Sharing**: Functionality for users to split and share expenses with others, useful for group activities or shared living arrangements.
 - **Receipt Scanning**: Automatically populate expense entries by scanning receipts using OCR technology.
-- **Multi-Currency Support**: Allow users to record expenses in different currencies, automatically converting them based on current exchange rates.
+
 
 
 
@@ -147,6 +149,12 @@ The database schema for this project is as follows:
    - `description`: TextField for storing the expense description.
    - `invoice_number`: CharField for storing the invoice number (optional).
    - `reference`: CharField for storing the reference (optional).
+
+- **Preferences Model**
+ - Fields:
+   - `currency`: Allows users to change currency from the settins tab
+
+  
 
 ## The Surface Plane
 
