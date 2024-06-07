@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Expenses</a></li>
@@ -11,20 +11,22 @@
                 </ol>
             </nav>
         </div>
-        <div class="col-md-2 text-right">
-            <a href="{% url 'add-expenses' %}" class="btn btn-primary btn-sm">Add Expenses</a>
-        </div>
+        
     </div>
-    <div class="row">
-        <div class="col-md-12">
+    <div class="row searchandadd">
+        <div class="col-md-10">
             <div class="form-group">
                 <input type="text" class="form-control" id="searchField" placeholder="Search Expenses">
             </div>
+        </div>
+				<div class="col-md-2 text-right addexpensebtn">
+            <a href="{% url 'add-expenses' %}" class="btn btn-primary btn-sm">Add Expenses</a>
         </div>
     </div>
 </div>
 {% if expenses.count %}
 <div class="container">
+	
 	<div class="row">
 		<div class="col-md-8"></div>
 		<div class-"col-md-4">

@@ -36,6 +36,17 @@ hr {
     display: flex;
     justify-content: space-between; /* This is not necessary unless you want to adjust specific alignment */
 }
+
+.searchandadd {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		margin-bottom: 20px;
+}
+.signoutbtn{
+		margin: 10px;
+}
+
 .breadcrumb {
     margin-bottom: 0; /* Removes default bottom margin from breadcrumb for better alignment */
 }
@@ -207,7 +218,7 @@ hr {
 }
 
 .form-group {
-    margin-top: 20px; /* Adds some space above the search bar */
+    margin-top: 20px; 
 }
 
 .btn-primary {
@@ -215,6 +226,15 @@ hr {
     color: #fff; /* White text */
     background-color: #007bff; /* Blue background */
     border-color: #007bff; /* Blue border */
+		height: 38px;
+}
+
+.btn-danger {
+		padding: .375rem .75rem; /* Standard padding for bootstrap buttons */
+		color: #fff; /* White text */
+		background-color: #dc3545; /* Red background */
+		border-color: #dc3545; /* Red border */
+		height: 38px;
 }
 
 .btn-bd-primary {

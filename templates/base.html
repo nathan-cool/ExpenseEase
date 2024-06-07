@@ -31,7 +31,7 @@
 			<a
 				class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white"
 				href="#"
-				>Expenses App</a
+				>ExpenseEase</a
 			>
 			<ul class="navbar-nav flex-row d-md-none">
 				<li class="nav-item text-nowrap">
@@ -62,7 +62,7 @@
 		
 	</div>
 
-			<form action="{% url 'logout'%}">
+			<form class="signoutbtn" action="{% url 'logout'%}">
 				{% csrf_token %}
 				<input
 					type="submit"
