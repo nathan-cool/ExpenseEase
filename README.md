@@ -82,6 +82,8 @@ To restrict access to certain views and features, the Django `@login_required` d
 - **Generate Expense Descriptions Using AI**: Utilizes OpenAI's API to generate descriptive texts for expenses based on minimal input.
 - **Multi-Currency Support**: Allow users to record expenses in different currencies, automatically converting them based on current exchange rates.
 - **Search Expenses**:
+- **pagination**:
+
 
 ### Future Features
 - **Password Reset**: Allows users to reset their password if forgotten, via a link sent to their registered email.
@@ -152,7 +154,7 @@ The database schema for this project is as follows:
 
 - **Preferences Model**
  - Fields:
-   - `currency`: Allows users to change currency from the settins tab
+   - `currency`: Allows users to change currency from the settings tab
 
   
 
