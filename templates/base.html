@@ -33,44 +33,21 @@
 				href="#"
 				>ExpenseEase</a
 			>
-			<ul class="navbar-nav flex-row d-md-none">
-				<li class="nav-item text-nowrap">
-					<button
-						class="nav-link px-3 text-white"
-						type="button"
-						data-bs-toggle="collapse"
-						data-bs-target="#navbarSearch"
-						aria-controls="navbarSearch"
-						aria-expanded="false"
-						aria-label="Toggle search"
-					></button>
-				</li>
-				<li class="nav-item text-nowrap">
-					<button
-						class="nav-link px-3 text-white"
-						type="button"
-						data-bs-toggle="offcanvas"
-						data-bs-target="#sidebarMenu"
-						aria-controls="sidebarMenu"
-						aria-expanded="false"
-						aria-label="Toggle navigation"
-					></button>
-				</li>
-			</ul>
-	
-			
+			<ul class="navbar-nav px-3 emaildisplay">
+				
+				<div class="user-controls emaildisplay">
+        <span class="user-email"> {{request.user.first_name}} ({{ request.user.email }})</span>
+        <form class="signoutbtn" action="{% url 'logout'%}">
+            {% csrf_token %}
+            <input
+                type="submit"
+                value="Sign out"
+                class="form-control sign-out-button"
+            />
+        </form>
+    </div>
+</header>
 		
-	</div>
-
-			<form class="signoutbtn" action="{% url 'logout'%}">
-				{% csrf_token %}
-				<input
-					type="submit"
-					value="Sign out"
-					class="form-control w-100 rounded-0 border-0"
-				/>
-			</form>
-		</header>
 
 		<!-- Main content -->
 		<div class="container-fluid">

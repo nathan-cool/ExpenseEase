@@ -50,8 +50,8 @@ searchField.addEventListener('keyup', (e) => {
                             <td>${item.invoice_number}</td>
                             <td>${item.reference}</td>
                             <td>
-                                <a class="btn btn-sm btn-primary" href="${editUrl}">Edit</a> // Add the editUrl to the Edit button
-                                <a class="btn btn-sm btn-danger" href="${deleteUrl}" onclick="return confirm('Are you sure you want to delete this expense?')">Delete</a> // Add the deleteUrl to the Delete button
+                                <a class="btn btn-sm btn-primary" href="${editUrl}">Edit</a>
+                                <a class="btn btn-sm btn-danger" href="${deleteUrl}" onclick="return confirm('Are you sure you want to delete this expense?')">Delete</a>
                             </td>
                         </tr>
                     `;

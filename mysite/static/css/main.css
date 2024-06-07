@@ -43,6 +43,23 @@ hr {
 		align-items: flex-end;
 		margin-bottom: 20px;
 }
+.emaildisplay{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    color: white;
+}
+
+.sign-out-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100px;
+  height: 50px;
+}
+
 .signoutbtn{
 		margin: 10px;
 }

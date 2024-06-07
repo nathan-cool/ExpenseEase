@@ -7,7 +7,10 @@ from django.shortcuts import redirect
 from django.contrib import messages
 import openai
 import json
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
+from preferences.models import UserPreferences
+from django.core.paginator import Paginator
+
 load_dotenv(override=True)
 
 def search_expenses(request):
@@ -39,7 +42,6 @@ def search_expenses(request):
         return JsonResponse(list(data), safe=False)
 
 
-
 # Create your views here.
 @login_required(login_url="/authentication/login")
 def index(request):
@@ -54,9 +56,14 @@ def index(request):
     """
     # categories = Category.objects.all() ??
     expenses = Expenses.objects.filter(owner=request.user)
-
+    paginator = Paginator(expenses, 5)
+    page_number = request.GET.get("page")
+    page_obj= paginator.get_page(page_number)
+    currency = UserPreferences.objects.get(user=request.user).currency
     context = {
         "expenses": expenses,
+        "currency":currency,
+        "page_obj": page_obj,
     }
 
     return render(request, "expenses/index.html", context)
