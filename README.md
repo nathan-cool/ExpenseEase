@@ -82,7 +82,7 @@ To restrict access to certain views and features, the Django `@login_required` d
 - **Generate Expense Descriptions Using AI**: Utilizes OpenAI's API to generate descriptive texts for expenses based on minimal input.
 - **Multi-Currency Support**: Allow users to record expenses in different currencies, automatically converting them based on current exchange rates.
 - **Search Expenses**: Users can easily find their recorded expenses by typing in keywords or amounts. The search feature lets you filter expenses based on different fields like amount, date, category, description, invoice number, and reference. This helps you quickly locate specific expenses without any hassle.
-- **pagination**:
+- **pagination**: To make it easier to browse through your expenses, the app uses pagination. This means your expenses are divided into smaller, more manageable pages, so you don't have to load everything at once. This keeps the app fast and user-friendly.
 
 
 ### Future Features
@@ -294,6 +294,61 @@ These design choices ensure the ExpenseEase looks great and is easy to use, no m
   </tbody>
 </table>
 </details>
+
+<details>
+<summary>Pagination</summary></summary>
+<table>
+  <thead>
+    <tr>
+      <th>Test</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Test pagination with default page</td>
+      <td>Load the expenses page without any query parameters. Verify that the first 5 expenses are displayed. Ensure pagination controls are visible and functional.</td>
+    </tr>
+    <tr>
+      <td>Test pagination with specific page</td>
+      <td>Load the expenses page with a specific page number (e.g., `?page=2`). Verify that the correct set of expenses for that page is displayed.</td>
+    </tr>
+    <tr>
+      <td>Test pagination with invalid page number</td>
+      <td>Load the expenses page with an invalid page number (e.g., `?page=999`). Verify that a valid page of expenses is displayed and no errors occur.</td>
+    </tr>
+    <tr>
+      <td>Test pagination controls visibility</td>
+      <td>Ensure that pagination controls (next, previous, page numbers) are visible and functional when there are more than 5 expenses.</td>
+    </tr>
+    <tr>
+      <td>Test pagination on boundary pages</td>
+      <td>Verify that navigating to the first page from the second page and to the last page from the second-to-last page works correctly.</td>
+    </tr>
+    <tr>
+      <td>Test currency display</td>
+      <td>Ensure that the correct currency is displayed for expenses based on the user's preferences.</td>
+    </tr>
+    <tr>
+      <td>Test pagination without expenses</td>
+      <td>Load the expenses page when there are no expenses. Verify that an appropriate message is displayed and no errors occur.</td>
+    </tr>
+    <tr>
+      <td>Test switching pages rapidly</td>
+      <td>Rapidly switch between pages using pagination controls. Verify that the application handles this gracefully without performance issues or errors.</td>
+    </tr>
+    <tr>
+      <td>Test adding expense on paginated view</td>
+      <td>Add a new expense when viewing a non-first page. Verify that the new expense is correctly added and pagination adjusts accordingly.</td>
+    </tr>
+    <tr>
+      <td>Test removing expense on paginated view</td>
+      <td>Remove an expense when viewing a non-first page. Verify that the expense is correctly removed and pagination adjusts accordingly.</td>
+    </tr>
+  </tbody>
+</table>
+</details>
+
 
 
 <details>
