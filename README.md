@@ -81,8 +81,8 @@ To restrict access to certain views and features, the Django `@login_required` d
 - **Delete Expenses**: Expenses can be deleted with a confirmation step to prevent accidental deletions.
 - **Generate Expense Descriptions Using AI**: Utilizes OpenAI's API to generate descriptive texts for expenses based on minimal input.
 - **Multi-Currency Support**: Allow users to record expenses in different currencies, automatically converting them based on current exchange rates.
-- **Search Expenses**:
-- **pagination**:
+- **Search Expenses**: Users can easily find their recorded expenses by typing in keywords or amounts. The search feature lets you filter expenses based on different fields like amount, date, category, description, invoice number, and reference. This helps you quickly locate specific expenses without any hassle.
+- **pagination**: To make it easier to browse through your expenses, the app uses pagination. This means your expenses are divided into smaller, more manageable pages, so you don't have to load everything at once. This keeps the app fast and user-friendly.
 
 
 ### Future Features
@@ -92,8 +92,6 @@ To restrict access to certain views and features, the Django `@login_required` d
 - **Budget Planning**: Tools to set monthly or annual budgets for various categories, with notifications for when spending approaches or exceeds these limits.
 - **Expense Sharing**: Functionality for users to split and share expenses with others, useful for group activities or shared living arrangements.
 - **Receipt Scanning**: Automatically populate expense entries by scanning receipts using OCR technology.
-
-
 
 
 
@@ -240,7 +238,118 @@ These design choices ensure the ExpenseEase looks great and is easy to use, no m
 
 
 
-### Manual Testing with User Storeys 
+### Manual Testing with User Storeys
+
+
+<details>
+<summary>Search Expenses</summary>
+<table>
+  <thead>
+    <tr>
+      <th>Test</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Test successful search by amount (exact match)</td>
+      <td>Enter a specific amount (e.g., '100'). Verify that expenses with the exact amount of '100' are returned. Ensure that only expenses belonging to the logged-in user are included.</td>
+    </tr>
+    <tr>
+      <td>Test successful search by amount (partial match)</td>
+      <td>Enter a partial amount (e.g., '10'). Verify that expenses with amounts starting with '10' (e.g., '100', '105') are returned. Ensure that only expenses belonging to the logged-in user are included.</td>
+    </tr>
+    <tr>
+      <td>Test successful search by date (exact match)</td>
+      <td>Enter a specific date (e.g., '2024-06-11'). Verify that expenses with the exact date of '2024-06-11' are returned. Ensure that only expenses belonging to the logged-in user are included.</td>
+    </tr>
+    <tr>
+      <td>Test successful search by date (partial match)</td>
+      <td>Enter a partial date (e.g., '2024-06'). Verify that expenses with dates starting with '2024-06' are returned. Ensure that only expenses belonging to the logged-in user are included.</td>
+    </tr>
+    <tr>
+      <td>Test successful search by category</td>
+      <td>Enter a category keyword (e.g., 'Travel'). Verify that expenses with categories containing the keyword 'Travel' are returned. Ensure that only expenses belonging to the logged-in user are included.</td>
+    </tr>
+    <tr>
+      <td>Test successful search by description</td>
+      <td>Enter a description keyword (e.g., 'dinner'). Verify that expenses with descriptions containing the keyword 'dinner' are returned. Ensure that only expenses belonging to the logged-in user are included.</td>
+    </tr>
+    <tr>
+      <td>Test successful search by invoice number</td>
+      <td>Enter an invoice number keyword (e.g., 'INV123'). Verify that expenses with invoice numbers containing the keyword 'INV123' are returned. Ensure that only expenses belonging to the logged-in user are included.</td>
+    </tr>
+    <tr>
+      <td>Test successful search by reference</td>
+      <td>Enter a reference keyword (e.g., 'REF456'). Verify that expenses with references containing the keyword 'REF456' are returned. Ensure that only expenses belonging to the logged-in user are included.</td>
+    </tr>
+    <tr>
+      <td>Test failed search with no matching results</td>
+      <td>Enter a search string that does not match any expense (e.g., 'nonexistent'). Verify that no expenses are returned. Ensure that the response is handled gracefully and no errors occur.</td>
+    </tr>
+    <tr>
+      <td>Test search with multiple criteria</td>
+      <td>Enter a complex search string that matches multiple fields (e.g., '100 2024-06 Travel'). Verify that expenses matching any of the criteria (amount, date, category) are returned. Ensure that only expenses belonging to the logged-in user are included.</td>
+    </tr>
+  </tbody>
+</table>
+</details>
+
+<details>
+<summary>Pagination</summary></summary>
+<table>
+  <thead>
+    <tr>
+      <th>Test</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Test pagination with default page</td>
+      <td>Load the expenses page without any query parameters. Verify that the first 5 expenses are displayed. Ensure pagination controls are visible and functional.</td>
+    </tr>
+    <tr>
+      <td>Test pagination with specific page</td>
+      <td>Load the expenses page with a specific page number (e.g., `?page=2`). Verify that the correct set of expenses for that page is displayed.</td>
+    </tr>
+    <tr>
+      <td>Test pagination with invalid page number</td>
+      <td>Load the expenses page with an invalid page number (e.g., `?page=999`). Verify that a valid page of expenses is displayed and no errors occur.</td>
+    </tr>
+    <tr>
+      <td>Test pagination controls visibility</td>
+      <td>Ensure that pagination controls (next, previous, page numbers) are visible and functional when there are more than 5 expenses.</td>
+    </tr>
+    <tr>
+      <td>Test pagination on boundary pages</td>
+      <td>Verify that navigating to the first page from the second page and to the last page from the second-to-last page works correctly.</td>
+    </tr>
+    <tr>
+      <td>Test currency display</td>
+      <td>Ensure that the correct currency is displayed for expenses based on the user's preferences.</td>
+    </tr>
+    <tr>
+      <td>Test pagination without expenses</td>
+      <td>Load the expenses page when there are no expenses. Verify that an appropriate message is displayed and no errors occur.</td>
+    </tr>
+    <tr>
+      <td>Test switching pages rapidly</td>
+      <td>Rapidly switch between pages using pagination controls. Verify that the application handles this gracefully without performance issues or errors.</td>
+    </tr>
+    <tr>
+      <td>Test adding expense on paginated view</td>
+      <td>Add a new expense when viewing a non-first page. Verify that the new expense is correctly added and pagination adjusts accordingly.</td>
+    </tr>
+    <tr>
+      <td>Test removing expense on paginated view</td>
+      <td>Remove an expense when viewing a non-first page. Verify that the expense is correctly removed and pagination adjusts accordingly.</td>
+    </tr>
+  </tbody>
+</table>
+</details>
+
+
 
 <details>
  
