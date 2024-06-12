@@ -118,6 +118,8 @@ def add_expenses(request):
             messages.error(request, "Description is required")
             return render(request, "expenses/add-expenses.html", context)
 
+   
+
         Expenses.objects.create(
             owner=owner,
             amount=amount,
