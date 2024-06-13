@@ -5,8 +5,7 @@ import json
 from django.conf import settings
 from .models import UserPreferences
 from django.contrib import messages
-
-# Create your views here.
+from django.core.exceptions import ObjectDoesNotExist
 
 
 def index(request, *args):
@@ -17,16 +16,16 @@ def index(request, *args):
         for k, v in data.items():
             currency_list.append({"name": k, "value": v})
 
-    # Check if UserPreferences exists for the user
-    user_preferences = UserPreferences.objects.filter(user=request.user).first()
+    try:
+        user_preferences = UserPreferences.objects.get(user=request.user)
+    except UserPreferences.DoesNotExist:
+        user_preferences = None
 
     if request.method == "GET":
-        # If user_preferences is None, set a default value
         if user_preferences is None:
-            user_preferences = UserPreferences(
+            user_preferences = UserPreferences.objects.create(
                 user=request.user, currency="USD"
-            )  # Default currency
-            user_preferences.save()
+            )
 
         return render(
             request,
