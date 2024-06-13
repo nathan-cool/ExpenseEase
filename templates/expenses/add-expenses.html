@@ -1,8 +1,7 @@
-{% extends 'base.html' %}
-{% block content %}
-{% load static %}
+{% extends 'base.html'%} {% block content %} {% load static %}
 
 <div class="container">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -61,6 +60,8 @@
         </div>
     </div>
 =======
+=======
+>>>>>>> parent of b8881b3 (Fixed up HTML code)
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item">
@@ -129,12 +130,22 @@
 									>Category</label
 								>
 								<select name="category" class="form-control form-select">
+<<<<<<< HEAD
   {% for category in categories %}
     <option value="{{ category.name }}" {% if category.name == expense.category %}selected{% endif %}>
       {{ category.name }}
     </option>
   {% endfor %}
 </select>
+=======
+									<!-- Loop through categories and create an option for each one -->
+									{% for category in categories %}
+										<option value="{{ category.name }}" {% if category.name == expense.category %}selected{% endif %}>
+											{{ category.name }}
+										</option>
+									{% endfor %}
+								</select>
+>>>>>>> parent of b8881b3 (Fixed up HTML code)
 							</div>
 							<div class="mb-3">
 								<label for="date" class="form-label"
@@ -150,6 +161,7 @@
 								/>
 							</div>
 							<div class="mb-3">
+<<<<<<< HEAD
   <label for="description" class="form-label">Description</label>
   <div class="form-control" style="height: auto;">
     <div class="d-flex flex-column" style="min-height: 100px;">
@@ -161,12 +173,28 @@
     </div>
   </div>
 </div>
+=======
+								<label for="description" class="form-label">Description</label>
+								<div class="form-control" style="height: auto;">
+									<div class="d-flex flex-column" style="min-height: 100px;">
+										<!-- Textarea for entering the description -->
+										<textarea id="description" name="description" placeholder="Enter Description" required class="flex-grow-1" style="border: none; outline: none; resize: none;">{{description}}</textarea>
+										<div class="d-flex justify-content-end mt-2">
+											<!-- Additional elements can be added here if needed -->
+										</div>
+									</div>
+								</div>
+							</div>
+>>>>>>> parent of b8881b3 (Fixed up HTML code)
 
 							<div class="d-grid">
 								<button type="submit" class="btn btn-primary">
 									Submit
 								</button>
+<<<<<<< HEAD
 			
+=======
+>>>>>>> parent of b8881b3 (Fixed up HTML code)
 							</div>
 						</form>
 					</div>
@@ -174,6 +202,9 @@
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
 >>>>>>> parent of 6352970 (chore: Clean up code formatting and remove unnecessary lines SearchExpenses.JS)
+=======
+>>>>>>> parent of b8881b3 (Fixed up HTML code)
 </div>
 {% endblock %}

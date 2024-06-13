@@ -1,13 +1,15 @@
-{% extends 'base.html' %}
-{% block content %}
-{% load static %}
+{% extends 'base.html'%} {% block content %} {% load static %}
 <div class="container">
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item">
-				<a href="{% url 'expenses' %}" class="text-decoration-none">Expenses</a>
+				<a href="{% url 'expenses' %}" class="text-decoration-none">
+					Expenses
+				</a>
 			</li>
-			<li class="breadcrumb-item active" aria-current="page">Edit Expenses</li>
+			<li class="breadcrumb-item active" aria-current="page">
+				Edit Expenses
+			</li>
 		</ol>
 	</nav>
 </div>
@@ -17,47 +19,122 @@
 		<div class="col-md-6 offset-md-3">
 			<div class="card">
 				<div class="card-body">
-					<form action="{% url 'expense-edit' expense.id %}" method="POST">
+					<form
+						action="{% url 'expense-edit' id=expense.id %}"
+						method="POST"
+					>
 						{% csrf_token %}
 						<div class="row mb-3">
 							<div class="col-sm-8">
-								<label for="amount" class="form-label">Amount</label>
-								<input type="number" class="form-control" id="amount" name="amount" value="{{ expense.amount }}" placeholder="Enter Amount" required />
+								<label for="amount" class="form-label"
+									>Amount</label
+								>
+								<input
+									type="number"
+									class="form-control"
+									id="amount"
+									name="amount"
+									value="{{amount}}"
+									placeholder="Enter Amount"
+									required
+								/>
 							</div>
 							<div class="col-sm-4">
-								<label for="invoice_number" class="form-label">Invoice #</label>
-								<input type="text" class="form-control" id="invoice_number" name="invoice_number" value="{{ expense.invoice_number }}" placeholder="Invoice Number" />
+								<label for="invoice_number" class="form-label"
+									>Invoice #</label
+								>
+								<input
+									type="text"
+									class="form-control"
+									id="invoice_number"
+									name="invoice_number"
+									value="{{ invoice_number }}"
+									placeholder="Invoice Number"
+								/>
 							</div>
 						</div>
 						<div class="mb-3">
-							<label for="reference" class="form-label">Reference</label>
-							<input type="text" class="form-control" id="reference" name="reference" value="{{ expense.reference }}" placeholder="Enter Reference" />
+							<label for="reference" class="form-label"
+								>Reference</label
+							>
+							<input
+								type="text"
+								class="form-control"
+								id="reference"
+								name="reference"
+								value="{{reference}}"
+								placeholder="Enter Reference"
+							/>
 						</div>
 						<div class="mb-3">
-							<label for="category" class="form-label">Category</label>
-							<select name="category" class="form-select" required>
+							<label for="category" class="form-label"
+								>Category</label
+							>
+							<select
+								name="category"
+								class="form-select"
+								required
+							>
+								
 								{% for category in categories %}
-									<option value="{{ category.name }}" {% if category.name == expense.category %}selected{% endif %}>
-										{{ category.name }}
-									</option>
+    <option value="{{ category.name }}" {% if category.name == current_category %}selected{% endif %}>
+        {{ category.name }}
+    </option>
 								{% endfor %}
 							</select>
 						</div>
 						<div class="mb-3">
 							<label for="date" class="form-label">Date</label>
-							<input type="date" class="form-control" id="date" name="date" value="{{ expense.date }}" required />
+							<input
+								type="date"
+								class="form-control"
+								id="date"
+								name="date"
+								value="{{date}}"
+								required
+							/>
 						</div>
 						<div class="mb-3">
-							<label for="description" class="form-label">Description</label>
-							<textarea id="description" name="description" placeholder="Enter Description" required class="form-control" style="height: auto; min-height: 100px; border: none; outline: none; resize: none;">{{ expense.description }}</textarea>
-							<div class="d-flex justify-content-end mt-2">
-								<a href="{% url 'generate-description' expense.id %}">
-									<img src="{% static 'images/chat.png' %}" alt="Icon" class="icon" />
-								</a>
+							<label for="description" class="form-label"
+								>Description</label
+							>
+							<div class="form-control" style="height: auto">
+								<div
+									class="d-flex flex-column"
+									style="min-height: 100px"
+								>
+									<textarea
+										id="description"
+										name="description"
+										placeholder="Enter Description"
+										required
+										class="flex-grow-1"
+										style="
+											border: none;
+											outline: none;
+											resize: none;
+										"
+									>
+{{description}}</textarea
+									>
+									<div
+										class="d-flex justify-content-end mt-2"
+									>
+										<a
+											href="{% url 'generate-description' expense.id %}"
+											><img
+												src="{% static '/images/chat.png' %}"
+												alt="Icon"
+												class="icon"
+										/></a>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="d-grid">
-							<button type="submit" class="btn btn-primary">Save</button>
+							<button type="submit" class="btn btn-primary">
+								Save
+							</button>
 						</div>
 					</form>
 				</div>
