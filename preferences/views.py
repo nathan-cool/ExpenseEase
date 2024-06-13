@@ -8,13 +8,10 @@ from django.contrib import messages
 
 # Create your views here.
 
-
-def index(request):
-
+def index(request, *args):
     currency_list = []
 
     with open(os.path.join(settings.BASE_DIR, "currencies.json"), "r") as file:
-
         data = json.load(file)
         exists = UserPreferences.objects.filter(user=request.user).exists()
         user_preferences = None

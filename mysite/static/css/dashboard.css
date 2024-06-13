@@ -10,26 +10,26 @@
 
 @media (min-width: 768px) {
   .sidebar .offcanvas-lg {
-    position: -webkit-sticky;
+    position: -webkit-sticky; /* Sticky position for the sidebar */
     position: sticky;
-    top: 48px;
+    top: 48px; /* Distance from the top */
   }
   .navbar-search {
-    display: block;
+    display: block; /* Show the search bar */
   }
 }
 
 .sidebar .nav-link {
-  font-size: .95rem;
+  font-size: 0.95rem;
   font-weight: 500;
 }
 
 .sidebar .nav-link.active {
-  color: #235ee9;
+  color: #235ee9; /* Active link color */
 }
 
 .sidebar-heading {
-  font-size: .75rem;
+  font-size: 0.75rem;
 }
 
 /*
@@ -37,16 +37,15 @@
  */
 
 .navbar-brand {
-  padding-top: .75rem;
-  padding-bottom: .75rem;
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25); /* Shadow effect for the navbar */
 }
 
 .navbar .form-control {
-  padding: .75rem 1rem;
+  padding: 0.75rem 1rem;
 }
 
-.nav-link{
-  color: rgb(63, 61, 61)
+.nav-link {
+  color: rgb(63, 61, 61); /* Default link color */
 }
-

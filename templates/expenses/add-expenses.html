@@ -69,12 +69,13 @@
 									>Category</label
 								>
 								<select name="category" class="form-control form-select">
-  {% for category in categories %}
-    <option value="{{ category.name }}" {% if category.name == expense.category %}selected{% endif %}>
-      {{ category.name }}
-    </option>
-  {% endfor %}
-</select>
+									<!-- Loop through categories and create an option for each one -->
+									{% for category in categories %}
+										<option value="{{ category.name }}" {% if category.name == expense.category %}selected{% endif %}>
+											{{ category.name }}
+										</option>
+									{% endfor %}
+								</select>
 							</div>
 							<div class="mb-3">
 								<label for="date" class="form-label"
@@ -90,23 +91,22 @@
 								/>
 							</div>
 							<div class="mb-3">
-  <label for="description" class="form-label">Description</label>
-  <div class="form-control" style="height: auto;">
-    <div class="d-flex flex-column" style="min-height: 100px;">
-      <textarea id="description" name="description" placeholder="Enter Description" required class="flex-grow-1" style="border: none; outline: none; resize: none;">{{description}}</textarea>
-      <div class="d-flex justify-content-end mt-2">
-       
-        
-      </div>
-    </div>
-  </div>
-</div>
+								<label for="description" class="form-label">Description</label>
+								<div class="form-control" style="height: auto;">
+									<div class="d-flex flex-column" style="min-height: 100px;">
+										<!-- Textarea for entering the description -->
+										<textarea id="description" name="description" placeholder="Enter Description" required class="flex-grow-1" style="border: none; outline: none; resize: none;">{{description}}</textarea>
+										<div class="d-flex justify-content-end mt-2">
+											<!-- Additional elements can be added here if needed -->
+										</div>
+									</div>
+								</div>
+							</div>
 
 							<div class="d-grid">
 								<button type="submit" class="btn btn-primary">
 									Submit
 								</button>
-			
 							</div>
 						</form>
 					</div>

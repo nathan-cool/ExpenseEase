@@ -13,6 +13,7 @@ from django.core.paginator import Paginator
 
 load_dotenv(override=True)
 
+
 def search_expenses(request):
     """
     Search for expenses in the database.
@@ -24,25 +25,27 @@ def search_expenses(request):
         HttpResponse: The response object.
     """
     if request.method == "POST":
-        search_str = json.loads(request.body).get("searchText",'')
-        expenses = Expenses.objects.filter(
-            amount__istartswith=search_str, owner=request.user
-        ) or Expenses.objects.filter(
-            date__istartswith=search_str, owner=request.user
-        ) or Expenses.objects.filter(
-            category__icontains=search_str, owner=request.user
-        ) or Expenses.objects.filter(
-            description__icontains=search_str, owner=request.user
-        ) or Expenses.objects.filter(
-            invoice_number__icontains=search_str, owner=request.user
-        ) or Expenses.objects.filter(
-            reference__icontains=search_str, owner=request.user
+        search_str = json.loads(request.body).get("searchText", "")
+        expenses = (
+            Expenses.objects.filter(amount__istartswith=search_str, owner=request.user)
+            or Expenses.objects.filter(date__istartswith=search_str, owner=request.user)
+            or Expenses.objects.filter(
+                category__icontains=search_str, owner=request.user
+            )
+            or Expenses.objects.filter(
+                description__icontains=search_str, owner=request.user
+            )
+            or Expenses.objects.filter(
+                invoice_number__icontains=search_str, owner=request.user
+            )
+            or Expenses.objects.filter(
+                reference__icontains=search_str, owner=request.user
+            )
         )
         data = expenses.values()
         return JsonResponse(list(data), safe=False)
 
 
-# Create your views here.
 @login_required(login_url="/authentication/login")
 def index(request):
     """
@@ -58,11 +61,11 @@ def index(request):
     expenses = Expenses.objects.filter(owner=request.user)
     paginator = Paginator(expenses, 5)
     page_number = request.GET.get("page")
-    page_obj= paginator.get_page(page_number)
+    page_obj = paginator.get_page(page_number)
     currency = UserPreferences.objects.get(user=request.user).currency
     context = {
         "expenses": expenses,
-        "currency":currency,
+        "currency": currency,
         "page_obj": page_obj,
     }
 
@@ -117,8 +120,6 @@ def add_expenses(request):
         if not description:
             messages.error(request, "Description is required")
             return render(request, "expenses/add-expenses.html", context)
-
-   
 
         Expenses.objects.create(
             owner=owner,
@@ -238,7 +239,9 @@ def delete_expense(request, id):
             messages.error(request, "An error occurred while deleting the expense")
             return redirect("expenses")
 
+
 print("Using API Key:", os.getenv("OPENAI_API_KEY"))  # Temporarily check the API key
+
 
 # Generate description
 def create_assistant(expense_details):
@@ -264,9 +267,7 @@ def create_assistant(expense_details):
                     "content": f"Amount: {expense_details['amount']}\nInvoice Number: {expense_details['invoice_number']}\nReference: {expense_details['reference']}\nCategory: {expense_details['category']}\nDate: {expense_details['date']}",
                 },
             ],
-            api_key=os.getenv("OPENAI_API_KEY"), 
-            
-
+            api_key=os.getenv("OPENAI_API_KEY"),
         )
         print("API Response:", response)
         return response.choices[0].message.content.strip()
