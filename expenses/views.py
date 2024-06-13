@@ -47,31 +47,23 @@ def search_expenses(request):
 def index(request):
     """
     Display the expenses page.
+
+    Args:
+        request (HttpRequest): The request object.
+
+    returns:
+        HttpResponse: The response object.
     """
+    # categories = Category.objects.all() ??
     expenses = Expenses.objects.filter(owner=request.user)
     paginator = Paginator(expenses, 5)
     page_number = request.GET.get("page")
-<<<<<<< HEAD
-    page_obj = paginator.get_page(page_number)
-
-    # Ensure UserPreferences exists or create it with a default value
-    user_preferences, _ = UserPreferences.objects.get_or_create(
-        user=request.user, defaults={"currency": "USD"}  # Default currency if not set
-    )
-    currency = user_preferences.currency
-
-    context = {
-        "expenses": page_obj,  # Use page_obj to handle paginated expenses
-        "currency": currency,
-        "page_obj": page_obj,  # Ensure page_obj is passed to handle pagination in the template
-=======
     page_obj= paginator.get_page(page_number)
     currency = UserPreferences.objects.get(user=request.user).currency
     context = {
         "expenses": expenses,
         "currency":currency,
         "page_obj": page_obj,
->>>>>>> parent of 6352970 (chore: Clean up code formatting and remove unnecessary lines SearchExpenses.JS)
     }
 
     return render(request, "expenses/index.html", context)

@@ -229,8 +229,6 @@ These design choices ensure the ExpenseEase looks great and is easy to use, no m
 
 ### Validator Testing 
 
-JS Hint - Search
-
 ### Automated Testing
 
 ### Browser Compatibility
