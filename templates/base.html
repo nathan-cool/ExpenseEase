@@ -1,13 +1,14 @@
 <!-- done -->
 {% load static %}
 
+<!DOCTYPE html>
 <html lang="en" data-bs-theme="auto">
 	<head>
 		<!-- Include color-modes.js for theme switching -->
 		<script src="/docs/5.3/assets/js/color-modes.js"></script>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
 		<title>Expenses</title>
 		<!-- Bootstrap CSS -->
 		<link
@@ -15,11 +16,11 @@
 			rel="stylesheet"
 			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
 			crossorigin="anonymous"
-		/>
+		>
 
 		<!-- Custom styles links -->
-		<link href="{% static 'css/main.css' %}" rel="stylesheet" />
-		<link href="{% static 'css/dashboard.css' %}" rel="stylesheet" />
+		<link href="{% static 'css/main.css' %}" rel="stylesheet">
+		<link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
 	</head>
 	<body>
 		<!-- Theme toggle dropdown -->
@@ -35,18 +36,20 @@
 				>ExpenseEase</a
 			>
 			<ul class="navbar-nav px-3 emaildisplay">
-				
-				<div class="user-controls emaildisplay">
+    <li class="nav-item user-controls emaildisplay">
         <span class="user-email"> {{request.user.first_name}} ({{ request.user.email }})</span>
+    </li>
+    <li class="nav-item">
         <form class="signoutbtn" action="{% url 'logout'%}">
             {% csrf_token %}
             <input
                 type="submit"
                 value="Sign out"
                 class="form-control sign-out-button"
-            />
+            >
         </form>
-    </div>
+    </li>
+</ul>
 </header>
 		
 

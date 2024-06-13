@@ -1,4 +1,10 @@
-{% extends 'base.html'%} {% block content %} {% load static %}
+<!-- Done-->
+{% extends 'base.html'%} {% block content %}
+<!-- This template extends the 'base.html' template and defines the content block -->
+
+{% load static %}
+<!-- Load the static files -->
+
 <div class="container">
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
@@ -13,6 +19,7 @@
 		</ol>
 	</nav>
 </div>
+<!-- Display a breadcrumb navigation for easy navigation -->
 
 <div class="container">
 	<div class="row">
@@ -24,6 +31,8 @@
 						method="POST"
 					>
 						{% csrf_token %}
+						<!-- Include a CSRF token for security purposes -->
+
 						<div class="row mb-3">
 							<div class="col-sm-8">
 								<label for="amount" class="form-label"
@@ -37,7 +46,7 @@
 									value="{{amount}}"
 									placeholder="Enter Amount"
 									required
-								/>
+								>
 							</div>
 							<div class="col-sm-4">
 								<label for="invoice_number" class="form-label"
@@ -50,9 +59,11 @@
 									name="invoice_number"
 									value="{{ invoice_number }}"
 									placeholder="Invoice Number"
-								/>
+								>
 							</div>
 						</div>
+						<!-- Display input fields for amount and invoice number -->
+
 						<div class="mb-3">
 							<label for="reference" class="form-label"
 								>Reference</label
@@ -64,25 +75,21 @@
 								name="reference"
 								value="{{reference}}"
 								placeholder="Enter Reference"
-							/>
+							>
 						</div>
+						<!-- Display an input field for reference -->
+
 						<div class="mb-3">
-							<label for="category" class="form-label"
-								>Category</label
-							>
-							<select
-								name="category"
-								class="form-select"
-								required
-							>
-								
-								{% for category in categories %}
-    <option value="{{ category.name }}" {% if category.name == current_category %}selected{% endif %}>
-        {{ category.name }}
-    </option>
-								{% endfor %}
-							</select>
+    						<label for="category" class="form-label">Category</label>
+    						<select id="category" name="category" class="form-select" required>
+        						<option value="" disabled selected>Select a category</option>
+        						{% for category in categories %}
+            						<option value="{{ category.name }}" {% if category.name == current_category %}selected{% endif %}>{{ category.name }}</option>
+        						{% endfor %}
+    						</select>
 						</div>
+						<!-- Display a dropdown menu for selecting a category -->
+
 						<div class="mb-3">
 							<label for="date" class="form-label">Date</label>
 							<input
@@ -92,8 +99,10 @@
 								name="date"
 								value="{{date}}"
 								required
-							/>
+							>
 						</div>
+						<!-- Display an input field for date -->
+
 						<div class="mb-3">
 							<label for="description" class="form-label"
 								>Description</label
@@ -126,16 +135,20 @@
 												src="{% static '/images/chat.png' %}"
 												alt="Icon"
 												class="icon"
-										/></a>
+										></a>
 									</div>
 								</div>
 							</div>
 						</div>
+						<!-- Display a textarea for entering a description -->
+
 						<div class="d-grid">
 							<button type="submit" class="btn btn-primary">
 								Save
 							</button>
 						</div>
+						<!-- Display a button for submitting the form -->
+
 					</form>
 				</div>
 			</div>
@@ -144,3 +157,4 @@
 </div>
 
 {% endblock %}
+<!-- End of the content block -->
