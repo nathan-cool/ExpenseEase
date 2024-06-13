@@ -1,118 +1,63 @@
-{% extends 'base.html'%} {% block content %} {% load static %}
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
 
 <div class="container">
-	<nav aria-label="breadcrumb">
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item">
-				<a class="text-decoration-none" href="{% url 'expenses'%}"
-					>Expenses</a
-				>
-			</li>
-			<li class="breadcrumb-item active" aria-current="page">
-				Add Expenses
-			</li>
-		</ol>
-	</nav>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 offset-md-3">
-				<div class="card">
-					<div class="card-body">
-						<form action="{% url 'add-expenses' %}" method="POST">
-							{% csrf_token %}
-							<div class="row mb-3">
-								<div class="col-sm-8">
-									<label for="amount" class="form-label"
-										>Amount</label
-									>
-									<input
-										type="number"
-										class="form-control"
-										id="amount"
-										name="amount"
-										value="{{values.amount}}"
-										placeholder="Enter Amount"
-										required
-									/>
-								</div>
-								<div class="col-sm-4">
-									<label
-										for="invoice_number"
-										class="form-label"
-										>Invoice #</label
-									>
-									<input
-										type="text"
-										class="form-control"
-										id="invoice_number"
-										name="invoice_number"
-										value="{{values.invoice_number}}"
-										placeholder="Invoice Number"
-									/>
-								</div>
-							</div>
-							<div class="mb-3">
-								<label for="reference" class="form-label"
-									>Reference</label
-								>
-								<input
-									type="text"
-									class="form-control"
-									id="reference"
-									name="reference"
-									value="{{values.reference}}"
-									placeholder="Enter Reference"
-								/>
-							</div>
-							<div class="mb-3">
-								<label for="category" class="form-label"
-									>Category</label
-								>
-								<select name="category" class="form-control form-select">
-									<!-- Loop through categories and create an option for each one -->
-									{% for category in categories %}
-										<option value="{{ category.name }}" {% if category.name == expense.category %}selected{% endif %}>
-											{{ category.name }}
-										</option>
-									{% endfor %}
-								</select>
-							</div>
-							<div class="mb-3">
-								<label for="date" class="form-label"
-									>Date</label
-								>
-								<input
-									type="date"
-									class="form-control"
-									id="date"
-									name="date"
-									value="{{values.date}}"
-									required
-								/>
-							</div>
-							<div class="mb-3">
-								<label for="description" class="form-label">Description</label>
-								<div class="form-control" style="height: auto;">
-									<div class="d-flex flex-column" style="min-height: 100px;">
-										<!-- Textarea for entering the description -->
-										<textarea id="description" name="description" placeholder="Enter Description" required class="flex-grow-1" style="border: none; outline: none; resize: none;">{{description}}</textarea>
-										<div class="d-flex justify-content-end mt-2">
-											<!-- Additional elements can be added here if needed -->
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="d-grid">
-								<button type="submit" class="btn btn-primary">
-									Submit
-								</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a class="text-decoration-none" href="{% url 'expenses' %}">Expenses</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Add Expenses</li>
+        </ol>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="{% url 'add-expenses' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row mb-3">
+                                <div class="col-sm-8">
+                                    <label for="amount" class="form-label">Amount</label>
+                                    <input type="number" class="form-control" id="amount" name="amount" value="{{ values.amount }}" placeholder="Enter Amount" required />
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="invoice_number" class="form-label">Invoice #</label>
+                                    <input type="text" class="form-control" id="invoice_number" name="invoice_number" value="{{ values.invoice_number }}" placeholder="Invoice Number" />
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="reference" class="form-label">Reference</label>
+                                <input type="text" class="form-control" id="reference" name="reference" value="{{ values.reference }}" placeholder="Enter Reference" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="category" class="form-label">Category</label>
+                                <select name="category" class="form-control form-select">
+                                    {% for category in categories %}
+                                        <option value="{{ category.name }}" {% if category.name == values.category %}selected{% endif %}>
+                                            {{ category.name }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="date" class="form-label">Date</label>
+                                <input type="date" class="form-control" id="date" name="date" value="{{ values.date }}" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea id="description" name="description" class="form-control" placeholder="Enter Description" required>{{ values.description }}</textarea>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

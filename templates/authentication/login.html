@@ -1,78 +1,84 @@
-{% extends 'partials/base_auth.html'%}
-{% load static %}
-{% block content %}
+{% extends 'partials/base_auth.html' %} {% load static %} {% block content %}
 
-    <header class="navbar sticky-top flex-md-nowrap p-0 navbarAuth">
-  <ul class="navbar-nav px-3 ">
-    <li class="nav-item text-nowrap">
-      <a class="nav-link text-right navbarAuthText" href="register">Sign up</a>
-    </li>
-  </ul>
+<header class="navbar sticky-top flex-md-nowrap p-0 navbarAuth">
+	<ul class="navbar-nav px-3">
+		<li class="nav-item text-nowrap">
+			<a class="nav-link text-right navbarAuthText" href="register"
+				>Sign up</a
+			>
+		</li>
+	</ul>
 </header>
-<div class="container signin_reg_container "> 
-  <div class="rowauth justify-content-center"> 
-    <div class="col-md-5"> 
-      <div class="card mt-5 shadow" style="min-width: 300px;"> 
-        <div class="card-body p-5">
 
-          <h4 class="card-title text-left mt-3 mb-5">Sign in to your account</h4>
-          <form id="form" vaction={% url 'login' %} method="post">
-         
-            {% csrf_token %}
-
-         {% include "partials/_messages.html" %}
-
-          
-      
-            <div class="form-group mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" name="email" class="form-control form-control-lg" id="email"  value="{{fieldValues.email}}" required>
-    
-            
-            
-              <p></p>
-            </div>
-           
-             <div class="form-group mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input type="password" name="password" class="form-control form-control-lg" id="password" required >
-              
-            </div>
-            <p></p>
-              
-           
-            <div class="form-group mb-4">
-              <button type="submit" class="btn btn-success btn-auth form-control-lg btnAuth" id="login">Login</button>
-              <hr>
-            </div>
-            <div id="g_id_onload"
-     data-client_id="430912468530-d8ccem0r96ht0qsa5c0qhceuqod308ee.apps.googleusercontent.com"
-     data-context="signup"
-     data-ux_mode="redirect"
-     data-login_uri="https://expenses-tracker-219be5ac0901.herokuapp.com/authentication/social_auth"
-     data-auto_prompt="false">
-</div>
-
-<div class="g_id_signin"
-     data-type="standard"
-     data-shape="pill"
-     data-theme="outline"
-     data-text="signin_with"
-     data-size="large"
-     data-locale="en-GB"
-     data-logo_alignment="left">
-</div>
-           
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container signin_reg_container">
+	<div class="rowauth justify-content-center">
+		<div class="col-md-5">
+			<div class="card mt-5 shadow" style="min-width: 300px">
+				<div class="card-body p-5">
+					<h4 class="card-title text-left mt-3 mb-5">
+						Sign in to your account
+					</h4>
+					<form id="form" action="{% url 'login' %}" method="post">
+						{% csrf_token %} {% include "partials/_messages.html" %}
+						<div class="form-group mb-3">
+							<label for="email" class="form-label">Email</label>
+							<input
+								type="email"
+								name="email"
+								class="form-control form-control-lg"
+								id="email"
+								value="{{ fieldValues.email }}"
+								required
+							/>
+						</div>
+						<div class="form-group mb-3">
+							<label for="password" class="form-label"
+								>Password</label
+							>
+							<input
+								type="password"
+								name="password"
+								class="form-control form-control-lg"
+								id="password"
+								required
+							/>
+						</div>
+						<div class="form-group mb-4">
+							<button
+								type="submit"
+								class="btn btn-success btn-auth form-control-lg btnAuth"
+								id="login"
+							>
+								Login
+							</button>
+							<hr />
+						</div>
+						<div
+							id="g_id_onload"
+							data-client_id="430912468530-d8ccem0r96ht0qsa5c0qhceuqod308ee.apps.googleusercontent.com"
+							data-context="signup"
+							data-ux_mode="redirect"
+							data-login_uri="https://expenses-tracker-219be5ac0901.herokuapp.com/authentication/social_auth"
+							data-auto_prompt="false"
+						></div>
+						<div
+							class="g_id_signin"
+							data-type="standard"
+							data-shape="pill"
+							data-theme="outline"
+							data-text="signin_with"
+							data-size="large"
+							data-locale="en-GB"
+							data-logo_alignment="left"
+						></div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <script src="{% static 'js/register.js' %}"></script>
 <script src="https://accounts.google.com/gsi/client" async></script>
 
-
 {% endblock %}
-

@@ -1,90 +1,111 @@
-{% extends 'partials/base_auth.html' %}
-{% load static %}
-
-
-
-
-
-
-
-{% block content %}
+{% extends 'partials/base_auth.html' %} {% load static %} {% block content %}
 <header class="navbar sticky-top flex-md-nowrap p-0 navbarAuth">
-  <ul class="navbar-nav px-3 ">
-    <li class="nav-item text-nowrap">
-      <a class="nav-link text-right navbarAuthText" href="login">Sign in</a>
-    </li>
-  </ul>
+	<ul class="navbar-nav px-3">
+		<li class="nav-item text-nowrap">
+			<a class="nav-link text-right navbarAuthText" href="login"
+				>Sign in</a
+			>
+		</li>
+	</ul>
 </header>
-<div class="container signin_reg_container"> 
-  <div class="rowauth justify-content-center"> 
-    <div class="col-md-5"> 
-      <div class="card mt-5 shadow" style="min-width: 300px;"> 
-        <div class="card-body p-5">
-          <h4 class="card-title text-left mt-3 mb-5">Create Your Expenses Account</h4>
-          <form id="form" vaction={% url 'register' %} method="post">
-         
-            {% csrf_token %}
-
-         {% include "partials/_messages.html" %}
-
-            <div class="form-group mb-3"> 
-              <label for="users_name" class="form-label">Name</label>
-              <input type="text" name="users_name" class="form-control form-control-lg" id="users_name" value="{{fieldValues.first_name}}"required>
-            </div>
-            <div class="invalid-feedback" style="display:none">
-              <p></p>
-            </div>
-            <div class="form-group mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" name="email" class="form-control form-control-lg" id="email"  value="{{fieldValues.email}}" required>
-    
-            </div>
-            <div class="invalid-feedback" style="display:none">
-              <p></p>
-            </div>
-            <div class="form-group mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input type="password" name="password" class="form-control form-control-lg" id="password" required >
-              <button type='button' id="showPasswordToggle"class="float-end showPasswordToggle">
-                 <i class="fas fa-eye"></i>
-              </button>
-            </div>
-            <div class="invalid-feedback" style="display:none">
-              <p></p>
-            </div>
-            <div class="form-group mb-4">
-              <button type="submit" class="btn btn-success form-control-lg btnAuth" id="register">Create Account</button>
-            </div>
-            <hr>
-           
-        <div id="g_id_onload"
-     data-client_id="430912468530-d8ccem0r96ht0qsa5c0qhceuqod308ee.apps.googleusercontent.com"
-     data-context="signup"
-     data-ux_mode="redirect"
-     data-login_uri="https://expenses-tracker-219be5ac0901.herokuapp.com/authentication/social_auth"
-     data-auto_prompt="false">
+<div class="container signin_reg_container">
+	<div class="rowauth justify-content-center">
+		<div class="col-md-5">
+			<div class="card mt-5 shadow" style="min-width: 300px">
+				<div class="card-body p-5">
+					<h4 class="card-title text-left mt-3 mb-5">
+						Create Your Expenses Account
+					</h4>
+					<form id="form" action="{% url 'register' %}" method="post">
+						{% csrf_token %} {% include "partials/_messages.html" %}
+						<div class="form-group mb-3">
+							<label for="users_name" class="form-label"
+								>Name</label
+							>
+							<input
+								type="text"
+								name="users_name"
+								class="form-control form-control-lg"
+								id="users_name"
+								value="{{ fieldValues.first_name }}"
+								required
+							/>
+						</div>
+						<div class="invalid-feedback" style="display: none">
+							<p></p>
+						</div>
+						<div class="form-group mb-3">
+							<label for="email" class="form-label">Email</label>
+							<input
+								type="email"
+								name="email"
+								class="form-control form-control-lg"
+								id="email"
+								value="{{ fieldValues.email }}"
+								required
+							/>
+						</div>
+						<div class="invalid-feedback" style="display: none">
+							<p></p>
+						</div>
+						<div class="form-group mb-3">
+							<label for="password" class="form-label"
+								>Password</label
+							>
+							<input
+								type="password"
+								name="password"
+								class="form-control form-control-lg"
+								id="password"
+								required
+							/>
+							<button
+								type="button"
+								id="showPasswordToggle"
+								class="float-end showPasswordToggle"
+							>
+								<i class="fas fa-eye"></i>
+							</button>
+						</div>
+						<div class="invalid-feedback" style="display: none">
+							<p></p>
+						</div>
+						<div class="form-group mb-4">
+							<button
+								type="submit"
+								class="btn btn-success form-control-lg btnAuth"
+								id="register"
+							>
+								Create Account
+							</button>
+						</div>
+						<hr />
+						<div
+							id="g_id_onload"
+							data-client_id="430912468530-d8ccem0r96ht0qsa5c0qhceuqod308ee.apps.googleusercontent.com"
+							data-context="signup"
+							data-ux_mode="redirect"
+							data-login_uri="https://expenses-tracker-219be5ac0901.herokuapp.com/authentication/social_auth"
+							data-auto_prompt="false"
+						></div>
+						<div
+							class="g_id_signin"
+							data-type="standard"
+							data-shape="pill"
+							data-theme="outline"
+							data-text="signin_with"
+							data-size="large"
+							data-locale="en-GB"
+							data-logo_alignment="left"
+						></div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-
-<div class="g_id_signin"
-     data-type="standard"
-     data-shape="pill"
-     data-theme="outline"
-     data-text="signin_with"
-     data-size="large"
-     data-locale="en-GB"
-     data-logo_alignment="left">
-</div>
-
-            
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</form>
 
 <script src="{% static 'js/register.js' %}"></script>
 <script src="https://accounts.google.com/gsi/client" async></script>
-
 
 {% endblock %}
