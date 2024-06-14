@@ -1,12 +1,28 @@
-# my_custom_adapter.py
-
-from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
-
 class MyCustomSocialAccountAdapter(DefaultSocialAccountAdapter):
+    """
+    Custom adapter for handling user data during social login.
+
+    This class extends the DefaultSocialAccountAdapter 
+    to include custom
+    logic for saving user information obtained 
+    from social login providers.
+    """
+
     def save_user(self, request, sociallogin, form=None):
-        # Custom user saving logic here
-        user = super(MyCustomSocialAccountAdapter, self).save_user(request, sociallogin, form)
-        # You can add custom fields from sociallogin.account.extra_data or other sources here
-        # Example: user.profile.bio = sociallogin.account.extra_data.get('bio')
+        """
+        Save the user data during the social login process.
+
+        Args:
+            request: The current HttpRequest object.
+            sociallogin: The sociallogin instance 
+            containing social account information.
+            form: The form instance (optional).
+
+        Returns:
+            user: The saved user instance with any custom fields set.
+        """
+        user = super(MyCustomSocialAccountAdapter, self).save_user(
+            request, sociallogin, form
+        )
         user.save()
         return user

@@ -1,3 +1,10 @@
 {
-	"cSpell.words": ["mysite", "scroller", "signin", "socialaccount"]
+	"cSpell.words": [
+		"asgi",
+		"mysite",
+		"scroller",
+		"signin",
+		"socialaccount",
+		"sociallogin"
+	]
 }

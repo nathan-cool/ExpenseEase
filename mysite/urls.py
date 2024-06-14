@@ -1,6 +1,3 @@
-from django.contrib import admin
-from django.urls import path, include
-
 """
 Main URL configuration for the project.
 
@@ -14,6 +11,10 @@ Here's what each URL does:
 - 'admin/' : Links to the Django admin site.
 - 'accounts/' : Includes URLs from the allauth package.
 """
+
+from django.contrib import admin
+from django.urls import path, include
+
 
 urlpatterns = [
     path("", include("expenses.urls")),

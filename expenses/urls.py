@@ -1,6 +1,20 @@
+"""
+This module defines URL patterns for the Expenses application.
+
+The `urlpatterns` list routes URLs to views. The available paths include:
+- The root path and the "expenses/" path, both routed to the `index` view.
+- The "add-expenses/" path, routed to the `add_expenses` view.
+- The "edit-expense/<int:id>" path, routed to the `expense_edit` view.
+- The "delete-expense/<int:id>" path, routed to the `delete_expense` view.
+- The "generate_description/<int:id>/" path, routed to the `generate_description` view.
+- The "search_expenses/" path, routed to the `search_expenses` view, with CSRF exemption.
+"""
+
+
 from django.urls import path
 from . import views
 from django.views.decorators.csrf import csrf_exempt
+
 
 urlpatterns = [
     path("", views.index, name="expenses"),
