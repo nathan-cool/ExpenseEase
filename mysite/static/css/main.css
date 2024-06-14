@@ -1,257 +1,256 @@
-/* html and body font */
+/* Done */
+/* Base Styles */
 html,
 body {
 	font-family: 'Nunito', sans-serif;
 }
-/* Styles for input elements */
+
+/* Input Elements */
 input {
 	border-radius: 5px !important;
 }
-/* Styles for card-body class */
-card-body {
-	box-shadow: #5a23c8;
+
+/* Card Styles */
+.card-body {
+	box-shadow: 0 4px 8px rgba(90, 35, 200, 0.3); /* Adjusted to a valid box-shadow value */
 }
-/* Font size for label and p elements */
+
+/* Text Styles */
 label,
 p {
 	font-size: 14px;
 }
-/* Styles for horizontal rule (hr) element */
+
+/* Horizontal Rule */
 hr {
-  border: 0;
+	border: 0;
 	height: 1px;
-	background-image: linear-gradient(
-    to right,
-		rgba(0, 0, 0, 0),
-		rgba(0, 0, 0, 0.75),
-		rgba(0, 0, 0, 0)
-    );
-  }
- /* Removes the default background image for form-control class */
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+/* Row and Column Styles */
 .row {
-    display: flex;
-
+	display: flex;
 }
+
 .row .col-md-6 {
-    display: flex;
-    justify-content: space-between; /* This is not necessary unless you want to adjust specific alignment */
+	display: flex;
+	justify-content: space-between; /* Adjusted to space-between */
 }
 
+/* Flex Containers */
 .searchandadd {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-end;
-		margin-bottom: 20px;
-}
-.emaildisplay{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
-    color: white;
+	display: flex; 
+	justify-content: space-between; 
+	align-items: flex-end; 
+	margin-bottom: 20px;
 }
 
-.sign-out-button{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 100px;
-  height: 50px;
+.emaildisplay {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: row;
+	color: white;
 }
 
-.signoutbtn{
-		margin: 10px;
+.sign-out-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 100px;
+	height: 50px;
 }
 
+.signoutbtn {
+	margin: 10px;
+}
+
+/* Breadcrumb */
 .breadcrumb {
-    margin-bottom: 0; /* Removes default bottom margin from breadcrumb for better alignment */
-}
-  .form-control {
-    background-image: none !important;
-  }
-   /* Hover styles for buttons */
-  .btn:hover {
-    background-color: #202020;
-    border-color: #202020;
-  }
-	.btn:disabled{
-		background-color: #202020;
-    border-color: #202020;
-
-	}
-  /* Styles for card with custom minimum and maximum width */
-  .card.custom-min-width {
-    min-width: 200px;
-    max-width: 500px;
-  }
-
-	.row.flex-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
+	margin-bottom: 0; /* Removes default bottom margin from breadcrumb for better alignment */
+	background: transparent; /* Removes the default grey background */
+	padding: 0; /* Removes default padding */
+	margin-bottom: 0; /* Reduces space below the breadcrumb */
 }
 
-	
-  
-  #main_auth {
-    background-color: #ffffff;
-    opacity: 0.9;
-    background-image: radial-gradient(#000000 0.6px, #ffffff 0.5px);
-    background-size: 10px 10px;
-  }
-  
-   /* Styles for form-group class */
-  .form-group {
-    position: relative;
-  }
-  
-  #password {
-    padding-right: 40px;
-  }
-  /* Styles for authentication navbar */
-  .navbarAuth {
-    justify-content: end;
-  }
-   /* Styles for authentication navbar text */
-  .navbarAuthText {
-    font-size: 19px;
-    color: #333533;
-    padding: 20px;
-  }
-  /* Styles for success alert */
-  .alert-success {
-    background-color: #1f7c4d;
-    border-color: #ffffff;
-    color: #ffffff;
-  }
-	.signin_reg_container {
-		display: flex;
-		justify-content: center;
-	}
+.breadcrumb-item + .breadcrumb-item::before {
+	content: ">";
+	color: #333; /* Dark gray color for visibility */
+}
 
-  
-  .showPasswordToggle {
-    position: absolute;
-    right: 15px;
-    top: 57%;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    color: rgba(0, 0, 0, 0.365);
-  }
-   /* Styles for row */
-  .rowauth {
-    height: 100%;
-  }
-   /* Styles for custom select element */
-  .custom-select {
-    width: 60%;
-    height: 45px;
-  }
-   /* Styles for currency submit button */
-  #currencySubmitBtn {
-    border-left: none;
-    border-radius: 0px !important;
-  }
-/* Styles for input group */
-  .input-group {
-    justify-content: center;
-  }
- /* Styles for Google sign-in button */
-  .btn-google {
-    color: #545454;
-    background-color: #ffffff;
-    box-shadow: 0 1px 2px 1px #ddd;
-    align-items: center;
-  }
- /* Styles for placeholder images */
-  .bd-placeholder-img {
+/* Form Control */
+.form-control {
+	background-image: none !important;
+}
+
+/* Button Hover */
+.btn:hover {
+	background-color: #1a1a1a; /* Slightly different from border color */
+	border-color: #202020;
+}
+
+/* Disabled Button */
+.btn:disabled {
+	background-color: #1a1a1a; /* Slightly different from border color */
+	border-color: #202020;
+}
+
+/* Custom Card */
+.card.custom-min-width {
+	min-width: 200px;
+	max-width: 500px;
+}
+
+/* Flex Row */
+.row.flex-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* Main Authentication */
+#main_auth {
+	background-color: #ffffff;
+	opacity: 0.9;
+	background-image: radial-gradient(#000000 0.6px, #ffffff 0.5px);
+	background-size: 10px 10px;
+}
+
+/* Form Group */
+.form-group {
+	position: relative;
+	margin-top: 20px;
+}
+
+#password {
+	padding-right: 40px;
+}
+
+/* Authentication Navbar */
+.navbarAuth {
+	justify-content: end;
+}
+
+.navbarAuthText {
+	font-size: 19px;
+	color: #333533;
+	padding: 20px;
+}
+
+/* Success Alert */
+.alert-success {
+	background-color: #1f7c4d;
+	border-color: #ffffff;
+	color: #ffffff;
+}
+
+/* Signin Registration Container */
+.signin_reg_container {
+	display: flex;
+	justify-content: center;
+}
+
+/* Show Password Toggle */
+.showPasswordToggle {
+	position: absolute;
+	right: 15px;
+	top: 57%;
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+	color: rgba(0, 0, 0, 0.365);
+	transition: 500ms;
+	font-size: 10px;
+	padding-top: 5px;
+}
+
+.showPasswordToggle:hover {
+	cursor: pointer;
+	transition: 500ms;
+}
+
+/* Row Authentication */
+.rowauth {
+	height: 100%;
+}
+
+/* Custom Select */
+.custom-select {
+	width: 60%;
+	height: 45px;
+}
+
+/* Currency Submit Button */
+#currencySubmitBtn {
+	border-left: none;
+	border-radius: 0px !important;
+}
+
+/* Input Group */
+.input-group {
+	justify-content: center;
+}
+
+/* Google Sign-in Button */
+.btn-google {
+	color: #545454; 
+	background-color: #ffffff; 
+	box-shadow: 0 1px 2px 1px #ddd; 
+	align-items: center;
+}
+
+/* Placeholder Images */
+.bd-placeholder-img {
 	font-size: 1.125rem;
 	text-anchor: middle;
-	-webkit-user-select: none;
-	-moz-user-select: none;
 	user-select: none;
 }
-/* Styles for example divider */
+
+/* Example Divider */
 .b-example-divider {
 	width: 100%;
 	height: 3rem;
 	background-color: rgba(0, 0, 0, 0.1);
 	border: solid rgba(0, 0, 0, 0.15);
 	border-width: 1px 0;
-	box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
-		inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+	box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1), inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
 }
 
-/* Styles for example vertical rule */
+/* Example Vertical Rule */
 .b-example-vr {
 	flex-shrink: 0;
 	width: 1.5rem;
 	height: 100vh;
 }
 
-.bi {
-	vertical-align: -0.125em;
-	fill: currentColor;
-}
-
-.nav-scroller {
-	position: relative;
-	z-index: 2;
-	height: 2.75rem;
-	overflow-y: hidden;
-}
-
-.nav-scroller .nav {
-	display: flex;
-	flex-wrap: nowrap;
-	padding-bottom: 1rem;
-	margin-top: -1px;
-	overflow-x: auto;
-	text-align: center;
-	white-space: nowrap;
-	-webkit-overflow-scrolling: touch;
-}
-
+/* Icons */
 .icon {
-  width: 20px ;
-  height: 20px;
+	width: 20px;
+	height: 20px;
 }
 
+/* Container */
 .container {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 
-.breadcrumb {
-    background: transparent; /* Removes the default grey background */
-    padding: 0; /* Removes default padding */
-    margin-bottom: 0; /* Reduces space below the breadcrumb */
-}
-
-.breadcrumb-item + .breadcrumb-item::before {
-    content: ">"; /* Custom separator */
-    color: #333; /* Dark gray color for visibility */
-}
-
-.form-group {
-    margin-top: 20px; 
-}
-
+/* Button Styles */
 .btn-primary {
-    padding: .375rem .75rem; /* Standard padding for bootstrap buttons */
-    color: #fff; /* White text */
-    background-color: #007bff; /* Blue background */
-    border-color: #007bff; /* Blue border */
-		height: 38px;
+	padding: .375rem .75rem; /* Standard padding for bootstrap buttons */
+	color: #fff; /* White text */
+	background-color: #007bff; /* Blue background */
+	border-color: #0056b3; /* Slightly different from background color */
+	height: 38px;
 }
 
 .btn-danger {
-		padding: .375rem .75rem; /* Standard padding for bootstrap buttons */
-		color: #fff; /* White text */
-		background-color: #dc3545; /* Red background */
-		border-color: #dc3545; /* Red border */
-		height: 38px;
+	padding: .375rem .75rem; /* Standard padding for bootstrap buttons */
+	color: #fff; /* White text */
+	background-color: #dc3545; /* Red background */
+	border-color: #c82333; /* Slightly different from background color */
+	height: 38px;
 }
 
 .btn-bd-primary {
@@ -278,19 +277,18 @@ hr {
 	display: block !important;
 }
 
+/* Authentication Button */
 .btnAuth {
 	width: 100%;
 	min-height: calc(1.9em + 1rem + calc(var(--bs-border-width) * 2));
 	padding: 0.5rem 1rem;
 	font-size: 1rem;
-	border-radius: var(--bs-border-radius-lg);
 	border-radius: 5px;
-	border-color: #333533;
+	border-color: #2a2a2a; /* Slightly darker than background for visibility */
 	background-color: #333533;
 }
 
-
-/* Smaller devices */
+/* Media Queries */
 @media only screen and (max-width: 650px) {
 	.card.custom-min-width {
 		min-width: 100%;
@@ -301,7 +299,6 @@ hr {
 	}
 }
 
-/* Tablets */
 @media only screen and (min-width: 650px) {
 	.card.custom-min-width {
 		min-width: 300px;
@@ -311,13 +308,11 @@ hr {
 		width: 540px;
 	}
 	.icon {
-  width: 25px ;
-  height: 25px;
+		width: 25px;
+		height: 25px;
+	}
 }
 
-}
-
-/* Desktops and laptops */
 @media only screen and (min-width: 1024px) {
 	.card.custom-min-width {
 		min-width: 400px;
@@ -329,7 +324,6 @@ hr {
 	}
 }
 
-/* Large screens */
 @media only screen and (min-width: 1824px) {
 	.card.custom-min-width {
 		min-width: 500px;
@@ -341,17 +335,8 @@ hr {
 		min-width: 540px;
 	}
 }
-.showPasswordToggle {
-	transition: 500ms;
-	font-size: 10px;
-	padding-top: 5px;
-}
 
-.showPasswordToggle:hover {
-	cursor: pointer;
-	transition: 500ms;
-}
-
+/* Alert */
 .alert {
 	text-align: center;
 	padding: 10px;
@@ -359,23 +344,24 @@ hr {
 	border-radius: 4px;
 }
 
+/* Table Responsive */
 @media (max-width: 576px) {
-    .table-responsive thead {
-      display: none;
-    }
-    .table-responsive td {
-      display: block;
-      text-align: left;
-      padding-right: 50%;
-      position: relative;
-    }
-    .table-responsive td::before {
-      content: attr(data-label);
-      position: absolute;
-      left: 0;
-      width: 50%;
-      padding-left: 15px;
-      font-weight: bold;
-      text-align: left;
-    }
-  }
+	.table-responsive thead {
+		display: none;
+	}
+	.table-responsive td {
+		display: block;
+		text-align: left;
+		padding-right: 50%;
+		position: relative;
+	}
+	.table-responsive td::before {
+		content: attr(data-label);
+		position: absolute;
+		left: 0;
+		width: 50%;
+		padding-left: 15px;
+		font-weight: bold;
+		text-align: left;
+	}
+}
