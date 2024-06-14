@@ -1,69 +1,72 @@
-{% load static%}
+{% load static %}
 
-<div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary ">
-      <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
-        <div class="offcanvas-header">
-          <h6 class="offcanvas-title" id="sidebarMenuLabel">Expenses</h6>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+<div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+    <button class="btn btn-primary d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+    <span class="hamburger-menu"></span>
+</button>
+    <div class="offcanvas offcanvas-start d-md-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+        <div class="offcanvas-header d-md-none">
+            <h6 class="offcanvas-title" id="sidebarMenuLabel">Expenses</h6>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
             <span>Dashboard</span>
-          </h6>
-          <hr>
-    
-        <div class="offcanvas-body d-md-flex flex-column p-0  overflow-y-auto">
-          <ul class="nav flex-column">
-
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 active" href="{% url 'expenses'%}">
-                Expenses
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                Income
-              </a>
-            </li>
-          </ul>
-
-          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
-            <span>Summary</span>
-            
-          </h6>
-          <hr>
-          <ul class="nav flex-column mb-auto">
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                Expenses Summary
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                Income Summary
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                Sign out
-              </a>
-            </li>
-          </ul>
-           <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
-            <span>Settings</span>
-          </h6>
-          <hr>
-          <ul class="nav flex-column mb-auto">
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="{% url 'preferences' %}">
-                General Settings
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
-                Account Settings
-              </a>
-            </li>
-          </ul>
+        </h6>
+        <hr>
+        <div class="offcanvas-body d-md-flex flex-column p-0 overflow-y-auto">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2 active" href="{% url 'expenses' %}">
+                        Expenses
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                        Income
+                    </a>
+                </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+                <span>Summary</span>
+            </h6>
+            <hr>
+            <ul class="nav flex-column mb-auto">
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                        Expenses Summary
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                        Income Summary
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                        Sign out
+                    </a>
+                </li>
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+                <span>Settings</span>
+            </h6>
+            <hr>
+            <ul class="nav flex-column mb-auto">
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{% url 'preferences' %}">
+                        General Settings
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                        Account Settings
+                    </a>
+                </li>
+            </ul>
         </div>
-      </div>
     </div>
+</div>
+
+<!-- Add Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybV00p0BbaBmlLaWpPcLlq+5aykXj3/JXOU5G/Zc5c5HTCkgd" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-pprn3073KE6tl6/8pc6O2cgk5cju6A1wR8UbjXT4oA8pDZ5yC1l8q3Y4J5Y1bxYb" crossorigin="anonymous"></script>
