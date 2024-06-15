@@ -1,9 +1,14 @@
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('Hello from main.js');
+function updateButtonText() {
+	var btn = document.querySelector('.addexpensebtn .btn');
+	if (window.innerWidth <= 1068) {
+		btn.textContent = 'Add';
+	} else {
+		btn.textContent = 'Add Expenses';
+	}
+}
 
-  const expense_dsc = document.getElementsByClassName('expense_dsc');
+// Run on initial load
+updateButtonText();
 
-  expense_dsc.addEventListener('click', () => {
-    expense_dsc.innerHTML = 'Hello from main.js';
-  });
-});
+// Run on window resize
+window.addEventListener('resize', updateButtonText);

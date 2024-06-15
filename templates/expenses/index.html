@@ -7,7 +7,7 @@
 		<div class="col-md-12">
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="#">Expenses</a></li> <!-- Breadcrumb navigation -->
+					<li class="breadcrumb-item"><a href="{% url 'expenses' %}">Expenses</a></li> <!-- Breadcrumb navigation -->
 					<li class="breadcrumb-item active" aria-current="page">My Expenses</li>
 				</ol>
 			</nav>
@@ -21,7 +21,7 @@
 			</div>
 		</div>
 		<div class="col-md-2 text-right addexpensebtn">
-			<a href="{% url 'add-expenses' %}" class="btn btn-primary btn-sm">Add Expenses</a> <!-- Add Expenses button -->
+			<a href="{% url 'add-expenses' %}" class="btn btn-primary btn-sm addexpensebtn">Add Expenses</a> <!-- Add Expenses button -->
 		</div>
 	</div>
 </div>

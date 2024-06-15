@@ -41,7 +41,7 @@ hr {
 
 .row .col-md-6 {
 	display: flex;
-	justify-content: space-between; /* Adjusted to space-between */
+	justify-content: space-around; /* Adjusted to space-between */
 }
 
 /* Flex Containers */
@@ -298,8 +298,18 @@ hr {
 	border-color: #2a2a2a; /* Slightly darker than background for visibility */
 	background-color: #333533;
 }
-
+footer {
+    background: #343a40; /* Dark background */
+    color: white; /* White text */
+    text-align: center; /* Centered text */
+    padding: 1rem; /* Padding */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto; /* Pushes footer to the bottom */
+}
 /* Media Queries */
+
 
 @media only screen and (max-width: 650px) {
 	.card.custom-min-width {
@@ -322,17 +332,6 @@ hr {
 	.icon {
 		width: 25px;
 		height: 25px;
-	}
-}
-
-@media only screen and (min-width: 1024px) {
-	.card.custom-min-width {
-		min-width: 400px;
-		max-width: 500px;
-	}
-	.col-md-5 {
-		margin-top: 10px;
-		width: 540px;
 	}
 }
 
