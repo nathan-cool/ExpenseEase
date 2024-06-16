@@ -21,7 +21,7 @@
 			</div>
 		</div>
 		<div class="col-md-2 text-right addexpensebtn">
-			<a href="{% url 'add-expenses' %}" class="btn btn-primary btn-sm addexpensebtn">Add Expenses</a> <!-- Add Expenses button -->
+			<a href="{% url 'add-expenses' %}" class="btn btn-primary btn-sm" id="addexpensebtn">Add Expenses</a> <!-- Add Expenses button -->
 		</div>
 	</div>
 </div>
@@ -62,11 +62,11 @@
 							<td>{{expense.reference|truncatechars:20}}</td> <!-- Displaying expense reference -->
 							<td>
 								<a
-									class="btn btn-sm btn-primary"
+									class="btn btn-sm btn-primary control-btn"
 									href="{% url 'expense-edit' expense.id %}"
 									>Edit</a> <!-- Edit expense button -->
 								<a
-									class="btn btn-sm btn-danger"
+									class="btn btn-sm btn-danger control-btn"
 									href="{% url 'delete-expense' expense.id %}"
 									onclick="return confirm('Are you sure you want to delete this expense?')"
 									>Delete</a> <!-- Delete expense button -->
