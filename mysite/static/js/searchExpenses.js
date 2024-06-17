@@ -45,15 +45,15 @@ searchField.addEventListener('keyup', (e) => {
 								);
 							return `
                         <tr>
-                            <td>${truncatedDescription}</td>
-                            <td>${item.amount}</td>
-                            <td>${item.category}</td>
-                            <td>${item.date}</td>
-                            <td>${item.invoice_number}</td>
-                            <td>${item.reference}</td>
+                            <td class='tablecontent expense_dsc'>${truncatedDescription}</td>
+                            <td class='tablecontent'>${item.amount}</td>
+                            <td class='tablecontent'>${item.category}</td>
+                            <td class='tablecontent'>${item.date}</td>
+                            <td class='tablecontent'>${item.invoice_number}</td>
+                            <td class='tablecontent'>${item.reference}</td>
                             <td>
-                                <a class="btn btn-sm btn-primary" href="${editUrl}">Edit</a>
-                                <a class="btn btn-sm btn-danger" href="${deleteUrl}" onclick="return confirm('Are you sure you want to delete this expense?')">Delete</a>
+                                <a class="btn btn-sm btn-primary control-btn" href="${editUrl}">Edit</a>
+                                <a class="btn btn-sm btn-danger control-btn" href="${deleteUrl}" onclick="return confirm('Are you sure you want to delete this expense?')">Delete</a>
                             </td>
                         </tr>
                     `;

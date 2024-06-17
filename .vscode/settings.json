@@ -6,6 +6,7 @@
 		"scroller",
 		"signin",
 		"socialaccount",
-		"sociallogin"
+		"sociallogin",
+		"tablecontent"
 	]
 }

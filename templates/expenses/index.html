@@ -52,15 +52,15 @@
 					<tbody>
 						{% for expense in page_obj %} <!-- Looping through expenses -->
 						<tr>
-							<td class="expense_dsc">
+							<td class="expense_dsc tablecontent">
 								{{expense.description|truncatechars:20 }} <!-- Displaying expense description -->
 							</td>
-							<td>{{expense.amount|truncatechars:20}}</td> <!-- Displaying expense amount -->
-							<td>{{expense.category|truncatechars:20}}</td> <!-- Displaying expense category -->
-							<td>{{expense.date|truncatechars:20}}</td> <!-- Displaying expense date -->
-							<td>{{expense.invoice_number|truncatechars:20}}</td> <!-- Displaying expense invoice number -->
-							<td>{{expense.reference|truncatechars:20}}</td> <!-- Displaying expense reference -->
-							<td>
+							<td class='tablecontent'>{{expense.amount|truncatechars:20}}</td> <!-- Displaying expense amount -->
+							<td class='tablecontent'>{{expense.category|truncatechars:20}}</td> <!-- Displaying expense category -->
+							<td class='tablecontent'>{{expense.date|truncatechars:20}}</td> <!-- Displaying expense date -->
+							<td class='tablecontent'>{{expense.invoice_number|truncatechars:20}}</td> <!-- Displaying expense invoice number -->
+							<td class='tablecontent'>{{expense.reference|truncatechars:20}}</td> <!-- Displaying expense reference -->
+							<td class='tablecontent'>
 								<a
 									class="btn btn-sm btn-primary control-btn"
 									href="{% url 'expense-edit' expense.id %}"
