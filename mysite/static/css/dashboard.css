@@ -80,7 +80,7 @@
 }
 
 /* Hide the button and show the sidebar on larger screens */
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 768px) {
     .btn.btn-primary.d-md-none {
         display: none;
     }

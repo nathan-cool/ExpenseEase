@@ -251,7 +251,6 @@ hr {
 .btn-primary {
 	color: #fff; /* White text */
 	background-color: #007bff; /* Blue background */
-	border-color: #0056b3; /* Slightly different from background color */
 	height: 38px;
 }
 
@@ -259,7 +258,6 @@ hr {
 	padding: 0.375rem 0.75rem; /* Standard padding for bootstrap buttons */
 	color: #fff; /* White text */
 	background-color: #dc3545; /* Red background */
-	border-color: #c82333; /* Slightly different from background color */
 }
 
 .control-btn {
@@ -272,6 +270,7 @@ hr {
     font-size: 16px; 
     cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+		margin-bottom: 10px;
 }
 
 
