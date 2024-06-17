@@ -4,6 +4,7 @@
 		"asgi",
 		"mysite",
 		"scroller",
+		"searchandadd",
 		"signin",
 		"socialaccount",
 		"sociallogin",

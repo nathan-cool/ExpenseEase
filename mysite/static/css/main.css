@@ -6,11 +6,6 @@ body {
 	height: 100%;
 }
 
-/* Input Elements */
-input {
-	border-radius: 5px !important;
-}
-
 /* Card Styles */
 .card-body {
 	box-shadow: 0 4px 8px rgba(90, 35, 200, 0.3); /* Adjusted to a valid box-shadow value */
@@ -61,7 +56,7 @@ hr {
 
 #addexpensebtn {
 	display: inline-block;
-	font-size: 16px;
+	font-size: 17px;
 	margin-top: 10px;
 	text-align: center;
 	min-width: 100%;
@@ -293,7 +288,6 @@ hr {
 	height: 38px;
 	width: 80px;
 	color: white;
-	border: none; /* Remove border */
 	border-radius: 5px; /* Rounded corners */
 	font-size: 16px;
 	cursor: pointer; /* Pointer cursor on hover */
@@ -334,6 +328,7 @@ hr {
 	border-color: #2a2a2a; /* Slightly darker than background for visibility */
 	background-color: #333533;
 }
+
 footer {
 	background: #343a40; /* Dark background */
 	color: white; /* White text */
