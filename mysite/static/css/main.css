@@ -245,6 +245,7 @@ header{
 #currencySubmitBtn {
 	border-left: none;
 	border-radius: 0px !important;
+	height: 45px;
 }
 
 /* Input Group */
@@ -362,9 +363,15 @@ header{
 }
 
 .nav-link.active {
-    background-color: #007bff;
-    color: white;
+    color: #007bff;
 }
+
+.custom-select{
+	width:80%;
+	height: 55px;
+}
+
+
 
 footer {
 	background: #343a40; /* Dark background */
