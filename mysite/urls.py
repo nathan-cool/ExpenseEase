@@ -23,3 +23,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("allauth.urls")),
 ]
+
+handler404 = "expenses.views.custom_404"
+handler500 = "expenses.views.custom_500"
