@@ -7,11 +7,68 @@
 
 /* Sidebar */
 .sidebar {
-  min-height: calc(100vh - 56px - 3rem);
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  padding: 48px 0 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
 
 .sidebar .nav-link {
-  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link.active {
+  color: #2470dc;
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 5rem;
+  }
+}
+
+.sidebar-sticky {
+  height: calc(100vh - 48px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  .sidebar .offcanvas-lg {
+    position: sticky;
+    top: 48px;
+  }
+  .navbar-search {
+    display: block;
+  }
+}
+
+.offcanvas-lg {
+  background-color: inherit;
+}
+
+@media (min-width: 768px) {
+  .sidebar .offcanvas-lg {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 48px;
+    height: calc(100vh - 56px - 3rem);
+  }
+  .navbar-search {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    height: 0vh;
+  }
+}
+
+.sidebar .nav-link {
+  font-size: .95rem;
   font-weight: 500;
 }
 
@@ -20,25 +77,34 @@
 }
 
 .sidebar-heading {
-  font-size: 0.75rem;
+  font-size: .75rem;
+}
+
+.sidebar {
+  height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    height: 0vh;
+  }
 }
 
 /* Navbar */
 .navbar-brand {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25);
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
 }
 
 .navbar .form-control {
-  padding: 0.75rem 1rem;
+  padding: .75rem 1rem;
 }
 
 .nav-link {
   color: rgb(63, 61, 61);
 }
 
-/* Hamburger Menu */
 .hamburger-menu {
   display: block;
   width: 30px;
@@ -67,42 +133,28 @@
   top: 8px;
 }
 
-/* Media Queries */
-@media (min-width: 768px) {
-  .sidebar .offcanvas-lg {
-    position: sticky;
-    top: 48px;
-    height: calc(100vh - 56px - 3rem);
-  }
-  
-  .navbar-search {
+@media only screen and (max-width: 768px) {
+  .btn.btn-primary.d-md-none {
     display: block;
   }
-  
+}
+
+/* Hide the button and show the sidebar on larger screens */
+@media only screen and (min-width: 768px) {
   .btn.btn-primary.d-md-none {
     display: none;
   }
-  
+
   .offcanvas {
     display: flex !important;
     visibility: visible !important;
     transform: none !important;
     position: relative !important;
     top: 0 !important;
-    left: 0 !important;
+    left: 73px !important;
     width: 100% !important;
     height: auto !important;
     background-color: transparent !important;
     border: none !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    height: 0vh;
-  }
-  
-  .btn.btn-primary.d-md-none {
-    display: block;
   }
 }
