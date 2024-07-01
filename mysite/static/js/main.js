@@ -1,8 +1,15 @@
-const generalSettingsLink = document.querySelector('.gsettings');
+document.addEventListener('DOMContentLoaded', function () {
 
-generalSettingsLink.addEventListener('click', (e) => {
+	const navLinks = document.querySelectorAll('.nav-link');
 
-	generalSettingsLink.classList.add('active');
+
+	navLinks.forEach((link) => {
+		link.addEventListener('click', function (e) {
+			// Remove active class from all links
+			navLinks.forEach((item) => item.classList.remove('active'));
+
+			// Add active class to the clicked link
+			this.classList.add('active');
+		});
+	});
 });
-
-console.log('Hello from main.js');

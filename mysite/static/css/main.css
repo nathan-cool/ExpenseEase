@@ -361,6 +361,11 @@ header{
 	background-color: #333533;
 }
 
+.nav-link.active {
+    background-color: #007bff;
+    color: white;
+}
+
 footer {
 	background: #343a40; /* Dark background */
 	color: white; /* White text */
