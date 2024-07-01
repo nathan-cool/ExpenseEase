@@ -26,12 +26,12 @@
 
 		<!-- Navbar -->
 		<header
-			class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow"
+			class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow "
 			data-bs-theme="dark"
 		>
 			<a
 				class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white"
-				href="#"
+				a href="{% url 'expenses' %}"
 				>ExpenseEase</a
 			>
 			<ul class="navbar-nav px-3 emaildisplay">
@@ -69,10 +69,14 @@
         </main>
 
         <footer class="footer mt-auto py-3 bg-light">
-            <div class="container">
-                <span class="text-muted">© 2024 expense ease</span>
-            </div>
-        </footer>
+    <div class="container">
+        <span class="text-muted">© 2024 ExpenseEase | 
+            <a href="https://github.com/nathan-cool/ExpenseEase" target="_blank" rel="noopener noreferrer">
+                GitHub Repository
+            </a> | Created by Nathan Doyle for Code Institute
+        </span>
+    </div>
+</footer>
 
 		<!-- Bootstrap JS -->
 		<script
