@@ -14,7 +14,7 @@ main {
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
-		max-height: calc(100vh - 56px - 3rem);
+		max-height: 100vh;
 }
 
 
@@ -371,6 +371,7 @@ footer {
 	bottom: 0;
 	width: 100%;
 	margin-top: auto; /* Pushes footer to the bottom */
+	z-index: 9999;
 }
 /* Media Queries */
 

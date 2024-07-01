@@ -80,18 +80,16 @@
 }
 
 /* Media Queries */
-@media (max-width: 767.98px) {
+
+
+@media (min-width: 768px) {
   .sidebar {
-    top: 5rem;
     height: 0vh;
+    width: 0vw;
   }
-  
   .btn.btn-primary.d-md-none {
     display: block;
   }
-}
-
-@media (min-width: 768px) {
   .sidebar .offcanvas-lg {
     position: sticky;
     top: 48px;
