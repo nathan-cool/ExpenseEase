@@ -11,11 +11,20 @@
     position: -webkit-sticky; /* Sticky position for larger screens */
     position: sticky;
     top: 48px; /* Offset from the top */
+    height: 0px;
   }
   .navbar-search {
     display: block; /* Show navbar search on larger screens */
   }
 }
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+      height: 1vh;
+  }
+  }
+  
+
 
 .sidebar .nav-link {
   font-size: .95rem; /* Slightly smaller font size for sidebar links */
@@ -29,6 +38,15 @@
 .sidebar-heading {
   font-size: .75rem; /* Smaller font size for sidebar headings */
 }
+.sidebar{
+    height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+      height: 0vh;
+  }
+  }
 
 /* Navbar */
 .navbar-brand {

@@ -8,7 +8,7 @@ body {
 
 /* Card Styles */
 .card-body {
-	box-shadow: 0 4px 8px rgba(90, 35, 200, 0.3); /* Adjusted to a valid box-shadow value */
+	box-shadow: 0 4px 8px rgba(90, 35, 200, 0.3);
 }
 
 /* Text Styles */
@@ -34,9 +34,14 @@ hr {
 	display: flex;
 }
 
+.editaddcard{
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
 .row .col-md-6 {
 	display: flex;
-	justify-content: space-around; /* Adjusted to space-between */
+	justify-content: space-around; 
 }
 
 /* Flex Containers */
@@ -45,6 +50,12 @@ hr {
 	justify-content: space-between;
 	align-items: flex-end;
 	margin-bottom: 20px;
+}
+
+.card-body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #searchField {
@@ -94,7 +105,7 @@ hr {
 .breadcrumb {
 	margin-bottom: 0; /* Removes default bottom margin from breadcrumb for better alignment */
 	background: transparent; /* Removes the default grey background */
-	padding: 0; /* Removes default padding */
+	padding-top: 15px;	
 	margin-bottom: 0; /* Reduces space below the breadcrumb */
 }
 
@@ -107,6 +118,7 @@ hr {
 .form-control {
 	background-image: none !important;
 }
+
 
 /* Button Hover */
 .btn:hover {

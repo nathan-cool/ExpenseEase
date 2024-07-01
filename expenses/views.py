@@ -26,8 +26,7 @@ def search_expenses(request):
     if request.method == "POST":
         search_str = json.loads(request.body).get("searchText", "")
         expenses = (
-            Expenses.objects.filter(
-                amount__istartswith=search_str, owner=request.user)
+            Expenses.objects.filter(amount__istartswith=search_str, owner=request.user)
             | Expenses.objects.filter(date__istartswith=search_str, owner=request.user)
             | Expenses.objects.filter(
                 category__icontains=search_str, owner=request.user
@@ -64,7 +63,7 @@ def index(request):
     try:
         currency = UserPreferences.objects.get(user=request.user).currency
     except UserPreferences.DoesNotExist:
-        currency = 'USD'
+        currency = "USD"
     context = {
         "expenses": expenses,
         "currency": currency,

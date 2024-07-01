@@ -17,7 +17,6 @@ from .utils import token_generator
 from django.views import View
 from google.oauth2 import id_token
 from google.auth.transport import requests
-import jwt
 import os
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import get_user_model
@@ -28,13 +27,13 @@ from django.contrib.auth import get_user_model
 def social_auth(request):
     """
     Authenticate a user using Google OAuth.
-    
+
     Args:
         request (HttpRequest): The request object.
-    
+
     returns:
         HttpResponse: The response object.
-    """    
+    """
     token = request.POST["credential"]
     try:
         user_data = id_token.verify_oauth2_token(
@@ -69,19 +68,22 @@ def social_auth(request):
         messages.error(request, "We could not log you in. Please try again")
         return redirect("login")
 
+
 # Register View for user
+
+
 class RegistrationView(View):
     # Split the name into first and last name
     def splitName(self, name):
         """
         Split the name into first and last name.
-        
+
         args:
             name (str): The name of the user.
-        
+
         returns:
-            tuple: The first and last name of the user.
-        """    
+            The first and last name of the user.
+        """
 
         parts = name.split(" ", 1)
 
@@ -90,28 +92,27 @@ class RegistrationView(View):
 
         return first_name, last_name
 
-
     def get(self, request):
         """
         Render the registration page.
-        
+
         args:
             request (HttpRequest): The request object.
         returns:
             HttpResponse: The response object.
         """
         return render(request, "authentication/register.html")
-    
+
     # Register a user
     def post(self, request):
         """
         Register a user.
-        
+
         args:
             request (HttpRequest): The request object.
         returns:
             HttpResponse: The response object.
-        """    
+        """
 
         name = request.POST["users_name"]
         first_name, last_name = self.splitName(name)
@@ -138,10 +139,10 @@ class RegistrationView(View):
             def send_verification_email(user):
                 """
                 Send a verification email to the user.
-                
+
                 args:
                     user (User): The user object.
-                
+
                 returns:
                     None
                 """
@@ -175,11 +176,12 @@ class RegistrationView(View):
                 except Exception as e:
                     messages.error(request, "An error occurred while sending the email")
                     pass
+
             # Create a new user
             user = User.objects.create_user(
                 email=email, first_name=first_name, last_name=last_name, username=email
             )
-            
+
             user.set_password(password)
             user.is_active = False
             user.save()
@@ -187,18 +189,22 @@ class RegistrationView(View):
 
             return render(request, "authentication/register.html")
 
+
 # Email validation view
+
+
 class EmailValidationView(View):
     """
     Validate the email of a user.
-    
+
     args:
         View: The view object.
-        
+
     returns:
         JsonResponse: The response object.
-    
+
     """
+
     def post(self, request):
         data = json.loads(request.body)
         email = data["email"]
@@ -219,16 +225,19 @@ class EmailValidationView(View):
 
         return JsonResponse({"email_valid": True})
 
+
 # Name validation view
+
+
 class users_nameValidationView(View):
     # Validate the name of a user
     def post(self, request):
         """
         Validate the name of a user.
-        
+
         args:
             request (HttpRequest): The request object.
-            
+
         returns:
             JsonResponse: The response object.
         """
@@ -257,10 +266,10 @@ class PasswordValidationView(View):
     def post(self, request):
         """
         Validate the password of a user.
-        
+
         args:
             request (HttpRequest): The request object.
-            
+
         returns:
             JsonResponse: The response object.
         """
@@ -291,13 +300,13 @@ class VerificationView(View):
     def get(self, request, uidb64, token):
         """
         Verify the user's account.
-        
+
         args:
-        
+
             request (HttpRequest): The request object.
             uidb64 (str): The base64 encoded user id.
             token (str): The token.
-            
+
         returns:
             HttpResponse: The response object.
         """
@@ -311,7 +320,7 @@ class VerificationView(View):
 
             if user.is_active:
                 return redirect("login" + "?message=" + "User already activated")
-            
+
             user.is_active = True
             user.save()
             successMessage = messages.success(request, "Account activated successfully")
@@ -328,26 +337,25 @@ class LoginView(View):
     def get(self, request):
         """
         Render the login page.
-        
+
         args:
             request (HttpRequest): The request object.
         returns:
             HttpResponse: The response object.
-        """    
+        """
         return render(request, "authentication/login.html")
-
 
     def post(self, request):
         """
         Log in a user.
-        
+
         args:
             request (HttpRequest): The request object.
-        
+
         returns:
             HttpResponse: The response object.
         """
-        
+
         email = request.POST.get("email")
         password = request.POST.get("password")
 
@@ -373,13 +381,14 @@ class LogoutView(View):
     # Log out a user
     """
     Log out a user.
-    
+
     args:
         View: The view object.
-        
+
     returns:
         HttpResponse: The response object.
-    """    
+    """
+
     def get(self, request):
         logout(request)
         messages.success(request, "You have been logged out")

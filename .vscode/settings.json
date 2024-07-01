@@ -2,6 +2,7 @@
 	"cSpell.words": [
 		"addexpensebtn",
 		"asgi",
+		"gsettings",
 		"mysite",
 		"scroller",
 		"searchandadd",
@@ -10,4 +11,10 @@
 		"sociallogin",
 		"tablecontent"
 	]
+}
+
+{
+  "python.linting.flake8Args": [
+    "--max-line-length=79"
+  ]
 }
