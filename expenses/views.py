@@ -131,62 +131,74 @@ def add_expenses(request):
     return render(request, "expenses/add-expenses.html", context)
 
 
-
 @login_required(login_url="/authentication/login")
 def expense_edit(request, id):
-    try:
-        expense = get_object_or_404(Expenses, pk=id)
-        categories = Category.objects.all()
-        formatted_date = expense.date.strftime("%Y-%m-%d")
+    """
+    Edit an expense in the database.
 
-        context = {
-            "expense": expense,
-            "invoice_number": expense.invoice_number,
-            "reference": expense.reference,
-            "amount": expense.amount,
-            "categories": categories,
-            "current_category": expense.category,
-            "date": formatted_date,
-            "description": expense.description,
-        }
+    Args:
+        request (HttpRequest): The request object.
+        id (int): The ID of the expense to edit.
 
-        if request.method == "GET":
-            return render(request, "expenses/edit-expense.html", context)
+    Returns:
+        HttpResponseRedirect: A redirect to the expenses page or an error
+        message.
+    """
+    expense = get_object_or_404(Expenses, pk=id)
+    categories = Category.objects.all()
+    formatted_date = expense.date.strftime("%Y-%m-%d")
 
-        if request.method == "POST":
-            amount = request.POST.get("amount")
-            date = request.POST.get("date")
-            category_id = request.POST.get("category")
-            description = request.POST.get("description")
-            invoice_number = request.POST.get("invoice_number")
-            reference = request.POST.get("reference")
+    context = {
+        "expense": expense,
+        "invoice_number": expense.invoice_number,
+        "reference": expense.reference,
+        "amount": expense.amount,
+        "categories": categories,
+        "current_category": expense.category,
+        "date": formatted_date,
+        "description": expense.description,
+    }
 
-            if not all([amount, date, category_id, description]):
-                messages.error(request, "All fields are required")
-                return render(request, "expenses/edit-expense.html", context)
-
-            try:
-                expense.amount = float(amount)
-                expense.date = parse_date(date)
-                expense.category = get_object_or_404(Category, id=category_id)
-                expense.description = description
-                expense.invoice_number = invoice_number
-                expense.reference = reference
-                expense.full_clean()  # Validate the model
-                expense.save()
-
-                messages.success(request, "Expense saved successfully")
-                return redirect("expenses")
-            except (ValueError, ValidationError) as e:
-                messages.error(request, f"Invalid data: {str(e)}")
-                return render(request, "expenses/edit-expense.html", context)
-
-        messages.error(request, "Invalid request method")
+    if request.method == "GET":
         return render(request, "expenses/edit-expense.html", context)
 
-    except Exception as e:
-        messages.error(request, f"An error occurred: {str(e)}")
+    if request.method == "POST":
+        amount = request.POST.get("amount")
+        date = request.POST.get("date")
+        category = request.POST.get("category")
+        description = request.POST.get("description")
+        invoice_number = request.POST.get("invoice_number")
+        reference = request.POST.get("reference")
+
+        if not amount:
+            messages.error(request, "Amount is required")
+            return render(request, "expenses/edit-expense.html", context)
+
+        if not date:
+            messages.error(request, "Date is required")
+            return render(request, "expenses/edit-expense.html", context)
+
+        if not description:
+            messages.error(request, "Description is required")
+            return render(request, "expenses/edit-expense.html", context)
+
+        if not category:
+            messages.error(request, "Category is required")
+            return render(request, "expenses/edit-expense.html", context)
+
+        expense.amount = amount
+        expense.date = date
+        expense.category = category
+        expense.description = description
+        expense.invoice_number = invoice_number
+        expense.reference = reference
+        expense.save()
+
+        messages.success(request, "Expense saved successfully")
         return redirect("expenses")
+
+    messages.error(request, "An error occurred while saving the expenses")
+    return render(request, "expenses/edit-expense.html", context)
 
 
 @login_required(login_url="/authentication/login")

@@ -11,7 +11,7 @@
     position: -webkit-sticky; /* Sticky position for larger screens */
     position: sticky;
     top: 48px; /* Offset from the top */
-    height: 0px;
+    height: calc(100vh - 56px - 3rem);
   }
   .navbar-search {
     display: block; /* Show navbar search on larger screens */

@@ -4,7 +4,20 @@ html,
 body {
 	font-family: 'Nunito', sans-serif;
 	height: 100%;
+	display: flex;
+	flex-direction: column;
+	padding-top: 56px;
+	margin: 0;
+
 }
+
+main {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+		max-height: calc(100vh - 56px - 3rem);
+}
+
 
 /* Card Styles */
 .card-body {
@@ -218,7 +231,7 @@ hr {
 }
 
 .container-fluid {
-	height: 87%;
+	min-height: calc(100vh - 56px)
 }
 
 /* Currency Submit Button */
