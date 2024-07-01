@@ -84,8 +84,7 @@
 
 @media (min-width: 768px) {
   .sidebar {
-    height: 0vh;
-    width: 0vw;
+    height: 100vh;
   }
   .btn.btn-primary.d-md-none {
     display: block;
