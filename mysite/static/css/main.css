@@ -191,6 +191,8 @@ header{
 
 .navbar{
 	height: 75px;
+	display: flex;
+	flex-wrap: nowrap;
 }
 
 /* Success Alert */
@@ -452,8 +454,12 @@ footer {
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.navbar-toggler{
+	margin: 10px;
+}
+
 @media screen and (max-width: 581px) {
 	.user-email {
 		display: none;
-	
+}
 }
