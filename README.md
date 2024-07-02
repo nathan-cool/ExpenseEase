@@ -799,31 +799,233 @@ These design choices ensure the ExpenseEase looks great and is easy to use, no m
     </tr>
   </tbody>
 </table>
+</details>
 
 
 <details>
-<summary>Expense Management</summary>
+<summary>Add Expense</summary>
 
 <table>
-<tr><th>Test</th><th>Result</th></tr>
-<tr><td>Test adding expense with valid data</td><td>✓</td></tr>
-<tr><td>Test adding expense with missing required fields</td><td>✓</td></tr>
-<tr><td>Test editing expense with valid data</td><td>✓</td></tr>
-<tr><td>Test editing expense with missing required fields</td><td>✓</td></tr>
-<tr><td>Test deleting expense</td><td>✓</td></tr>
+  <thead>
+    <tr>
+      <th>Test Case</th>
+      <th>Procedure</th>
+      <th>Expected Result</th>
+      <th>Actual Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Add expense with valid data</td>
+      <td>
+        1. Log in to the application<br>
+        2. Navigate to the "Add Expense" page<br>
+        3. Fill in all required fields with valid data<br>
+        4. Click "Save" button
+      </td>
+      <td>
+        Expense is successfully added to the database<br>
+        User is redirected to the expenses page<br>
+        Success message is displayed
+      </td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Add expense with missing required fields</td>
+      <td>
+        1. Navigate to the "Add Expense" page<br>
+        2. Leave one or more required fields empty<br>
+        3. Click "Save" button
+      </td>
+      <td>
+        Expense is not added to the database<br>
+        Error message is displayed for each missing required field<br>
+        User remains on the "Add Expense" page
+      </td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Add expense with invalid amount format</td>
+      <td>
+        1. Navigate to the "Add Expense" page<br>
+        2. Enter an invalid amount (e.g., "abc")<br>
+        3. Fill in other required fields<br>
+        4. Click "Save" button
+      </td>
+      <td>
+        Expense is not added to the database<br>
+        Error message is displayed for invalid amount<br>
+        User remains on the "Add Expense" page
+      </td>
+      <td>✅ Pass</td>
+    </tr>
+  </tbody>
 </table>
 
 </details>
 
 <details>
- 
-<summary>Description Generation</summary>
+<summary>Edit Expense</summary>
 
 <table>
-<tr><th>Test</th><th>Result</th></tr>
-<tr><td>Test generating description with valid expense details</td><td>✓</td></tr>
-<tr><td>Test handling error during description generation
+  <thead>
+    <tr>
+      <th>Test Case</th>
+      <th>Procedure</th>
+      <th>Expected Result</th>
+      <th>Actual Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Edit expense with valid data</td>
+      <td>
+        1. Navigate to the expenses page<br>
+        2. Click "Edit" on an existing expense<br>
+        3. Modify fields with valid data<br>
+        4. Click "Save" button
+      </td>
+      <td>
+        Expense is successfully updated in the database<br>
+        User is redirected to the expenses page<br>
+        Success message is displayed
+      </td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Edit expense with missing required fields</td>
+      <td>
+        1. Navigate to edit page for an existing expense<br>
+        2. Remove data from one or more required fields<br>
+        3. Click "Save" button
+      </td>
+      <td>
+        Expense is not updated in the database<br>
+        Error message is displayed for each missing required field<br>
+        User remains on the edit expense page
+      </td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Edit expense category</td>
+      <td>
+        1. Navigate to edit page for an existing expense<br>
+        2. Change the category to a different valid category<br>
+        3. Click "Save" button
+      </td>
+      <td>
+        Expense category is successfully updated in the database<br>
+        User is redirected to the expenses page<br>
+        Success message is displayed
+      </td>
+      <td>✅ Pass</td>
+    </tr>
+  </tbody>
 </table>
+
+</details>
+
+<details>
+<summary>Delete Expense</summary>
+
+<table>
+  <thead>
+    <tr>
+      <th>Test Case</th>
+      <th>Procedure</th>
+      <th>Expected Result</th>
+      <th>Actual Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Delete existing expense</td>
+      <td>
+        1. Navigate to the expenses page<br>
+        2. Click "Delete" on an existing expense<br>
+        3. Confirm the deletion
+      </td>
+      <td>
+        Expense is successfully removed from the database<br>
+        User remains on the expenses page<br>
+        Success message is displayed
+      </td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Attempt to delete non-existent expense</td>
+      <td>
+        1. Manually construct a URL to delete a non-existent expense ID<br>
+        2. Navigate to this URL
+      </td>
+      <td>
+        Error message is displayed indicating expense not found<br>
+        User is redirected to the expenses page
+      </td>
+      <td>✅ Pass</td>
+    </tr>
+  </tbody>
+</table>
+
+</details>
+
+<details>
+<summary>Generate Expense Description</summary>
+
+<table>
+  <thead>
+    <tr>
+      <th>Test Case</th>
+      <th>Procedure</th>
+      <th>Expected Result</th>
+      <th>Actual Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Generate description for existing expense</td>
+      <td>
+        1. Navigate to the edit page for an existing expense<br>
+        2. Click "Generate Description" button
+      </td>
+      <td>
+        A description is generated based on the expense details<br>
+        The generated description is displayed in the description field<br>
+        User remains on the edit expense page
+      </td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Generate description with missing expense details</td>
+      <td>
+        1. Create an expense with minimal details<br>
+        2. Navigate to the edit page for this expense<br>
+        3. Click "Generate Description" button
+      </td>
+      <td>
+        A generic or partial description is generated<br>
+        The generated description is displayed in the description field<br>
+        User remains on the edit expense page
+      </td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Handle API error during description generation</td>
+      <td>
+        1. Temporarily invalidate the OpenAI API key<br>
+        2. Navigate to the edit page for an existing expense<br>
+        3. Click "Generate Description" button
+      </td>
+      <td>
+        An error message is displayed indicating the description couldn't be generated<br>
+        The original description (if any) remains unchanged<br>
+        User remains on the edit expense page
+      </td>
+      <td>✅ Pass</td>
+    </tr>
+  </tbody>
+</table>
+
 </details>
 
 ### Device Testing
