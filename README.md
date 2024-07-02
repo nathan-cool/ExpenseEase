@@ -352,82 +352,245 @@ These design choices ensure the ExpenseEase looks great and is easy to use, no m
 
 
 <details>
- 
 <summary>Social Authentication</summary>
 
 <table>
-<tr><th>Test</th><th>Result</th></tr>
-<tr><td>Test successful Google OAuth authentication and user creation</td><td>✓</td></tr>
-<tr><td>Test successful Google OAuth authentication with existing user</td><td>✓</td></tr>
-<tr><td>Test failed Google OAuth authentication</td><td>✓</td></tr>
+  <thead>
+    <tr>
+      <th>Test Case</th>
+      <th>Procedure</th>
+      <th>Expected Result</th>
+      <th>Actual Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Successful Google OAuth authentication and user creation</td>
+      <td>
+        1. Click "Sign in with Google"<br>
+        2. Select a Google account<br>
+        3. Grant permissions
+      </td>
+      <td>New user account created and logged in</td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Successful Google OAuth authentication with existing user</td>
+      <td>
+        1. Click "Sign in with Google"<br>
+        2. Select a previously used Google account
+      </td>
+      <td>Existing user logged in successfully</td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Failed Google OAuth authentication</td>
+      <td>
+        1. Click "Sign in with Google"<br>
+        2. Cancel the Google authentication process
+      </td>
+      <td>User remains on login page with error message</td>
+      <td>✅ Pass</td>
+    </tr>
+  </tbody>
 </table>
 
 </details>
 
 <details>
- 
 <summary>User Registration</summary>
 
 <table>
-<tr><th>Test</th><th>Result</th></tr>
-<tr><td>Test successful user registration with valid data</td><td>✓</td></tr>
-<tr><td>Test registration with invalid password</td><td>✓</td></tr>
-<tr><td>Test registration with invalid name</td><td>✓</td></tr>
-<tr><td>Test registration with invalid email</td><td>✓</td></tr>
-<tr><td>Test registration with existing email</td><td>✓</td></tr>
+  <thead>
+    <tr>
+      <th>Test Case</th>
+      <th>Procedure</th>
+      <th>Expected Result</th>
+      <th>Actual Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Successful user registration with valid data</td>
+      <td>Enter valid name, email, and password</td>
+      <td>Account created, verification email sent</td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Registration with invalid password</td>
+      <td>Enter valid name and email, but a password that doesn't meet requirements</td>
+      <td>Error message displayed, registration prevented</td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Registration with invalid name</td>
+      <td>Enter invalid name (e.g., numbers or special characters)</td>
+      <td>Error message displayed, registration prevented</td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Registration with invalid email</td>
+      <td>Enter an incorrectly formatted email address</td>
+      <td>Error message displayed, registration prevented</td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Registration with existing email</td>
+      <td>Attempt to register with an email already in use</td>
+      <td>Error message displayed, registration prevented</td>
+      <td>✅ Pass</td>
+    </tr>
+  </tbody>
 </table>
 
 </details>
 
 <details>
- 
 <summary>Email Validation</summary>
 
 <table>
-<tr><th>Test</th><th>Result</th></tr>
-<tr><td>Test email validation with empty email</td><td>✓</td></tr>
-<tr><td>Test email validation with existing email</td><td>✓</td></tr>
-<tr><td>Test email validation with invalid email format</td><td>✓</td></tr>
-<tr><td>Test email validation with valid email</td><td>✓</td></tr>
+  <thead>
+    <tr>
+      <th>Test Case</th>
+      <th>Procedure</th>
+      <th>Expected Result</th>
+      <th>Actual Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Email validation with empty email</td>
+      <td>Submit registration form with empty email field</td>
+      <td>Error message displayed, form submission prevented</td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Email validation with existing email</td>
+      <td>Enter an email address already registered</td>
+      <td>Error message displayed, form submission prevented</td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Email validation with invalid email format</td>
+      <td>Enter an incorrectly formatted email (e.g., missing @ symbol)</td>
+      <td>Error message displayed, form submission prevented</td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Email validation with valid email</td>
+      <td>Enter a correctly formatted, unused email address</td>
+      <td>No error message, form submission allowed</td>
+      <td>✅ Pass</td>
+    </tr>
+  </tbody>
 </table>
 
 </details>
 
 <details>
- 
 <summary>Name Validation</summary>
 
 <table>
-<tr><th>Test</th><th>Result</th></tr>
-<tr><td>Test name validation with empty name</td><td>✓</td></tr>
-<tr><td>Test name validation with invalid characters</td><td>✓</td></tr>
-<tr><td>Test name validation with valid name</td><td>✓</td></tr>
+  <thead>
+    <tr>
+      <th>Test Case</th>
+      <th>Procedure</th>
+      <th>Expected Result</th>
+      <th>Actual Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Name validation with empty name</td>
+      <td>Submit registration form with empty name field</td>
+      <td>Error message displayed, form submission prevented</td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Name validation with invalid characters</td>
+      <td>Enter a name with numbers or special characters</td>
+      <td>Error message displayed, form submission prevented</td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Name validation with valid name</td>
+      <td>Enter a name with only letters and spaces</td>
+      <td>No error message, form submission allowed</td>
+      <td>✅ Pass</td>
+    </tr>
+  </tbody>
 </table>
 
 </details>
 
 <details>
- 
 <summary>Password Validation</summary>
 
 <table>
-<tr><th>Test</th><th>Result</th></tr>
-<tr><td>Test password validation with short password</td><td>✓</td></tr>
-<tr><td>Test password validation with password missing required characters</td><td>✓</td></tr>
-<tr><td>Test password validation with valid password</td><td>✓</td></tr>
+  <thead>
+    <tr>
+      <th>Test Case</th>
+      <th>Procedure</th>
+      <th>Expected Result</th>
+      <th>Actual Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Password validation with short password</td>
+      <td>Enter a password shorter than the minimum required length</td>
+      <td>Error message displayed, form submission prevented</td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Password validation with missing required characters</td>
+      <td>Enter a password without required elements (e.g., uppercase, lowercase, number)</td>
+      <td>Error message displayed, form submission prevented</td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Password validation with valid password</td>
+      <td>Enter a password meeting all requirements</td>
+      <td>No error message, form submission allowed</td>
+      <td>✅ Pass</td>
+    </tr>
+  </tbody>
 </table>
 
 </details>
 
 <details>
- 
 <summary>User Verification</summary>
 
 <table>
-<tr><th>Test</th><th>Result</th></tr>
-<tr><td>Test successful user verification</td><td>✓</td></tr>
-<tr><td>Test verification with invalid token</td><td>✓</td></tr>
-<tr><td>Test verification of already active user</td><td>✓</td></tr>
+  <thead>
+    <tr>
+      <th>Test Case</th>
+      <th>Procedure</th>
+      <th>Expected Result</th>
+      <th>Actual Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Successful user verification</td>
+      <td>Click verification link in email</td>
+      <td>Account activated, user able to log in</td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Verification with invalid token</td>
+      <td>Modify verification link token and attempt to verify</td>
+      <td>Error message displayed, account not activated</td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Verification of already active user</td>
+      <td>Attempt to verify an already verified account</td>
+      <td>Redirected to login page with appropriate message</td>
+      <td>✅ Pass</td>
+    </tr>
+  </tbody>
 </table>
 
 </details>
@@ -436,14 +599,42 @@ These design choices ensure the ExpenseEase looks great and is easy to use, no m
 <summary>User Login and Logout</summary>
 
 <table>
-<tr><th>Test</th><th>Result</th></tr>
-<tr><td>Test successful user login</td><td>✓</td></tr>
-<tr><td>Test login with inactive account</td><td>✓</td></tr>
-<tr><td>Test login with invalid credentials</td><td>✓</td></tr>
-<tr><td>Test successful user logout</td><td>✓</td></tr>
+  <thead>
+    <tr>
+      <th>Test Case</th>
+      <th>Procedure</th>
+      <th>Expected Result</th>
+      <th>Actual Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Successful user login</td>
+      <td>Enter valid credentials and submit login form</td>
+      <td>User logged in and redirected to dashboard</td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Login with inactive account</td>
+      <td>Attempt to log in with unverified account</td>
+      <td>Error message displayed, login prevented</td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Login with invalid credentials</td>
+      <td>Enter incorrect email or password</td>
+      <td>Error message displayed, login prevented</td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Successful user logout</td>
+      <td>Click logout button while logged in</td>
+      <td>User logged out and redirected to login page</td>
+      <td>✅ Pass</td>
+    </tr>
+  </tbody>
 </table>
 
-</details>
 
 <details>
 <summary>Expense Management</summary>
