@@ -137,6 +137,13 @@ To restrict access to certain views and features, the Django `@login_required` d
 <img src="https://github.com/nathan-cool/django-expense-organizer/assets/127421398/f1b00191-8bb1-4f60-b347-95b7e0aacde1" alt="Edit/Add Expense Screen">
 </details>
 
+## Site map 
+
+To clarify the structure of the site and its navigation, I created a site map using Lucidchart:
+
+![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/925a11f4-9812-4f68-bbf3-6db309e69f69)
+
+
 ### Database Schema
 
 The database schema for this project is as follows: 
