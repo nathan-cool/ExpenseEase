@@ -1,5 +1,7 @@
 # ExpenseEase
 
+ExpenseEase is a user-friendly and secure web application designed to help users manage their personal expenses. With features like Google OAuth integration, AI-driven expense descriptions, and multi-currency support, ExpenseEase streamlines the process of tracking daily financial activities and provides insights into spending habits.
+
 [View the live project here](...)
 
 ## Table of Contents
