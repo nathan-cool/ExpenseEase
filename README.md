@@ -240,6 +240,7 @@ These design choices ensure the ExpenseEase looks great and is easy to use, no m
 
 ### Manual Testing with User Storeys
 
+<h3>Search and Pagination Functionality</h3>
 
 <details>
 <summary>Search Expenses</summary>
@@ -514,7 +515,7 @@ These design choices ensure the ExpenseEase looks great and is easy to use, no m
 
 </details>
 
-
+<h3>User Authentication</h3>
 
 <details>
 <summary>Social Authentication</summary>
@@ -609,6 +610,8 @@ These design choices ensure the ExpenseEase looks great and is easy to use, no m
 </table>
 
 </details>
+
+<h3>Input Validation</h3>
 
 <details>
 <summary>Email Validation</summary>
@@ -801,6 +804,7 @@ These design choices ensure the ExpenseEase looks great and is easy to use, no m
 </table>
 </details>
 
+<h3>Expense Operations</h3>
 
 <details>
 <summary>Add Expense</summary>
@@ -1027,6 +1031,168 @@ These design choices ensure the ExpenseEase looks great and is easy to use, no m
 </table>
 
 </details>
+
+<details>
+<summary>Load Currency Data</summary>
+
+<table>
+  <thead>
+    <tr>
+      <th>Test Case</th>
+      <th>Procedure</th>
+      <th>Expected Result</th>
+      <th>Actual Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Successfully load currency data</td>
+      <td>
+        1. Ensure the currencies.json file exists and is properly formatted<br>
+        2. Navigate to the preferences page
+      </td>
+      <td>
+        Currency data is loaded successfully<br>
+        Preferences page is rendered with the list of currencies
+      </td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Handle missing currency data file</td>
+      <td>
+        1. Temporarily rename or remove the currencies.json file<br>
+        2. Navigate to the preferences page
+      </td>
+      <td>
+        Error message is displayed indicating the currency data file is not found<br>
+        Preferences page is rendered with an empty currency list
+      </td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Handle invalid JSON in currency data file</td>
+      <td>
+        1. Modify the currencies.json file to contain invalid JSON<br>
+        2. Navigate to the preferences page
+      </td>
+      <td>
+        Error message is displayed indicating an error in decoding the currency data file<br>
+        Preferences page is rendered with an empty currency list
+      </td>
+      <td>✅ Pass</td>
+    </tr>
+  </tbody>
+</table>
+
+</details>
+
+<details>
+<summary>Render Preferences Page</summary>
+
+<table>
+  <thead>
+    <tr>
+      <th>Test Case</th>
+      <th>Procedure</th>
+      <th>Expected Result</th>
+      <th>Actual Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Render preferences page for user with existing preferences</td>
+      <td>
+        1. Log in as a user with existing preferences<br>
+        2. Navigate to the preferences page
+      </td>
+      <td>
+        Preferences page is rendered<br>
+        Currency list is displayed<br>
+        User's current currency preference is selected
+      </td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Render preferences page for user without existing preferences</td>
+      <td>
+        1. Log in as a new user without preferences<br>
+        2. Navigate to the preferences page
+      </td>
+      <td>
+        Preferences page is rendered<br>
+        Currency list is displayed<br>
+        No currency is selected by default
+      </td>
+      <td>✅ Pass</td>
+    </tr>
+  </tbody>
+</table>
+
+</details>
+
+<details>
+<summary>Update User Preferences</summary>
+
+<table>
+  <thead>
+    <tr>
+      <th>Test Case</th>
+      <th>Procedure</th>
+      <th>Expected Result</th>
+      <th>Actual Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Update preferences for user with existing preferences</td>
+      <td>
+        1. Log in as a user with existing preferences<br>
+        2. Navigate to the preferences page<br>
+        3. Select a different currency<br>
+        4. Submit the form
+      </td>
+      <td>
+        User's preferences are updated in the database<br>
+        Success message is displayed<br>
+        User is redirected to the expenses page
+      </td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Create preferences for user without existing preferences</td>
+      <td>
+        1. Log in as a new user without preferences<br>
+        2. Navigate to the preferences page<br>
+        3. Select a currency<br>
+        4. Submit the form
+      </td>
+      <td>
+        New preferences are created for the user in the database<br>
+        Success message is displayed<br>
+        User is redirected to the expenses page
+      </td>
+      <td>✅ Pass</td>
+    </tr>
+    <tr>
+      <td>Attempt to update preferences without selecting a currency</td>
+      <td>
+        1. Navigate to the preferences page<br>
+        2. Submit the form without selecting a currency
+      </td>
+      <td>
+        Error message is displayed indicating no currency was selected<br>
+        User is redirected to the expenses page<br>
+        No changes are made to the user's preferences
+      </td>
+      <td>✅ Pass</td>
+    </tr>
+  </tbody>
+</table>
+
+</details>
+
+<h2>Test Results Summary</h2>
+All manual tests passed successfully, demonstrating the robustness of our user authentication and management system. The application correctly handles various scenarios, including valid and invalid inputs, ensuring a secure and user-friendly experience.
 
 ### Device Testing
 <details>
