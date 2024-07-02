@@ -24,30 +24,14 @@
   - [Content](#content)
   - [Media](#media)
   - [Acknowledgments](#acknowledgments)
+ 
+
 
 
 ## User Experience (UX)
 
 ### Overview
 The ExpenseEase project was created to offer a user-friendly and secure way to manage personal expenses. It aims to streamline tracking daily financial activities and includes advanced features like Google OAuth integration and AI-driven expense descriptions. This app is designed for anyone looking to take control of their finances and better understand their spending habits.
-
-### User Stories
-- As a user, I would like to know when I reach a page I don't have access to.
-- As a user, I would like to log in so that I can access my account.
-- As a user, I would like to register for a new account so that I can create my profile and start managing my expenses.
-- As a user, I would like the ability to add an expense to keep track of my expenses.
-- As a user, I want the ability to view my expenses.
-- As a user, I want the ability to edit my expenses.
-- As a user, I want the ability to delete an expense.
-- As a user, I would like to log out of my account.
-
-### Developer Tasks
-- As a developer, I need to create a readme file.
-- As a developer, I need to set up my project.
-- As a developer, I need to deploy my project to Heroku.
-- As a developer, I need to create a base HTML page and structure.
-- As a developer, I need to integrate Google authentication.
-
 
 ### Agile
 
@@ -57,7 +41,35 @@ User Stories were then created as GitHub Issues, linked to the Epics. Custom iss
 
 A link to my Kanban board can be found [here](https://github.com/users/nathan-cool/projects/2/views/1?pane=issue&itemId=55533266)
 
-![image](https://github.com/nathan-cool/django-expense-organizer/assets/127421398/035d6f2e-927e-4062-8ffd-3d0639c2d248)
+![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/1a274d09-27e2-45f3-8314-7e9a6206226c)
+
+
+### Epics
+The following Epics were identified for this project:
+
+- User Authentication and Account Management
+- Expense Tracking Functionality
+- Application Development and Deployment
+- User Experience and Interface
+
+### User Stories
+Below are some of the key user stories implemented in this project:
+
+- As a user, I would like to log in so that I can access my account
+- As a user, I need the application to be responsive so that I can access and use it on various devices
+- As a user, I need to be able to search for specific expenses and navigate through my expense history
+- As a user, I would like to log out of my account
+- As a user, I would like to know when I reach a page I don't have access to
+- As a user, I need to receive clear feedback when I input data incorrectly or when errors occur
+- As a user, I need to be able to set and update my preferences so that the application is tailored to my needs
+- As a user, I would like to register for a new account so that I can create my profile and start using the application
+- As a user, I would like the ability to add an expense to keep track of my expenses
+- As a user, I want the ability to view my expenses
+- As a user, I want the ability to edit my expenses
+- As a user, I want the ability to delete an expense
+
+
+
 
 ## Features
 
