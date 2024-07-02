@@ -243,110 +243,275 @@ These design choices ensure the ExpenseEase looks great and is easy to use, no m
 
 <details>
 <summary>Search Expenses</summary>
+
 <table>
   <thead>
     <tr>
-      <th>Test</th>
-      <th>Description</th>
+      <th>Test Case</th>
+      <th>Procedure</th>
+      <th>Expected Result</th>
+      <th>Actual Result</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Test successful search by amount (exact match)</td>
-      <td>Enter a specific amount (e.g., '100'). Verify that expenses with the exact amount of '100' are returned. Ensure that only expenses belonging to the logged-in user are included.</td>
+      <td>Search by amount (exact match)</td>
+      <td>
+        1. Log in to the application<br>
+        2. Navigate to the expenses page<br>
+        3. Enter a specific amount (e.g., '100') in the search field<br>
+        4. Submit the search
+      </td>
+      <td>
+        Only expenses with the exact amount of '100' are displayed<br>
+        Only expenses belonging to the logged-in user are shown
+      </td>
+      <td>✅ Pass</td>
     </tr>
     <tr>
-      <td>Test successful search by amount (partial match)</td>
-      <td>Enter a partial amount (e.g., '10'). Verify that expenses with amounts starting with '10' (e.g., '100', '105') are returned. Ensure that only expenses belonging to the logged-in user are included.</td>
+      <td>Search by amount (partial match)</td>
+      <td>
+        1. Enter a partial amount (e.g., '10') in the search field<br>
+        2. Submit the search
+      </td>
+      <td>
+        Expenses with amounts starting with '10' (e.g., '100', '105') are displayed<br>
+        Only expenses belonging to the logged-in user are shown
+      </td>
+      <td>✅ Pass</td>
     </tr>
     <tr>
-      <td>Test successful search by date (exact match)</td>
-      <td>Enter a specific date (e.g., '2024-06-11'). Verify that expenses with the exact date of '2024-06-11' are returned. Ensure that only expenses belonging to the logged-in user are included.</td>
+      <td>Search by date (exact match)</td>
+      <td>
+        1. Enter a specific date (e.g., '2024-06-11') in the search field<br>
+        2. Submit the search
+      </td>
+      <td>
+        Only expenses with the exact date of '2024-06-11' are displayed<br>
+        Only expenses belonging to the logged-in user are shown
+      </td>
+      <td>✅ Pass</td>
     </tr>
     <tr>
-      <td>Test successful search by date (partial match)</td>
-      <td>Enter a partial date (e.g., '2024-06'). Verify that expenses with dates starting with '2024-06' are returned. Ensure that only expenses belonging to the logged-in user are included.</td>
+      <td>Search by date (partial match)</td>
+      <td>
+        1. Enter a partial date (e.g., '2024-06') in the search field<br>
+        2. Submit the search
+      </td>
+      <td>
+        Expenses with dates starting with '2024-06' are displayed<br>
+        Only expenses belonging to the logged-in user are shown
+      </td>
+      <td>✅ Pass</td>
     </tr>
     <tr>
-      <td>Test successful search by category</td>
-      <td>Enter a category keyword (e.g., 'Travel'). Verify that expenses with categories containing the keyword 'Travel' are returned. Ensure that only expenses belonging to the logged-in user are included.</td>
+      <td>Search by category</td>
+      <td>
+        1. Enter a category keyword (e.g., 'Travel') in the search field<br>
+        2. Submit the search
+      </td>
+      <td>
+        Expenses with categories containing the keyword 'Travel' are displayed<br>
+        Only expenses belonging to the logged-in user are shown
+      </td>
+      <td>✅ Pass</td>
     </tr>
     <tr>
-      <td>Test successful search by description</td>
-      <td>Enter a description keyword (e.g., 'dinner'). Verify that expenses with descriptions containing the keyword 'dinner' are returned. Ensure that only expenses belonging to the logged-in user are included.</td>
+      <td>Search by description</td>
+      <td>
+        1. Enter a description keyword (e.g., 'dinner') in the search field<br>
+        2. Submit the search
+      </td>
+      <td>
+        Expenses with descriptions containing the keyword 'dinner' are displayed<br>
+        Only expenses belonging to the logged-in user are shown
+      </td>
+      <td>✅ Pass</td>
     </tr>
     <tr>
-      <td>Test successful search by invoice number</td>
-      <td>Enter an invoice number keyword (e.g., 'INV123'). Verify that expenses with invoice numbers containing the keyword 'INV123' are returned. Ensure that only expenses belonging to the logged-in user are included.</td>
+      <td>Search by invoice number</td>
+      <td>
+        1. Enter an invoice number keyword (e.g., 'INV123') in the search field<br>
+        2. Submit the search
+      </td>
+      <td>
+        Expenses with invoice numbers containing the keyword 'INV123' are displayed<br>
+        Only expenses belonging to the logged-in user are shown
+      </td>
+      <td>✅ Pass</td>
     </tr>
     <tr>
-      <td>Test successful search by reference</td>
-      <td>Enter a reference keyword (e.g., 'REF456'). Verify that expenses with references containing the keyword 'REF456' are returned. Ensure that only expenses belonging to the logged-in user are included.</td>
+      <td>Search by reference</td>
+      <td>
+        1. Enter a reference keyword (e.g., 'REF456') in the search field<br>
+        2. Submit the search
+      </td>
+      <td>
+        Expenses with references containing the keyword 'REF456' are displayed<br>
+        Only expenses belonging to the logged-in user are shown
+      </td>
+      <td>✅ Pass</td>
     </tr>
     <tr>
-      <td>Test failed search with no matching results</td>
-      <td>Enter a search string that does not match any expense (e.g., 'nonexistent'). Verify that no expenses are returned. Ensure that the response is handled gracefully and no errors occur.</td>
+      <td>Failed search with no matching results</td>
+      <td>
+        1. Enter a search string that does not match any expense (e.g., 'nonexistent')<br>
+        2. Submit the search
+      </td>
+      <td>
+        No expenses are returned<br>
+        An appropriate "No results found" message is displayed<br>
+        No errors occur
+      </td>
+      <td>✅ Pass</td>
     </tr>
     <tr>
-      <td>Test search with multiple criteria</td>
-      <td>Enter a complex search string that matches multiple fields (e.g., '100 2024-06 Travel'). Verify that expenses matching any of the criteria (amount, date, category) are returned. Ensure that only expenses belonging to the logged-in user are included.</td>
+      <td>Search with multiple criteria</td>
+      <td>
+        1. Enter a complex search string that matches multiple fields (e.g., '100 2024-06 Travel')<br>
+        2. Submit the search
+      </td>
+      <td>
+        Expenses matching any of the criteria (amount, date, category) are displayed<br>
+        Only expenses belonging to the logged-in user are shown
+      </td>
+      <td>✅ Pass</td>
     </tr>
   </tbody>
 </table>
+
 </details>
 
 <details>
-<summary>Pagination</summary></summary>
+<summary>Pagination</summary>
+
 <table>
   <thead>
     <tr>
-      <th>Test</th>
-      <th>Description</th>
+      <th>Test Case</th>
+      <th>Procedure</th>
+      <th>Expected Result</th>
+      <th>Actual Result</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Test pagination with default page</td>
-      <td>Load the expenses page without any query parameters. Verify that the first 5 expenses are displayed. Ensure pagination controls are visible and functional.</td>
+      <td>Pagination with default page</td>
+      <td>
+        1. Log in to the application<br>
+        2. Navigate to the expenses page without any query parameters
+      </td>
+      <td>
+        The first 5 expenses are displayed<br>
+        Pagination controls are visible and functional
+      </td>
+      <td>✅ Pass</td>
     </tr>
     <tr>
-      <td>Test pagination with specific page</td>
-      <td>Load the expenses page with a specific page number (e.g., `?page=2`). Verify that the correct set of expenses for that page is displayed.</td>
+      <td>Pagination with specific page</td>
+      <td>
+        1. Load the expenses page with a specific page number (e.g., `?page=2`)
+      </td>
+      <td>The correct set of expenses for page 2 is displayed</td>
+      <td>✅ Pass</td>
     </tr>
     <tr>
-      <td>Test pagination with invalid page number</td>
-      <td>Load the expenses page with an invalid page number (e.g., `?page=999`). Verify that a valid page of expenses is displayed and no errors occur.</td>
+      <td>Pagination with invalid page number</td>
+      <td>
+        1. Load the expenses page with an invalid page number (e.g., `?page=999`)
+      </td>
+      <td>
+        A valid page of expenses is displayed<br>
+        No errors occur
+      </td>
+      <td>✅ Pass</td>
     </tr>
     <tr>
-      <td>Test pagination controls visibility</td>
-      <td>Ensure that pagination controls (next, previous, page numbers) are visible and functional when there are more than 5 expenses.</td>
+      <td>Pagination controls visibility</td>
+      <td>
+        1. Create more than 5 expenses<br>
+        2. Navigate to the expenses page
+      </td>
+      <td>
+        Pagination controls (next, previous, page numbers) are visible<br>
+        Pagination controls are functional
+      </td>
+      <td>✅ Pass</td>
     </tr>
     <tr>
-      <td>Test pagination on boundary pages</td>
-      <td>Verify that navigating to the first page from the second page and to the last page from the second-to-last page works correctly.</td>
+      <td>Pagination on boundary pages</td>
+      <td>
+        1. Navigate to the second page<br>
+        2. Click to go to the first page<br>
+        3. Navigate to the second-to-last page<br>
+        4. Click to go to the last page
+      </td>
+      <td>
+        Navigation to the first page from the second page works correctly<br>
+        Navigation to the last page from the second-to-last page works correctly
+      </td>
+      <td>✅ Pass</td>
     </tr>
     <tr>
-      <td>Test currency display</td>
-      <td>Ensure that the correct currency is displayed for expenses based on the user's preferences.</td>
+      <td>Currency display</td>
+      <td>
+        1. Set user preferences to a specific currency<br>
+        2. View expenses on different pages
+      </td>
+      <td>The correct currency is displayed for all expenses based on user preferences</td>
+      <td>✅ Pass</td>
     </tr>
     <tr>
-      <td>Test pagination without expenses</td>
-      <td>Load the expenses page when there are no expenses. Verify that an appropriate message is displayed and no errors occur.</td>
+      <td>Pagination without expenses</td>
+      <td>
+        1. Remove all expenses for the logged-in user<br>
+        2. Navigate to the expenses page
+      </td>
+      <td>
+        An appropriate "No expenses found" message is displayed<br>
+        No errors occur
+      </td>
+      <td>✅ Pass</td>
     </tr>
     <tr>
-      <td>Test switching pages rapidly</td>
-      <td>Rapidly switch between pages using pagination controls. Verify that the application handles this gracefully without performance issues or errors.</td>
+      <td>Rapidly switching pages</td>
+      <td>
+        1. Navigate to the expenses page<br>
+        2. Rapidly click through different page numbers
+      </td>
+      <td>
+        The application handles rapid page switching gracefully<br>
+        No performance issues or errors occur
+      </td>
+      <td>✅ Pass</td>
     </tr>
     <tr>
-      <td>Test adding expense on paginated view</td>
-      <td>Add a new expense when viewing a non-first page. Verify that the new expense is correctly added and pagination adjusts accordingly.</td>
+      <td>Adding expense on paginated view</td>
+      <td>
+        1. Navigate to a non-first page of expenses<br>
+        2. Add a new expense
+      </td>
+      <td>
+        The new expense is correctly added<br>
+        Pagination adjusts accordingly
+      </td>
+      <td>✅ Pass</td>
     </tr>
     <tr>
-      <td>Test removing expense on paginated view</td>
-      <td>Remove an expense when viewing a non-first page. Verify that the expense is correctly removed and pagination adjusts accordingly.</td>
+      <td>Removing expense on paginated view</td>
+      <td>
+        1. Navigate to a non-first page of expenses<br>
+        2. Remove an existing expense
+      </td>
+      <td>
+        The expense is correctly removed<br>
+        Pagination adjusts accordingly
+      </td>
+      <td>✅ Pass</td>
     </tr>
   </tbody>
 </table>
+
 </details>
 
 
