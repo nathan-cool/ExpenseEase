@@ -1361,9 +1361,6 @@ These design choices ensure the ExpenseEase looks great and is easy to use, no m
 
 </details>
 
-<h2>Test Results Summary</h2>
-All manual tests passed successfully, demonstrating the robustness of our user authentication and management system. The application correctly handles various scenarios, including valid and invalid inputs, ensuring a secure and user-friendly experience.
-
 ### Device Testing
 <details>
 <summary>Responsivness</summary>
@@ -1432,9 +1429,101 @@ All manual tests passed successfully, demonstrating the robustness of our user a
 </table>
 </details>
 
+## W3C CSS Validator:
 
+The CSS was validated using W3C CSS Validator Services to ensure no errors.
 
+<details>
+<summary>Dashboard.css</summary>
 
+![Dashboard.css](https://github.com/nathan-cool/ExpenseEase/assets/127421398/f51f8909-cc22-4cc4-b593-270dd652b3f9)
+</details>
+
+<details>
+<summary>Main.css</summary>
+
+![Main.css](https://github.com/nathan-cool/ExpenseEase/assets/127421398/35772fb4-0973-463b-95d1-4586dded8ff3)
+</details>
+
+## CI Python Linter
+
+### Authentication
+
+<details>
+<summary>View.py</summary>
+
+![View.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/80c22ffe-b704-4b1e-b55b-12a95eceb100)
+</details>
+
+<details>
+<summary>apps.py</summary>
+
+![apps.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/5befcab6-474e-4e91-bfb0-ea473f39a9e8)
+</details>
+
+<details>
+<summary>my_custom_adaptor.py</summary>
+
+![my_custom_adaptor.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/5030fc63-5c90-4bf2-942e-7a8a6e21cb9f)
+</details>
+
+<details>
+<summary>Url.py</summary>
+
+![Url.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/5d047f88-0181-44db-9131-68db960f719a)
+</details>
+
+## Expenses
+
+<details>
+<summary>apps.py</summary>
+
+![apps.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/5a3df473-072a-45b6-8d38-4dedd94c8ffb)
+</details>
+
+<details>
+<summary>models.py</summary>
+
+![models.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/12bd84ca-bfdf-4f07-b514-14a0c21e9b38)
+</details>
+
+<details>
+<summary>Urls.py</summary>
+
+![Urls.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/21d96d41-bdd8-4e5e-a227-5649f629c7e9)
+</details>
+
+<details>
+<summary>views.py</summary>
+
+![views.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/18f12594-1ad0-403b-a281-bb2280df2843)
+</details>
+
+## Preferences
+
+<details>
+<summary>apps.py</summary>
+
+![apps.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/85e27ce6-bc85-4fda-93a3-7fb532905039)
+</details>
+
+<details>
+<summary>models.py</summary>
+
+![models.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/a5f6d64a-78ba-4e17-9f72-88ab9013b784)
+</details>
+
+<details>
+<summary>Url.py</summary>
+
+![Url.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/92014514-aa57-4499-aa35-2829c5f8a66e)
+</details>
+
+<details>
+<summary>Views.py</summary>
+
+![Views.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/3f01ee5b-f81f-4bdd-9a04-6e23a7d41d41)
+</details>
 ### Known bugs
 
 #### Generate Expense Descriptions Using AI
