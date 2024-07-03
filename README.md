@@ -261,7 +261,7 @@ Below are some of the key user stories implemented in this project:
 
 
 
-## The Skeleton Plain
+## Design
 
 ### Wireframes
 
@@ -335,12 +335,9 @@ The database schema for this project is as follows:
 
 #### Colour Scheme
 
-- **White (#FFFFFF)**: The main background color, offering a clean and bright look.
-- **Dark Grey (#333533)**: Used for main text and key elements, providing high readability and contrast.
-- **Violet (#712cf9)**: Adds vibrancy to buttons and interactive components.
-- **Dark (#202020)**: Enhances visual feedback with button hover states.
-- **Green (#1f7c4d)**: Signifies success messages and confirmations.
-- **Purple (#5a23c8)**: Adds depth to design elements with shadow effects.
+![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/5a2b98ea-1253-462b-890c-d7c0eae3af4e)
+
+
 
 #### Typography
 
@@ -1526,17 +1523,41 @@ To clone this repository and run the Django expenses app locally, follow these s
 
 </details>
 
-### Executing automated tests
 
 ### Final Deployment steps
 
-## Credits 
 
-### Code 
+## Resources and Tutorials
 
-### Content 
+- [Django Tutorial and Documentation:](https://docs.djangoproject.com/en/5.0/) Official Django documentation, tutorials, and guides covering all aspects of Django development.
+
+- [Google Sign-In for server-side apps:](https://developers.google.com/identity/sign-in/web/backend-auth) Official Google documentation for implementing Google Sign-In.
+
+- [Stack Overflow:](https://stackoverflow.com) For troubleshooting and finding solutions to specific programming problems.
+
+- [W3Schools:](https://www.w3schools.com) Online Web Tutorials for various programming languages and web technologies.
+
+- [MDN Web Docs:](https://developer.mozilla.org/en-US/) Resources for developers, by developers.
+
+- [Django Search Tutorial:](https://learndjango.com/tutorials/django-search-tutorial) Tutorial for implementing search functionality in Django.
+
+- [Django Pagination Tutorial:](https://simpleisbettercomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html) Guide for implementing pagination in Django views.
+
+- [OpenAI GPT-3.5:](https://openai.com/) AI model used sparingly for generating tutorial-like explanations.
+
+- [GitHub Docs:](https://docs.github.com/en) Learn about GitHub features, from repositories to pull requests.
+
+- [Heroku Dev Center:](https://devcenter.heroku.com/) Documentation and guides for deploying and managing applications on Heroku.
+
+- [Bootstrap Documentation:](https://getbootstrap.com/docs/) Comprehensive guide for the Bootstrap framework.
+
+- [Google Fonts:](https://fonts.google.com/) Free and easy-to-use web fonts.
+
+- [Django Custom User Model Tutorial:](https://www.youtube.com/watch?v=tYPx-fcICts&list=PLx-q4INfd95G-wrEjKDAcTB1K-8n1sIiz&index=2) YouTube tutorial for implementing a custom user model in Django.
 
 ### Media 
+
+- [CSS Background Patterns:](https://www.magicpattern.design/tools/css-backgrounds) The login and registration pages' backgrounds were created using this tool.
 
 ### Acknowledgments
 
