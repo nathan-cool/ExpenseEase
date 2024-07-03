@@ -7,7 +7,6 @@ from .views import (
     VerificationView,
     LoginView,
     LogoutView,
-    social_auth,
 )
 from django.views.decorators.csrf import csrf_exempt
 from authentication import views
@@ -37,7 +36,7 @@ urlpatterns = [
         csrf_exempt(PasswordValidationView.as_view()),
         name="validate-password",
     ),
-    path("activate/<uidb64>/<token>", VerificationView.as_view(), 
+    path("activate/<uidb64>/<token>", VerificationView.as_view(),
          name="activate"),
     path("login", LoginView.as_view(), name="login"),
     path("logout", LogoutView.as_view(), name="logout"),

@@ -100,6 +100,8 @@ header{
 	align-items: center;
 	flex-direction: row;
 	color: white;
+	padding: 10px;
+	
 }
 
 .sign-out-button {
@@ -366,7 +368,7 @@ header{
     color: #007bff;
 }
 
-.custom-select{
+.custom-select {
 	width:80%;
 	height: 55px;
 }

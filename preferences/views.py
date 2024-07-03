@@ -26,25 +26,33 @@ def index(request):
 
     # Load currency data from the JSON file
     try:
-        with open(os.path.join(settings.BASE_DIR, "currencies.json"), "r") as file:
+        file_path = os.path.join(settings.BASE_DIR, "currencies.json")
+        with open(file_path, "r") as file:
             data = json.load(file)
             for k, v in data.items():
                 currency_list.append({"name": k, "value": v})
     except FileNotFoundError:
         messages.error(request, "Currency data file not found.")
-        return render(request, "preferences/index.html", {"currencies": currency_list})
+        return render(request, "preferences/index.html",
+                      {"currencies": currency_list})
     except json.JSONDecodeError:
         messages.error(request, "Error decoding currency data file.")
-        return render(request, "preferences/index.html", {"currencies": currency_list})
+        return render(request, "preferences/index.html",
+                      {"currencies": currency_list})
 
-    user_preferences = UserPreferences.objects.filter(user=request.user).first()
+    user_preferences = UserPreferences.objects.filter(
+        user=request.user
+    ).first()
 
     if request.method == "GET":
         # Render the preferences page for GET requests
         return render(
             request,
             "preferences/index.html",
-            {"currencies": currency_list, "user_preferences": user_preferences},
+            {
+                "currencies": currency_list,
+                "user_preferences": user_preferences,
+            },
         )
     else:
         # Update user preferences for POST requests
@@ -55,7 +63,9 @@ def index(request):
                 user_preferences.currency = currency
                 user_preferences.save()
             else:
-                UserPreferences.objects.create(user=request.user, currency=currency)
+                UserPreferences.objects.create(
+                    user=request.user, currency=currency
+                )
             messages.success(request, "Changes saved")
         else:
             messages.error(request, "No currency selected.")

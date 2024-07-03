@@ -21,7 +21,11 @@ class AppTokenGenerator(PasswordResetTokenGenerator):
         Returns:
             str: The generated hash value.
         """
-        return text_type(user.is_active) + text_type(user.pk) + text_type(timestamp)
+        return (
+            text_type(user.is_active)
+            + text_type(user.pk)
+            + text_type(timestamp)
+        )
 
 
 token_generator = AppTokenGenerator()

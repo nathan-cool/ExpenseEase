@@ -26,8 +26,10 @@ def search_expenses(request):
     if request.method == "POST":
         search_str = json.loads(request.body).get("searchText", "")
         expenses = (
-            Expenses.objects.filter(amount__istartswith=search_str, owner=request.user)
-            | Expenses.objects.filter(date__istartswith=search_str, owner=request.user)
+            Expenses.objects.filter(
+                amount__istartswith=search_str, owner=request.user)
+            | Expenses.objects.filter(date__istartswith=search_str,
+                                      owner=request.user)
             | Expenses.objects.filter(
                 category__icontains=search_str, owner=request.user
             )
@@ -223,7 +225,8 @@ def delete_expense(request, id):
             messages.error(request, "Expense not found")
         except Exception as e:
             messages.error(
-                request, f"An error occurred while deleting the expense: {str(e)}"
+                request,
+                f"An error occurred while deleting the expense: {str(e)}"
             )
         return redirect("expenses")
 
@@ -252,7 +255,7 @@ def create_assistant(expense_details):
                     "role": "user",
                     "content": (
                         f"Amount: {expense_details['amount']}\n"
-                        f"Invoice Number: {expense_details['invoice_number']}\n"
+                        f"Invoice Number:{expense_details['invoice_number']}\n"
                         f"Reference: {expense_details['reference']}\n"
                         f"Category: {expense_details['category']}\n"
                         f"Date: {expense_details['date']}"
