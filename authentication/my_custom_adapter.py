@@ -2,9 +2,9 @@ class MyCustomSocialAccountAdapter(DefaultSocialAccountAdapter):
     """
     Custom adapter for handling user data during social login.
 
-    This class extends the DefaultSocialAccountAdapter 
+    This class extends the DefaultSocialAccountAdapter
     to include custom
-    logic for saving user information obtained 
+    logic for saving user information obtained
     from social login providers.
     """
 
@@ -14,7 +14,7 @@ class MyCustomSocialAccountAdapter(DefaultSocialAccountAdapter):
 
         Args:
             request: The current HttpRequest object.
-            sociallogin: The sociallogin instance 
+            sociallogin: The sociallogin instance
             containing social account information.
             form: The form instance (optional).
 

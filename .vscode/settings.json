@@ -6,5 +6,8 @@
 	],
 	"[python]": {
 			"editor.formatOnSave": true
-	}
+	},
+	"cSpell.words": [
+		"DefaultSocialAccountAdapter"
+	]
 }
