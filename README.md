@@ -29,13 +29,13 @@ ExpenseEase is a user-friendly and secure web application designed to help users
  
 
 
-
 ## User Experience (UX)
 
-### Overview
+### Project goals
+
 The ExpenseEase project was created to offer a user-friendly and secure way to manage personal expenses. It aims to streamline tracking daily financial activities and includes advanced features like Google OAuth integration and AI-driven expense descriptions. This app is designed for anyone looking to take control of their finances and better understand their spending habits.
 
-### Agile
+### Strategy:
 
 The Agile methodology was employed to plan and manage the development of the ExpenseEase project. GitHub was used as the primary tool to demonstrate the Agile approach.
 
@@ -47,6 +47,7 @@ A link to my Kanban board can be found [here](https://github.com/users/nathan-co
 
 
 ### Epics
+
 The following Epics were identified for this project:
 
 - User Authentication and Account Management
@@ -55,6 +56,7 @@ The following Epics were identified for this project:
 - User Experience and Interface
 
 ### User Stories
+
 Below are some of the key user stories implemented in this project:
 
 - As a user, I would like to log in so that I can access my account
@@ -77,26 +79,117 @@ Below are some of the key user stories implemented in this project:
 
 ### Existing Features
 
-#### Authentication System and Security
-- **Registration System**: Allows users to create a new account by providing their name, email, and password. The registration view splits the user's name into first and last names, validates the provided information, and if valid, sends a verification email to activate the account.
-- **Login System**: Users can log in to their account using their email and password. The system checks if the account is active and has correct credentials before granting access.
-- **Logout System**: Logged-in users can log out of their account, which redirects them to the login page with a success message.
-- **Google OAuth Integration**: Users have the option to authenticate using Google, simplifying the login process without the need for a password.
-- **Email Validation**: Validates email in real-time during registration to ensure they are not already in use and follow the correct format.
-- **Password Validation**: Checks password strength to ensure it meets the required criteria for security.
-- **Account Verification**: After registration, users receive an email with a link to verify their account, ensuring the email address belongs to them.
+#### Base Template and Layout:
 
-To restrict access to certain views and features, the Django `@login_required` decorator is used. This ensures that only registered and authenticated users can access these views. If an unauthenticated user tries to reach these views, they will be redirected to the login page.
+- Responsive Design:
+  - Uses Bootstrap 5.3.3 for responsive layout
+  - Custom CSS for additional styling (main.css and dashboard.css)
 
-#### Expense Management
-- **View Expenses**: Users can view all their recorded expenses on the main expense dashboard.
-- **Add Expenses**: Users can add new expenses by filling out a form that captures essential details such as the amount, date, category, and a description.
-- **Edit Expenses**: Each expense can be edited using the edit functionality. Users can update the amount, date, category, description, and other relevant details.
-- **Delete Expenses**: Expenses can be deleted with a confirmation step to prevent accidental deletions.
-- **Generate Expense Descriptions Using AI**: Utilizes OpenAI's API to generate descriptive texts for expenses based on minimal input.
-- **Multi-Currency Support**: Allow users to record expenses in different currencies, automatically converting them based on current exchange rates.
-- **Search Expenses**: Users can easily find their recorded expenses by typing in keywords or amounts. The search feature lets you filter expenses based on different fields like amount, date, category, description, invoice number, and reference. This helps you quickly locate specific expenses without any hassle.
-- **pagination**: To make it easier to browse through your expenses, the app uses pagination. This means your expenses are divided into smaller, more manageable pages, so you don't have to load everything at once. This keeps the app fast and user-friendly.
+- Navigation:
+  - Sticky top navbar with dark theme
+  - Collapsible sidebar menu for mobile devices
+  - Displays user's name and email in the header
+  - Sign out button in the header
+
+- Content Structure:
+  - Main content area with fluid container
+  - Sidebar included for navigation (partials/_sidebar.html)
+  - Messages partial for displaying system messages (partials/_messages.html)
+
+- Footer:
+  - Contains copyright information
+  - Link to GitHub repository
+  - Credits to the creator
+
+#### Authentication System and Security:
+
+- Registration System:
+  - Allows users to create a new account
+  - Requires name, email, and password
+  - Splits user's name into first and last names
+  - Validates provided information
+  - Sends verification email to activate account
+
+- Login System:
+  - Users can log in with email and password
+  - Checks if account is active and credentials are correct
+  - Grants access only if all checks pass
+
+- Logout System:
+  - Logged-in users can securely log out
+  - Redirects to login page with success message
+
+- Google OAuth Integration:
+  - Option to authenticate using Google
+  - Simplifies login process without password
+
+- Email Validation:
+  - Real-time validation during registration
+  - Checks for existing email addresses
+  - Ensures correct email format
+
+- Password Validation:
+  - Checks password strength
+  - Ensures it meets required security criteria
+
+- Account Verification:
+  - Users receive verification email after registration
+  - Contains link to verify account
+  - Ensures email address belongs to user
+
+- Access Restriction:
+  - Uses Django `@login_required` decorator
+  - Restricts access to certain views and features
+  - Redirects unauthenticated users to login page
+
+#### Expense Management:
+
+- View Expenses:
+  - Users can view all recorded expenses
+  - Displayed on main expense dashboard
+
+- Add Expenses:
+  - Users can add new expenses
+  - Form captures amount, date, category, and description
+
+- Edit Expenses:
+  - Each expense can be edited
+  - Update amount, date, category, description, and other details
+
+- Delete Expenses:
+  - Expenses can be deleted
+  - Includes confirmation step to prevent accidental deletions
+
+- AI-Generated Expense Descriptions:
+  - Utilizes OpenAI's API
+  - Generates descriptive texts for expenses
+  - Based on minimal user input
+
+- Multi-Currency Support:
+  - Record expenses in different currencies
+  - Automatic conversion based on current exchange rates
+
+- Search Expenses:
+  - Easy-to-use search functionality
+  - Filter expenses by keywords or amounts
+  - Search fields include amount, date, category, description, invoice number, and reference
+
+- Pagination:
+  - Divides expenses into smaller, manageable pages
+  - Improves app performance and user experience
+  - Prevents loading all expenses at once
+
+#### Error Handling:
+
+- Custom error pages (e.g., 404) for improved user experience
+- Informative error messages guide users when issues occur
+
+#### User Preferences:
+
+- Currency Selection:
+  - Users can choose their preferred currency
+  - Customizable display of expense amounts
+  - Saves user preference for future sessions
 
 
 ### Future Features
