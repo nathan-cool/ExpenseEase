@@ -91,15 +91,24 @@ Below are some of the key user stories implemented in this project:
   - Displays user's name and email in the header
   - Sign out button in the header
 
+  ![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/f056eb1b-8547-4b60-89da-37adfef73ad6)
+
+
 - Content Structure:
   - Main content area with fluid container
   - Sidebar included for navigation (partials/_sidebar.html)
   - Messages partial for displaying system messages (partials/_messages.html)
 
+  ![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/6ab2bdc3-f8dd-4158-9f85-a664c4d7436f)
+
+
 - Footer:
   - Contains copyright information
   - Link to GitHub repository
   - Credits to the creator
+  
+  ![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/c3797172-90e2-4962-b827-7080aefe3674)
+
 
 #### Authentication System and Security:
 
@@ -108,29 +117,50 @@ Below are some of the key user stories implemented in this project:
   - Requires name, email, and password
   - Splits user's name into first and last names
   - Validates provided information
-  - Sends verification email to activate account
+
+  ![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/610c3f46-2fb1-4ddc-90e0-618ed4dcb46f)
+
+
+    
 
 - Login System:
   - Users can log in with email and password
   - Checks if account is active and credentials are correct
   - Grants access only if all checks pass
+ 
+  ![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/e5072a23-41ff-4ea3-8552-c8d7c3a9d907)
+
+
+  
 
 - Logout System:
   - Logged-in users can securely log out
   - Redirects to login page with success message
 
+  ![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/c1d59ba1-ebad-44a0-9ffb-19b58189adae)
+
+
 - Google OAuth Integration:
   - Option to authenticate using Google
   - Simplifies login process without password
+ 
+  ![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/d971fbe7-390a-4897-885a-3df99a283d7d)
+
 
 - Email Validation:
   - Real-time validation during registration
   - Checks for existing email addresses
   - Ensures correct email format
 
+  ![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/7d9435a6-d39c-4df6-9a18-4e2f237900c8)
+
+
 - Password Validation:
   - Checks password strength
   - Ensures it meets required security criteria
+
+  ![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/0142b4a8-6fb0-43cc-8873-bc3ec085ab32)
+
 
 - Account Verification:
   - Users receive verification email after registration
@@ -148,41 +178,67 @@ Below are some of the key user stories implemented in this project:
   - Users can view all recorded expenses
   - Displayed on main expense dashboard
 
+  ![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/aae7182e-aa6c-4f2f-b2e4-c526ba7a7bf8)
+
+
 - Add Expenses:
   - Users can add new expenses
   - Form captures amount, date, category, and description
+
+  ![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/3c010a02-c4d1-432c-bfe4-a090643e4b5c)
+
 
 - Edit Expenses:
   - Each expense can be edited
   - Update amount, date, category, description, and other details
 
+  ![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/390f2d85-1f9c-4773-b35e-1e33cc4934a3)
+
+
 - Delete Expenses:
   - Expenses can be deleted
   - Includes confirmation step to prevent accidental deletions
+
+  ![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/7bb248fd-64b7-4f94-bdb6-cd1449301049)
+
 
 - AI-Generated Expense Descriptions:
   - Utilizes OpenAI's API
   - Generates descriptive texts for expenses
   - Based on minimal user input
 
+  ![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/d4c78aea-4ea0-4051-be3c-7b8e13ad6e9d)
+
+
 - Multi-Currency Support:
   - Record expenses in different currencies
-  - Automatic conversion based on current exchange rates
+
+  ![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/d54d894b-ab4d-453f-8407-bbce1362243c)
+
 
 - Search Expenses:
   - Easy-to-use search functionality
   - Filter expenses by keywords or amounts
   - Search fields include amount, date, category, description, invoice number, and reference
 
+  ![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/71a1eaac-2691-420c-8eb5-9cebae5bbbe7)
+
+
 - Pagination:
   - Divides expenses into smaller, manageable pages
   - Improves app performance and user experience
   - Prevents loading all expenses at once
 
+  ![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/a723fa44-6c1f-446a-a619-64e66546a08e)
+
+
 #### Error Handling:
 
 - Custom error pages (e.g., 404) for improved user experience
 - Informative error messages guide users when issues occur
+
+![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/687be316-64a7-4a9e-b6c3-38b6213e442e)
+
 
 #### User Preferences:
 
@@ -190,6 +246,9 @@ Below are some of the key user stories implemented in this project:
   - Users can choose their preferred currency
   - Customizable display of expense amounts
   - Saves user preference for future sessions
+
+![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/e6fd6da3-bfdd-4d8a-b349-a8b06adcbdb2)
+
 
 
 ### Future Features
