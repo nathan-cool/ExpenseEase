@@ -20,6 +20,8 @@
   overflow-y: auto;
 }
 
+/* Styles for sidebar navigation links */
+/* Set the color of the sidebar navigation links */
 .sidebar .nav-link {
   font-size: .95rem;
   font-weight: 500;
@@ -80,12 +82,12 @@
 
 /* Media Queries */
 
-
+/* Media query for screens with a minimum width of 48rem (768px) */
 @media (min-width: 48rem) {
   .sidebar {
     height: 100vh;
   }
-  .btn.btn-primary.d-md-none {
+  .btn.btn-primary.d-md-none { /* Show the primary button on medium and larger screens */
     display: block;
   }
   .sidebar .offcanvas-lg {
@@ -98,10 +100,11 @@
     display: block;
   }
   
-  .btn.btn-primary.d-md-none {
+  .btn.btn-primary.d-md-none { /* Hide the primary button on medium and larger screens */
     display: none;
   }
   
+  /* Styles for offcanvas */
   .offcanvas {
     width: 100% !important;
     display: flex !important;
