@@ -1621,6 +1621,33 @@ The CSS was validated using W3C CSS Validator Services to ensure no errors.
 ![Main.css](https://github.com/nathan-cool/ExpenseEase/assets/127421398/35772fb4-0973-463b-95d1-4586dded8ff3)
 </details>
 
+### W3C HTML Validator:
+
+<details>
+<summary>Login Screen</summary>
+<img width="1102" alt="Screenshot 2024-07-04 at 19 34 54" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/9eb0b1bf-8b47-476d-9424-b16c9c3b1367">
+</details>
+
+<details>
+<summary>Register page</summary>
+<img width="1200" alt="Screenshot 2024-07-04 at 19 35 41" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/47901fef-f562-4c6c-bb59-0ac4fbfd6f30">
+</details>
+
+<details>
+<summary>Main expenses page</summary>
+<img width="1186" alt="Screenshot 2024-07-04 at 19 36 30" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/ffb12009-a1e8-4cfe-9b9d-07a8dd9b2960">
+</details>
+
+<details>
+<summary>Edit expenses page</summary>
+<img width="1019" alt="Screenshot 2024-07-04 at 19 37 13" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/f207c29d-e749-43a7-82f0-0e137a075f5e">
+</details>
+
+<details>
+<summary>Add expenses page</summary>
+<img width="1244" alt="Screenshot 2024-07-04 at 19 42 39" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/d9fc27c9-040d-4866-9d81-454fa9cff727">
+</details>
+
 ### CI Python Linter
 
 #### Authentication
@@ -1829,9 +1856,6 @@ To clone this repository and run the Django expenses app locally, follow these s
 </details>
 
 
-### Final Deployment steps
-
-
 ## Resources and Tutorials
 
 - [Django Tutorial and Documentation:](https://docs.djangoproject.com/en/5.0/) Official Django documentation, tutorials, and guides covering all aspects of Django development.
@@ -1859,6 +1883,8 @@ To clone this repository and run the Django expenses app locally, follow these s
 - [Google Fonts:](https://fonts.google.com/) Free and easy-to-use web fonts.
 
 - [Django Custom User Model Tutorial:](https://www.youtube.com/watch?v=tYPx-fcICts&list=PLx-q4INfd95G-wrEjKDAcTB1K-8n1sIiz&index=2) YouTube tutorial for implementing a custom user model in Django.
+
+- Grammarly: AI-powered writing assistant for grammar checking, spell checking, and improving writing style and clarity.
 
 ### Media 
 
