@@ -28,51 +28,140 @@ ExpenseEase is a user-friendly and secure web application designed to help users
   - [Acknowledgments](#acknowledgments)
  
 
-
 ## User Experience (UX)
 
-### Project goals
+### Project Goals
 
-The ExpenseEase project was created to offer a user-friendly and secure way to manage personal expenses. It aims to streamline tracking daily financial activities and includes advanced features like Google OAuth integration and AI-driven expense descriptions. This app is designed for anyone looking to take control of their finances and better understand their spending habits.
+The ExpenseEase project was created to offer a user-friendly and secure way to manage personal expenses. It aims to:
 
-### Strategy:
+- Streamline tracking of daily financial activities
+- Provide advanced features like Google OAuth integration and AI-driven expense descriptions
+- Help users take control of their finances and better understand their spending habits
 
-The Agile methodology was employed to plan and manage the development of the ExpenseEase project. GitHub was used as the primary tool to demonstrate the Agile approach.
+### Development Strategy
 
-User Stories were then created as GitHub Issues, linked to the Epics. Custom issue templates were used to ensure consistency and clarity in describing the User Stories. Each User Story followed a specific format, including a title, and description.
+I employed the Agile methodology to plan and manage the development of ExpenseEase. Our approach included:
 
-A link to my Kanban board can be found [here](https://github.com/users/nathan-cool/projects/2/views/1?pane=issue&itemId=55533266)
-
-![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/1a274d09-27e2-45f3-8314-7e9a6206226c)
-
+- Using GitHub as the primary tool to demonstrate the Agile approach
+- Creating User Stories as GitHub Issues, linked to Epics
+- Utilizing custom issue templates for consistency and clarity in describing User Stories
+- Following a specific format for each User Story, including title and description
 
 ### Epics
 
-The following Epics were identified for this project:
+I used the following Epics for this project:
 
-- User Authentication and Account Management
-- Expense Tracking Functionality
-- Application Development and Deployment
-- User Experience and Interface
+1. User Authentication and Account Management
+2. Expense Tracking Functionality
+3. Application Development and Deployment
+4. User Experience and Interface
 
-### User Stories
+### User Stories and Agile Methodology
 
-Below are some of the key user stories implemented in this project:
-
-- As a user, I would like to log in so that I can access my account
-- As a user, I need the application to be responsive so that I can access and use it on various devices
-- As a user, I need to be able to search for specific expenses and navigate through my expense history
-- As a user, I would like to log out of my account
-- As a user, I would like to know when I reach a page I don't have access to
-- As a user, I need to receive clear feedback when I input data incorrectly or when errors occur
-- As a user, I need to be able to set and update my preferences so that the application is tailored to my needs
-- As a user, I would like to register for a new account so that I can create my profile and start using the application
-- As a user, I would like the ability to add an expense to keep track of my expenses
-- As a user, I want the ability to view my expenses
-- As a user, I want the ability to edit my expenses
-- As a user, I want the ability to delete an expense
+The development process was guided by user stories, managed through a Kanban board on GitHub Projects. Here's a breakdown of our key user stories:
 
 
+1. Implement Django Allauth for User Sign-Up and Login
+   - As a user, I want to log in to access my account.
+   - Acceptance Criteria:
+     - Django Allauth installed
+     - Users can sign up and log in
+
+2. Ensure Application Responsiveness
+   - As a user, I need the application to be responsive across devices.
+   - Acceptance Criteria:
+     - Fully functional on desktop browsers
+     - Fully functional on various mobile devices
+     - Fully functional on tablet devices
+     - All features accessible across different screen sizes
+
+3. Implement Search and Pagination for Expenses
+   - As a user, I need efficient search and navigation of my expense history.
+   - Acceptance Criteria:
+     - Search functionality for expenses
+     - Paginated search results
+     - Navigation through expense pages
+     - Results limited to logged-in user's expenses
+
+4. User Logout
+   - As a user, I want to securely log out of the application.
+   - Acceptance Criteria:
+     - Logout button/link available
+     - Session termination on logout
+     - Redirect to login page after logout
+     - Success message displayed
+
+5. 404 Error Page
+   - As a user, I want to know when I've reached an inaccessible page.
+   - Acceptance Criteria:
+     - `404.html` created
+     - Clear error message provided
+
+6. Implement Input Validation and Error Handling
+   - As a user, I need clear feedback on input errors.
+   - Acceptance Criteria:
+     - Input validation for all user inputs
+     - Clear error messages for invalid inputs
+     - Graceful handling of system errors
+
+7. Implement User Preferences Management
+   - As a user, I need to set and update my preferences.
+   - Acceptance Criteria:
+     - Currency preference setting
+     - Currency preference updating
+     - Expense display in preferred currency
+     - Currency options loaded from JSON file
+
+8. User Registration
+   - As a user, I want to register for a new account.
+   - Acceptance Criteria:
+     - Registration form available
+     - Confirmation email sent
+     - Login with new credentials possible
+
+9. Add Expense
+    - As a user, I want to add new expenses.
+    - Acceptance Criteria:
+      - Expense addition form
+      - Fields for amount, date, category, and description
+      - Confirmation message on successful addition
+
+10. View Expenses
+    - As a user, I want to view my expenses.
+    - Acceptance Criteria:
+      - Expense dashboard with list of expenses
+      - Display of amount, date, category, and description
+      - Expenses sorted by date
+
+11. Edit Expense
+    - As a user, I want to edit my expenses.
+    - Acceptance Criteria:
+      - Edit form accessible from expense entry
+      - All expense details editable
+      - Confirmation message on successful update
+
+12. Delete Expense
+    - As a user, I want to delete expenses.
+    - Acceptance Criteria:
+      - Delete button for each expense
+      - Confirmation dialog before deletion
+      - Confirmation message on successful deletion
+
+### Agile Workflow
+
+I managed our development process using a Kanban board on GitHub Projects:
+
+![Kanban Board](https://github.com/nathan-cool/ExpenseEase/assets/127421398/1a274d09-27e2-45f3-8314-7e9a6206226c)
+
+My workflow consisted of three stages:
+1. To Do
+2. In Progress
+3. Done
+
+This Agile approach enabled me to:
+- Prioritize features effectively
+- Track progress consistently
+- Ensure continuous delivery of value throughout development
 
 
 ## Features
