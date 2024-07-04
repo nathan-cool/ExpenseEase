@@ -104,40 +104,6 @@ class RegistrationView(View):
             if not re.match(r"^[\w\.-]+@[\w\.-]+\.\w+$", email):
                 messages.error(request, "Invalid email")
                 return render(request, "authentication/register.html", context)
-            if User.objects.filter(email=email).exists():
-                messages.error(request, "Email already exists")
-                return render(request, "authentication/register.html", context)
-
-            def send_verification_email(user):
-                try:
-                    domain = get_current_site(request).domain
-                    uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
-                    link = reverse(
-                        "activate",
-                        kwargs={
-                            "uidb64": uidb64,
-                            "token": token_generator.make_token(user),
-                        },
-                    )
-                    activate_url = "http://" + domain + link
-                    email_subject = "Activate your expenses account"
-                    email_body = (
-                        f"Hi {name}! Please use this link to verify "
-                        f"your account\n{activate_url}"
-                    )
-                    send_email = EmailMessage(
-                        email_subject,
-                        email_body,
-                        "MS_Wj5pnF@trial-x2p0347y5d34zdrn.mlsender.net",
-                        [email],
-                    )
-                    send_email.send(fail_silently=False)
-                    messages.success(request, "Verification email sent")
-                except Exception:
-                    messages.error(
-                        request,
-                        "An error occurred while sending the email"
-                    )
 
             user = User.objects.create_user(
                 email=email,
@@ -147,11 +113,20 @@ class RegistrationView(View):
             )
 
             user.set_password(password)
-            user.is_active = False
+            user.is_active = True  # Set the user as active immediately
             user.save()
-            send_verification_email(user)
 
-        return render(request, "authentication/register.html")
+            messages.success(
+                request, f"Account created successfully. Welcome, {first_name}!")
+
+            # Log the user in immediately after registration
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+
+            # Redirect to the expenses page or your desired page
+            return redirect("expenses")
+
+        messages.error(request, "Email already exists")
+        return render(request, "authentication/register.html", context)
 
 
 class EmailValidationView(View):

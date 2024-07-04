@@ -4,7 +4,6 @@ from .views import (
     EmailValidationView,
     users_nameValidationView,
     PasswordValidationView,
-    VerificationView,
     LoginView,
     LogoutView,
 )
@@ -15,7 +14,7 @@ from authentication import views
 URL configuration for the Authentication application.
 
 This module defines the URL patterns for the authentication-related views,
-including user registration, email validation, name validation, password
+including user registration, name validation, password
 validation, account activation, login, logout, and social authentication.
 """
 
@@ -36,8 +35,6 @@ urlpatterns = [
         csrf_exempt(PasswordValidationView.as_view()),
         name="validate-password",
     ),
-    path("activate/<uidb64>/<token>", VerificationView.as_view(),
-         name="activate"),
     path("login", LoginView.as_view(), name="login"),
     path("logout", LogoutView.as_view(), name="logout"),
     path("accounts/", include("allauth.urls")),
