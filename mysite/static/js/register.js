@@ -1,9 +1,9 @@
 // Get DOM elements
-const users_name = document.getElementById('users_name'); // User name input field
+const users_name = document.getElementById('users-name'); // User name input field
 const email = document.getElementById('email'); // Email input field
 const users_password = document.getElementById('password'); // Password input field
 const feedback = document.getElementsByClassName('invalid-feedback'); // Invalid feedback elements
-const showPassword = document.getElementById('showPasswordToggle'); // Show/hide password toggle button
+const showPassword = document.getElementById('show-password-toggle'); // Show/hide password toggle button
 const registerButton = document.getElementById('register'); // Register button
 
 // Call the validation functions for each input field
@@ -69,15 +69,15 @@ function validateName(users_name) {
 // Event listener for email input
 function validateEmail(email) {
 	email.addEventListener('keyup', (e) => {
-		const users_emailValue = e.target.value;
+		const emailValue = e.target.value;
 
-		if (users_emailValue.length > 0) {
+		if (emailValue.length > 0) {
 			fetch('/authentication/validate-email', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
 				},
-				body: JSON.stringify({ email: users_emailValue })
+				body: JSON.stringify({ email: emailValue })
 			})
 				.then((res) => res.json())
 				.then((data) => {

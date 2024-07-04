@@ -1,14 +1,13 @@
 {% load static %}
 
 <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
-    
     <div class="offcanvas offcanvas-start d-md-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
         <div class="offcanvas-header d-md-none">
             <h6 class="offcanvas-title" id="sidebarMenuLabel">Expenses</h6>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
-            <span>menu</span>
+            <span>Menu</span>
         </h6>
         <hr>
         <div class="offcanvas-body d-md-flex flex-column p-0 overflow-y-auto">
@@ -26,10 +25,9 @@
             <hr>
             <ul class="nav flex-column mb-auto">
                 <li class="nav-item">
-                    <a class=" gsettings nav-link d-flex align-items-center gap-2 menu-item" href="{% url 'preferences' %}">
+                    <a class="nav-link d-flex align-items-center gap-2 menu-item" href="{% url 'preferences' %}">
                         General Settings
                     </a>
-                </li>
                 </li>
             </ul>
         </div>

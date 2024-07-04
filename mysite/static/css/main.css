@@ -94,7 +94,7 @@ header{
 	z-index: 9999;
 }
 
-.emaildisplay {
+.email-display {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
@@ -113,7 +113,7 @@ header{
 	height: 50px;
 }
 
-.signoutbtn {
+.signout-btn {
 	margin: 10px;
 }
 
@@ -180,11 +180,11 @@ header{
 }
 
 /* Authentication Navbar */
-.navbarAuth {
+.navbar-auth {
 	justify-content: end;
 }
 
-.navbarAuthText {
+.navbar-auth-text {
 	font-size: 19px;
 	color: #333533;
 	padding: 20px;
@@ -204,13 +204,13 @@ header{
 }
 
 /* Signin Registration Container */
-.signin_reg_container {
+.signin-reg-container {
 	display: flex;
 	justify-content: center;
 }
 
 /* Show Password Toggle */
-.showPasswordToggle {
+.show-password-toggle {
 	position: absolute;
 	right: 15px;
 	top: 57%;
@@ -223,7 +223,7 @@ header{
 	padding-top: 5px;
 }
 
-.showPasswordToggle:hover {
+.show-password-toggle:hover {
 	cursor: pointer;
 	transition: 500ms;
 }
@@ -354,7 +354,7 @@ header{
 }
 
 /* Authentication Button */
-.btnAuth {
+.btn-auth {
 	width: 100%;
 	min-height: calc(1.9em + 1rem + calc(var(--bs-border-width) * 2));
 	padding: 0.5rem 1rem;

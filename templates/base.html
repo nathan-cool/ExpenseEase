@@ -40,12 +40,12 @@
 			
 
 
-			<ul class="navbar-nav px-3 emaildisplay">
-    <li class="nav-item user-controls emaildisplay">
+			<ul class="navbar-nav px-3 email-display">
+    <li class="nav-item user-controls email-display">
         <span class="user-email"> {{request.user.first_name}} ({{ request.user.email }})</span>
     </li>
     <li class="nav-item">
-        <form class="signoutbtn" action="{% url 'logout'%}">
+        <form class="signout-btn" action="{% url 'logout'%}">
             {% csrf_token %}
             <input
                 type="submit"
@@ -64,7 +64,7 @@
                 <div class="row">
                     {% include 'partials/_sidebar.html' %}
 
-                    <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3 baseMain">
+                    <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-3 base-main">
                         {% include "partials/_messages.html" %}
                         {% block content %}
                         {% include 'index.html'%}
@@ -76,7 +76,7 @@
 
         <footer class="footer mt-auto py-3 bg-light">
     <div class="container">
-        <span class="text-muted">© 2024 ExpenseEase | 
+        <span class="text-muted"> © 2024 ExpenseEase | 
             <a href="https://github.com/nathan-cool/ExpenseEase" target="_blank" rel="noopener noreferrer">
                 GitHub Repository
             </a> | Created by Nathan Doyle for Code Institute
