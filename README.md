@@ -1562,7 +1562,7 @@ The CSS was validated using W3C CSS Validator Services to ensure no errors.
 ![Url.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/5d047f88-0181-44db-9131-68db960f719a)
 </details>
 
-## Expenses
+###  Expenses
 
 <details>
 <summary>apps.py</summary>
@@ -1588,7 +1588,7 @@ The CSS was validated using W3C CSS Validator Services to ensure no errors.
 ![views.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/18f12594-1ad0-403b-a281-bb2280df2843)
 </details>
 
-## Preferences
+### Preferences
 
 <details>
 <summary>apps.py</summary>
@@ -1613,6 +1613,46 @@ The CSS was validated using W3C CSS Validator Services to ensure no errors.
 
 ![Views.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/3f01ee5b-f81f-4bdd-9a04-6e23a7d41d41)
 </details>
+
+## Lighthouse Testing
+
+<details>
+<summary>Login Page</summary>
+
+<img width="1530" alt="Screenshot 2024-07-04 at 18 25 43" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/76b65fd8-ded9-4baa-8c6b-1079b193e93a">
+</details>
+
+<details>
+<summary>Register Page</summary>
+
+<img width="1528" alt="Screenshot 2024-07-04 at 18 27 11" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/4445b188-9ded-426a-ab5f-4ba014515452">
+</details>
+
+<details>
+<summary>Main Expenses page</summary>
+
+<img width="1523" alt="Screenshot 2024-07-04 at 18 28 54" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/4a750500-9abc-416e-adc6-8c4859273042">
+</details>
+
+<details>
+<summary>Add Expenses page</summary>
+
+<img width="1525" alt="Screenshot 2024-07-04 at 18 30 16" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/b6ec172a-f730-48b9-ad4c-fb634fa8abc9">
+</details>
+
+<details>
+<summary>Edit Expenses page</summary>
+
+<img width="1523" alt="Screenshot 2024-07-04 at 18 31 37" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/794a4496-2109-493b-81dd-a1a0ec4a6368">
+</details>
+
+<details>
+<summary>Settings Page</summary>
+
+<img width="1518" alt="Screenshot 2024-07-04 at 18 32 29" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/bce382d6-9c85-4a44-88ee-fe2254aeac7e">
+</details>
+
+
 ### Known bugs
 
 #### Generate Expense Descriptions Using AI
