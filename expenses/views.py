@@ -10,9 +10,8 @@ from django.http import JsonResponse
 from preferences.models import UserPreferences
 from django.core.paginator import Paginator
 
-load_dotenv(override=True)
 
-
+@login_required(login_url="/authentication/login")
 def search_expenses(request):
     """
     Search for expenses in the database.

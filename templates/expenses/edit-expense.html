@@ -79,15 +79,15 @@
 						</div>
 						<!-- Display an input field for reference -->
 
-						<div class="mb-3">
-    						<label for="category" class="form-label">Category</label>
-    						<select id="category" name="category" class="form-select" required>
-        						<option value="" disabled selected>Select a category</option>
-        						{% for category in categories %}
-            						<option value="{{ category.name }}" {% if category.name == current_category %}selected{% endif %}>{{ category.name }}</option>
-        						{% endfor %}
-    						</select>
-						</div>
+<div class="mb-3">
+    <label for="category" class="form-label">Category</label>
+    <select id="category" name="category" class="form-select" required>
+        <option value="" disabled>Select a category</option>
+        {% for category in categories %}
+            <option value="{{ category.name }}" {% if category.name == current_category %}selected{% endif %}>{{ category.name }}</option>
+        {% endfor %}
+    </select>
+</div>
 						<!-- Display a dropdown menu for selecting a category -->
 
 						<div class="mb-3">
