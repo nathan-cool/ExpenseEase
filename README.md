@@ -28,51 +28,140 @@ ExpenseEase is a user-friendly and secure web application designed to help users
   - [Acknowledgments](#acknowledgments)
  
 
-
 ## User Experience (UX)
 
-### Project goals
+### Project Goals
 
-The ExpenseEase project was created to offer a user-friendly and secure way to manage personal expenses. It aims to streamline tracking daily financial activities and includes advanced features like Google OAuth integration and AI-driven expense descriptions. This app is designed for anyone looking to take control of their finances and better understand their spending habits.
+The ExpenseEase project was created to offer a user-friendly and secure way to manage personal expenses. It aims to:
 
-### Strategy:
+- Streamline tracking of daily financial activities
+- Provide advanced features like Google OAuth integration and AI-driven expense descriptions
+- Help users take control of their finances and better understand their spending habits
 
-The Agile methodology was employed to plan and manage the development of the ExpenseEase project. GitHub was used as the primary tool to demonstrate the Agile approach.
+### Development Strategy
 
-User Stories were then created as GitHub Issues, linked to the Epics. Custom issue templates were used to ensure consistency and clarity in describing the User Stories. Each User Story followed a specific format, including a title, and description.
+I employed the Agile methodology to plan and manage the development of ExpenseEase. Our approach included:
 
-A link to my Kanban board can be found [here](https://github.com/users/nathan-cool/projects/2/views/1?pane=issue&itemId=55533266)
-
-![image](https://github.com/nathan-cool/ExpenseEase/assets/127421398/1a274d09-27e2-45f3-8314-7e9a6206226c)
-
+- Using GitHub as the primary tool to demonstrate the Agile approach
+- Creating User Stories as GitHub Issues, linked to Epics
+- Utilizing custom issue templates for consistency and clarity in describing User Stories
+- Following a specific format for each User Story, including title and description
 
 ### Epics
 
-The following Epics were identified for this project:
+I used the following Epics for this project:
 
-- User Authentication and Account Management
-- Expense Tracking Functionality
-- Application Development and Deployment
-- User Experience and Interface
+1. User Authentication and Account Management
+2. Expense Tracking Functionality
+3. Application Development and Deployment
+4. User Experience and Interface
 
-### User Stories
+### User Stories and Agile Methodology
 
-Below are some of the key user stories implemented in this project:
-
-- As a user, I would like to log in so that I can access my account
-- As a user, I need the application to be responsive so that I can access and use it on various devices
-- As a user, I need to be able to search for specific expenses and navigate through my expense history
-- As a user, I would like to log out of my account
-- As a user, I would like to know when I reach a page I don't have access to
-- As a user, I need to receive clear feedback when I input data incorrectly or when errors occur
-- As a user, I need to be able to set and update my preferences so that the application is tailored to my needs
-- As a user, I would like to register for a new account so that I can create my profile and start using the application
-- As a user, I would like the ability to add an expense to keep track of my expenses
-- As a user, I want the ability to view my expenses
-- As a user, I want the ability to edit my expenses
-- As a user, I want the ability to delete an expense
+The development process was guided by user stories, managed through a Kanban board on GitHub Projects. Here's a breakdown of our key user stories:
 
 
+1. Implement Django Allauth for User Sign-Up and Login
+   - As a user, I want to log in to access my account.
+   - Acceptance Criteria:
+     - Django Allauth installed
+     - Users can sign up and log in
+
+2. Ensure Application Responsiveness
+   - As a user, I need the application to be responsive across devices.
+   - Acceptance Criteria:
+     - Fully functional on desktop browsers
+     - Fully functional on various mobile devices
+     - Fully functional on tablet devices
+     - All features accessible across different screen sizes
+
+3. Implement Search and Pagination for Expenses
+   - As a user, I need efficient search and navigation of my expense history.
+   - Acceptance Criteria:
+     - Search functionality for expenses
+     - Paginated search results
+     - Navigation through expense pages
+     - Results limited to logged-in user's expenses
+
+4. User Logout
+   - As a user, I want to securely log out of the application.
+   - Acceptance Criteria:
+     - Logout button/link available
+     - Session termination on logout
+     - Redirect to login page after logout
+     - Success message displayed
+
+5. 404 Error Page
+   - As a user, I want to know when I've reached an inaccessible page.
+   - Acceptance Criteria:
+     - `404.html` created
+     - Clear error message provided
+
+6. Implement Input Validation and Error Handling
+   - As a user, I need clear feedback on input errors.
+   - Acceptance Criteria:
+     - Input validation for all user inputs
+     - Clear error messages for invalid inputs
+     - Graceful handling of system errors
+
+7. Implement User Preferences Management
+   - As a user, I need to set and update my preferences.
+   - Acceptance Criteria:
+     - Currency preference setting
+     - Currency preference updating
+     - Expense display in preferred currency
+     - Currency options loaded from JSON file
+
+8. User Registration
+   - As a user, I want to register for a new account.
+   - Acceptance Criteria:
+     - Registration form available
+     - Confirmation email sent
+     - Login with new credentials possible
+
+9. Add Expense
+    - As a user, I want to add new expenses.
+    - Acceptance Criteria:
+      - Expense addition form
+      - Fields for amount, date, category, and description
+      - Confirmation message on successful addition
+
+10. View Expenses
+    - As a user, I want to view my expenses.
+    - Acceptance Criteria:
+      - Expense dashboard with list of expenses
+      - Display of amount, date, category, and description
+      - Expenses sorted by date
+
+11. Edit Expense
+    - As a user, I want to edit my expenses.
+    - Acceptance Criteria:
+      - Edit form accessible from expense entry
+      - All expense details editable
+      - Confirmation message on successful update
+
+12. Delete Expense
+    - As a user, I want to delete expenses.
+    - Acceptance Criteria:
+      - Delete button for each expense
+      - Confirmation dialog before deletion
+      - Confirmation message on successful deletion
+
+### Agile Workflow
+
+I managed our development process using a Kanban board on GitHub Projects:
+
+![Kanban Board](https://github.com/nathan-cool/ExpenseEase/assets/127421398/1a274d09-27e2-45f3-8314-7e9a6206226c)
+
+My workflow consisted of three stages:
+1. To Do
+2. In Progress
+3. Done
+
+This Agile approach enabled me to:
+- Prioritize features effectively
+- Track progress consistently
+- Ensure continuous delivery of value throughout development
 
 
 ## Features
@@ -397,18 +486,105 @@ These design choices ensure the ExpenseEase looks great and is easy to use, no m
 
 ## Testing
 
-### Validator Testing 
-
-### Automated Testing
 
 ### Browser Compatibility
 
 
-![Browser Testing](https://github.com/nathan-cool/django-expense-organizer/assets/127421398/803a96f7-b3be-4628-9c2b-2927e985ca0e)
+<details>
+<summary>Browser Compatibility Table</summary>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Test Case</th>
+      <th>Chrome</th>
+      <th>Firefox</th>
+      <th>Safari</th>
+      <th>Edge</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Registration System</td>
+      <td>User can register a new account</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>Login System</td>
+      <td>User can log in with correct credentials</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>Logout System</td>
+      <td>Logged-in user can log out</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>Google OAuth Integration</td>
+      <td>User can authenticate using Google</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>View Expenses</td>
+      <td>User can view all expenses</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>Add Expenses</td>
+      <td>User can add a new expense</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>Edit Expenses</td>
+      <td>User can edit an expense</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>Delete Expenses</td>
+      <td>User can delete an expense</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>Generate Descriptions</td>
+      <td>AI generates descriptions for expenses</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+  </tbody>
+</table>
+
+</details>
 
 
 
-### Manual Testing with User Storeys
+### Manual Testing
 
 <h3>Search and Pagination Functionality</h3>
 
@@ -1429,7 +1605,7 @@ These design choices ensure the ExpenseEase looks great and is easy to use, no m
 </table>
 </details>
 
-## W3C CSS Validator:
+### W3C CSS Validator:
 
 The CSS was validated using W3C CSS Validator Services to ensure no errors.
 
@@ -1445,9 +1621,9 @@ The CSS was validated using W3C CSS Validator Services to ensure no errors.
 ![Main.css](https://github.com/nathan-cool/ExpenseEase/assets/127421398/35772fb4-0973-463b-95d1-4586dded8ff3)
 </details>
 
-## CI Python Linter
+### CI Python Linter
 
-### Authentication
+#### Authentication
 
 <details>
 <summary>View.py</summary>
@@ -1473,7 +1649,7 @@ The CSS was validated using W3C CSS Validator Services to ensure no errors.
 ![Url.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/5d047f88-0181-44db-9131-68db960f719a)
 </details>
 
-## Expenses
+#### Expenses
 
 <details>
 <summary>apps.py</summary>
@@ -1499,7 +1675,7 @@ The CSS was validated using W3C CSS Validator Services to ensure no errors.
 ![views.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/18f12594-1ad0-403b-a281-bb2280df2843)
 </details>
 
-## Preferences
+#### Preferences
 
 <details>
 <summary>apps.py</summary>
@@ -1524,6 +1700,46 @@ The CSS was validated using W3C CSS Validator Services to ensure no errors.
 
 ![Views.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/3f01ee5b-f81f-4bdd-9a04-6e23a7d41d41)
 </details>
+
+### Lighthouse Testing
+
+<details>
+<summary>Login Page</summary>
+
+<img width="1530" alt="Screenshot 2024-07-04 at 18 25 43" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/76b65fd8-ded9-4baa-8c6b-1079b193e93a">
+</details>
+
+<details>
+<summary>Register Page</summary>
+
+<img width="1528" alt="Screenshot 2024-07-04 at 18 27 11" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/4445b188-9ded-426a-ab5f-4ba014515452">
+</details>
+
+<details>
+<summary>Main Expenses page</summary>
+
+<img width="1523" alt="Screenshot 2024-07-04 at 18 28 54" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/4a750500-9abc-416e-adc6-8c4859273042">
+</details>
+
+<details>
+<summary>Add Expenses page</summary>
+
+<img width="1525" alt="Screenshot 2024-07-04 at 18 30 16" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/b6ec172a-f730-48b9-ad4c-fb634fa8abc9">
+</details>
+
+<details>
+<summary>Edit Expenses page</summary>
+
+<img width="1523" alt="Screenshot 2024-07-04 at 18 31 37" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/794a4496-2109-493b-81dd-a1a0ec4a6368">
+</details>
+
+<details>
+<summary>Settings Page</summary>
+
+<img width="1518" alt="Screenshot 2024-07-04 at 18 32 29" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/bce382d6-9c85-4a44-88ee-fe2254aeac7e">
+</details>
+
+
 ### Known bugs
 
 #### Generate Expense Descriptions Using AI
