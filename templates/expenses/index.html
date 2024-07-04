@@ -1,6 +1,5 @@
-<!-- done -->
-{% extends 'base.html'%} {% block content %} <!-- Extending the base.html template and defining the content block -->
-{% load static %} <!-- Loading static files -->
+{% extends 'base.html'%} {% block content %} 
+{% load static %} 
 
 <div class="container">
 	<div class="row">
@@ -14,14 +13,14 @@
 		</div>
 		
 	</div>
-	<div class="row searchandadd">
+	<div class="row search-and-add">
 		<div class="col-md-10">
 			<div class="form-group">
 				<input type="text" class="form-control" id="searchField" placeholder="Search Expenses"> <!-- Search input field -->
 			</div>
 		</div>
-		<div class="col-md-2 text-right addexpensebtn">
-			<a href="{% url 'add-expenses' %}" class="btn btn-primary btn-sm" id="addexpensebtn">Add Expenses</a> <!-- Add Expenses button -->
+		<div class="col-md-2 text-right add-expense-btn">
+			<a href="{% url 'add-expenses' %}" class="btn btn-primary btn-sm" id="add-expense-btn">Add Expenses</a> <!-- Add Expenses button -->
 		</div>
 	</div>
 </div>
@@ -52,15 +51,15 @@
 					<tbody>
 						{% for expense in page_obj %} <!-- Looping through expenses -->
 						<tr>
-							<td class="expense_dsc tablecontent">
+							<td class="expense_dsc table-content">
 								{{expense.description|truncatechars:20 }} <!-- Displaying expense description -->
 							</td>
-							<td class='tablecontent'>{{expense.amount|truncatechars:20}}</td> <!-- Displaying expense amount -->
-							<td class='tablecontent'>{{expense.category|truncatechars:20}}</td> <!-- Displaying expense category -->
-							<td class='tablecontent'>{{expense.date|truncatechars:20}}</td> <!-- Displaying expense date -->
-							<td class='tablecontent'>{{expense.invoice_number|truncatechars:20}}</td> <!-- Displaying expense invoice number -->
-							<td class='tablecontent'>{{expense.reference|truncatechars:20}}</td> <!-- Displaying expense reference -->
-							<td class='tablecontent'>
+							<td class='table-content'>{{expense.amount|truncatechars:20}}</td> <!-- Displaying expense amount -->
+							<td class='table-content'>{{expense.category|truncatechars:20}}</td> <!-- Displaying expense category -->
+							<td class='table-content'>{{expense.date|truncatechars:20}}</td> <!-- Displaying expense date -->
+							<td class='table-content'>{{expense.invoice_number|truncatechars:20}}</td> <!-- Displaying expense invoice number -->
+							<td class='table-content'>{{expense.reference|truncatechars:20}}</td> <!-- Displaying expense reference -->
+							<td class='table-content'>
 								<a
 									class="btn btn-sm btn-primary control-btn"
 									href="{% url 'expense-edit' expense.id %}"
