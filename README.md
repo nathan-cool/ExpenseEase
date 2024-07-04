@@ -486,18 +486,105 @@ These design choices ensure the ExpenseEase looks great and is easy to use, no m
 
 ## Testing
 
-### Validator Testing 
-
-### Automated Testing
 
 ### Browser Compatibility
 
 
-![Browser Testing](https://github.com/nathan-cool/django-expense-organizer/assets/127421398/803a96f7-b3be-4628-9c2b-2927e985ca0e)
+<details>
+<summary>Browser Compatibility Table</summary>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Test Case</th>
+      <th>Chrome</th>
+      <th>Firefox</th>
+      <th>Safari</th>
+      <th>Edge</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Registration System</td>
+      <td>User can register a new account</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>Login System</td>
+      <td>User can log in with correct credentials</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>Logout System</td>
+      <td>Logged-in user can log out</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>Google OAuth Integration</td>
+      <td>User can authenticate using Google</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>View Expenses</td>
+      <td>User can view all expenses</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>Add Expenses</td>
+      <td>User can add a new expense</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>Edit Expenses</td>
+      <td>User can edit an expense</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>Delete Expenses</td>
+      <td>User can delete an expense</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+    <tr>
+      <td>Generate Descriptions</td>
+      <td>AI generates descriptions for expenses</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+      <td>PASS</td>
+    </tr>
+  </tbody>
+</table>
+
+</details>
 
 
 
-### Manual Testing with User Storeys
+### Manual Testing
 
 <h3>Search and Pagination Functionality</h3>
 
@@ -1518,7 +1605,7 @@ These design choices ensure the ExpenseEase looks great and is easy to use, no m
 </table>
 </details>
 
-## W3C CSS Validator:
+### W3C CSS Validator:
 
 The CSS was validated using W3C CSS Validator Services to ensure no errors.
 
@@ -1534,9 +1621,9 @@ The CSS was validated using W3C CSS Validator Services to ensure no errors.
 ![Main.css](https://github.com/nathan-cool/ExpenseEase/assets/127421398/35772fb4-0973-463b-95d1-4586dded8ff3)
 </details>
 
-## CI Python Linter
+### CI Python Linter
 
-### Authentication
+#### Authentication
 
 <details>
 <summary>View.py</summary>
@@ -1562,7 +1649,7 @@ The CSS was validated using W3C CSS Validator Services to ensure no errors.
 ![Url.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/5d047f88-0181-44db-9131-68db960f719a)
 </details>
 
-###  Expenses
+#### Expenses
 
 <details>
 <summary>apps.py</summary>
@@ -1588,7 +1675,7 @@ The CSS was validated using W3C CSS Validator Services to ensure no errors.
 ![views.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/18f12594-1ad0-403b-a281-bb2280df2843)
 </details>
 
-### Preferences
+#### Preferences
 
 <details>
 <summary>apps.py</summary>
@@ -1614,7 +1701,7 @@ The CSS was validated using W3C CSS Validator Services to ensure no errors.
 ![Views.py](https://github.com/nathan-cool/ExpenseEase/assets/127421398/3f01ee5b-f81f-4bdd-9a04-6e23a7d41d41)
 </details>
 
-## Lighthouse Testing
+### Lighthouse Testing
 
 <details>
 <summary>Login Page</summary>
