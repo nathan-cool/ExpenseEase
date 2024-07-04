@@ -2,7 +2,7 @@ from django.urls import include, path
 from .views import (
     RegistrationView,
     EmailValidationView,
-    users_nameValidationView,
+    UsersNameValidationView,
     PasswordValidationView,
     LoginView,
     LogoutView,
@@ -27,7 +27,7 @@ urlpatterns = [
     ),
     path(
         "validate-name",
-        csrf_exempt(users_nameValidationView.as_view()),
+        csrf_exempt(UsersNameValidationView.as_view()),
         name="validate-name",
     ),
     path(

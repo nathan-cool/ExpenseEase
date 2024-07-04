@@ -1,23 +1,17 @@
-# Standard library imports
 import json
-import re
 import os
-from django.shortcuts import redirect, render
-from django.views import View
-from django.http import HttpResponse, JsonResponse
-from django.contrib.auth.models import User
+import re
 from django.contrib import messages
-from django.core.mail import EmailMessage
-from django.utils.encoding import force_bytes, force_str
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.contrib.sites.shortcuts import get_current_site
-from django.urls import reverse
-from django.contrib.auth import authenticate, login, logout
-from .utils import token_generator
-from google.oauth2 import id_token
-from google.auth.transport import requests
+from django.contrib.auth import authenticate, get_user_model, login, logout
+from django.contrib.auth.models import User
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import redirect, render
+from django.utils.encoding import force_str
+from django.views import View
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth import get_user_model
+from google.auth.transport import requests
+from google.oauth2 import id_token
+from .utils import token_generator
 
 
 @csrf_exempt
@@ -28,7 +22,7 @@ def social_auth(request):
     Args:
         request (HttpRequest): The request object.
 
-    returns:
+    Returns:
         HttpResponse: The response object.
     """
     token = request.POST["credential"]
@@ -47,8 +41,10 @@ def social_auth(request):
     User = get_user_model()
     user, created = User.objects.get_or_create(
         username=email,
-        defaults={"email": email},
-        first_name=user_data["given_name"]
+        defaults={
+            "email": email,
+            "first_name": user_data["given_name"]
+        }
     )
 
     user.backend = "django.contrib.auth.backends.ModelBackend"
@@ -63,32 +59,54 @@ def social_auth(request):
         user.save()
         return redirect("expenses")
 
-    if login:
-        messages.success(request, f"Welcome, {user.first_name}!")
-        user.is_active = True
-        user.save()
-        return redirect("expenses")
-    else:
-        messages.error(request, "We could not log you in. Please try again")
-        return redirect("login")
+    messages.success(request, f"Welcome, {user.first_name}!")
+    user.is_active = True
+    user.save()
+    return redirect("expenses")
 
 
 class RegistrationView(View):
-    def splitName(self, name):
-        """Split the name into first and last name."""
+    """Handle user registration."""
+
+    def split_name(self, name):
+        """
+        Split the name into first and last name.
+
+        Args:
+            name (str): The full name to split.
+
+        Returns:
+            tuple: A tuple containing first_name and last_name.
+        """
         parts = name.split(" ", 1)
         first_name = parts[0]
         last_name = parts[1] if len(parts) > 1 else ""
         return first_name, last_name
 
     def get(self, request):
-        """Render the registration page."""
+        """
+        Render the registration page.
+
+        Args:
+            request (HttpRequest): The request object.
+
+        Returns:
+            HttpResponse: The rendered registration page.
+        """
         return render(request, "authentication/register.html")
 
     def post(self, request):
-        """Register a user."""
+        """
+        Register a user.
+
+        Args:
+            request (HttpRequest): The request object containing user data.
+
+        Returns:
+            HttpResponse: Redirect to expenses page or registration page.
+        """
         name = request.POST["users_name"]
-        first_name, last_name = self.splitName(name)
+        first_name, last_name = self.split_name(name)
 
         password = request.POST["password"]
         email = request.POST["email"]
@@ -113,16 +131,22 @@ class RegistrationView(View):
             )
 
             user.set_password(password)
-            user.is_active = True  # Set the user as active immediately
+            user.is_active = True  # Set the user as active
             user.save()
 
             messages.success(
-                request, f"Account created successfully. Welcome, {first_name}!")
+                request,
+                f"Account created successfully. Welcome, {first_name}!"
+            )
 
             # Log the user in immediately after registration
-            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+            login(
+                request,
+                user,
+                backend='django.contrib.auth.backends.ModelBackend'
+            )
 
-            # Redirect to the expenses page or your desired page
+            # Redirect to the expenses page
             return redirect("expenses")
 
         messages.error(request, "Email already exists")
@@ -130,8 +154,18 @@ class RegistrationView(View):
 
 
 class EmailValidationView(View):
+    """Handle email validation."""
+
     def post(self, request):
-        """Validate the email of a user."""
+        """
+        Validate the email of a user.
+
+        Args:
+            request (HttpRequest): The request object containing the email.
+
+        Returns:
+            JsonResponse: JSON response indicating email validity.
+        """
         data = json.loads(request.body)
         email = data["email"]
 
@@ -156,9 +190,19 @@ class EmailValidationView(View):
         return JsonResponse({"email_valid": True})
 
 
-class users_nameValidationView(View):
+class UsersNameValidationView(View):
+    """Handle user name validation."""
+
     def post(self, request):
-        """Validate the name of a user."""
+        """
+        Validate the name of a user.
+
+        Args:
+            request (HttpRequest): The request object containing the name.
+
+        Returns:
+            JsonResponse: JSON response indicating name validity.
+        """
         users_name_regex = r"^[A-Za-z\s]+$"
         data = json.loads(request.body)
         users_name = data["users_name"]
@@ -179,8 +223,18 @@ class users_nameValidationView(View):
 
 
 class PasswordValidationView(View):
+    """Handle password validation."""
+
     def post(self, request):
-        """Validate the password of a user."""
+        """
+        Validate the password of a user.
+
+        Args:
+            request (HttpRequest): The request object containing the password.
+
+        Returns:
+            JsonResponse: JSON response indicating password validity.
+        """
         data = json.loads(request.body)
         password = data["password"]
         password_regex = r"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
@@ -194,7 +248,7 @@ class PasswordValidationView(View):
             return JsonResponse(
                 {
                     "password_error": "Password must have upper, lower, "
-                    "and number"
+                                      "and number"
                 },
                 status=400,
             )
@@ -202,8 +256,20 @@ class PasswordValidationView(View):
 
 
 class VerificationView(View):
+    """Handle user account verification."""
+
     def get(self, request, uidb64, token):
-        """Verify the user's account."""
+        """
+        Verify the user's account.
+
+        Args:
+            request (HttpRequest): The request object.
+            uidb64 (str): Base64 encoded user ID.
+            token (str): Verification token.
+
+        Returns:
+            HttpResponse: Redirect to login page with appropriate message.
+        """
         try:
             id = force_str(urlsafe_base64_decode(uidb64))
             user = User.objects.get(pk=id)
@@ -216,10 +282,10 @@ class VerificationView(View):
                                 "User already activated")
             user.is_active = True
             user.save()
-            successMessage = messages.success(
+            success_message = messages.success(
                 request, "Account activated successfully")
 
-            return redirect("login" + "?message=" + successMessage)
+            return redirect("login" + "?message=" + success_message)
 
         except Exception:
             pass
@@ -227,12 +293,30 @@ class VerificationView(View):
 
 
 class LoginView(View):
+    """Handle user login."""
+
     def get(self, request):
-        """Render the login page."""
+        """
+        Render the login page.
+
+        Args:
+            request (HttpRequest): The request object.
+
+        Returns:
+            HttpResponse: The rendered login page.
+        """
         return render(request, "authentication/login.html")
 
     def post(self, request):
-        """Log in a user."""
+        """
+        Log in a user.
+
+        Args:
+            request (HttpRequest): The request object containing login data.
+
+        Returns:
+            HttpResponse: Redirect to expenses page or login page.
+        """
         email = request.POST.get("email")
         password = request.POST.get("password")
 
@@ -255,8 +339,18 @@ class LoginView(View):
 
 
 class LogoutView(View):
+    """Handle user logout."""
+
     def get(self, request):
-        """Log out a user."""
+        """
+        Log out a user.
+
+        Args:
+            request (HttpRequest): The request object.
+
+        Returns:
+            HttpResponse: Redirect to login page.
+        """
         logout(request)
         messages.success(request, "You have been logged out")
         return redirect("login")
