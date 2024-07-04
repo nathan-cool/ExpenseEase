@@ -105,7 +105,7 @@ class RegistrationView(View):
         Returns:
             HttpResponse: Redirect to expenses page or registration page.
         """
-        name = request.POST["users_name"]
+        name = request.POST["users-name"]
         first_name, last_name = self.split_name(name)
 
         password = request.POST["password"]
