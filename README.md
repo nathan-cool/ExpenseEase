@@ -1793,11 +1793,15 @@ The CSS was validated using W3C CSS Validator Services to ensure no errors.
 
 
 
-### Known bugs
+### Known Issues
 
 #### Generate Expense Descriptions Using AI
 
 - When attempting to create a new invoice, users are expected to be able to use AI to generate descriptive texts based on minimal input. However, this functionality does not trigger during the invoice creation process, although it operates correctly during the editing of invoices.
+
+#### Converting REM to PX
+
+- Converting my PX to REM on the Main.CSS would break my code, ideally I would have more time here to find out why it is breaking 
 
 ## Deployment
 
