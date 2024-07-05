@@ -159,6 +159,8 @@ I managed our development process using a Kanban board on GitHub Projects:
 
 ![Kanban Board](https://github.com/nathan-cool/ExpenseEase/assets/127421398/1a274d09-27e2-45f3-8314-7e9a6206226c)
 
+Here is a link to my Kanban board: [ExpenseEase Project Board](https://github.com/users/nathan-cool/projects/2/views/1)
+
 My workflow consisted of three stages:
 1. To Do
 2. In Progress
