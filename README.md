@@ -356,6 +356,7 @@ This Agile approach enabled me to:
 
 
 
+
 ## Design
 
 ### Wireframes
@@ -1771,6 +1772,23 @@ The CSS was validated using W3C CSS Validator Services to ensure no errors.
 
 <img width="1518" alt="Screenshot 2024-07-04 at 18 32 29" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/bce382d6-9c85-4a44-88ee-fe2254aeac7e">
 </details>
+
+### JSHint
+
+<details>
+<summary>Main.js</summary>
+<img width="1075" alt="Screenshot 2024-07-05 at 08 06 29" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/fa348c68-f0e4-4e1d-b432-cc68a173ff06">
+</details>
+<details>
+<summary>Register.js</summary>
+<img width="1132" alt="Screenshot 2024-07-05 at 08 22 29" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/cd989a65-41dc-45e8-ada5-4495e5c5999a">
+</details>
+<details>
+<summary>searchExpenses.js</summary>
+<img width="1011" alt="Screenshot 2024-07-05 at 08 22 11" src="https://github.com/nathan-cool/ExpenseEase/assets/127421398/c480b440-c5c8-45a5-a438-7a566b483081">
+</details>
+
+
 
 
 ### Known bugs
