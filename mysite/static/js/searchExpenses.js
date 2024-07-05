@@ -1,17 +1,21 @@
-//done
 const searchField = document.getElementById('searchField');
 const tableOutput = document.querySelector('.table-output');
 const mainTable = document.querySelector('.main-table');
 const tbody = document.querySelector('.table-body');
+
 // Initially hide the search result table
 tableOutput.style.display = 'none';
 
+// Define urlTemplates object
+const urlTemplates = {
+	editExpense: '/edit-expense/{id}',
+	deleteExpense: '/delete-expense/{id}'
+};
+
 searchField.addEventListener('keyup', (e) => {
 	const searchValue = e.target.value.trim(); // Trim to remove any extra spaces
-
 	if (searchValue.length > 0) {
 		// Check if the searchValue is greater than 0
-
 		fetch('/search_expenses/', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
@@ -20,7 +24,6 @@ searchField.addEventListener('keyup', (e) => {
 			.then((res) => res.json())
 			.then((data) => {
 				console.log('data', data);
-
 				// Conditionally display tables based on data
 				if (data.length === 0) {
 					tableOutput.style.display = 'block'; // Show tableOutput to display the no results message
@@ -31,8 +34,8 @@ searchField.addEventListener('keyup', (e) => {
 					let rowsHtml = data
 						.map((item) => {
 							let truncatedDescription =
-								item.description.length > 20
-									? item.description.substring(0, 20) + '...'
+								item.description.length > 20 ?
+									  item.description.substring(0, 20) + '...'
 									: item.description;
 							const editUrl = urlTemplates.editExpense.replace(
 								'{id}',
@@ -59,7 +62,6 @@ searchField.addEventListener('keyup', (e) => {
                     `;
 						})
 						.join('');
-
 					tbody.innerHTML = rowsHtml; // Update the tbody with new rows
 					tableOutput.style.display = 'block'; // Make sure to show the tableOutput with results
 					mainTable.style.display = 'none'; // Hide the mainTable to only show the search results
